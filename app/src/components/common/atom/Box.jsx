@@ -1,5 +1,5 @@
-import {View} from 'react-native';
-import {moderateScale, scale, verticalScale} from '../../../utiles/Scale';
+import {ScrollView, SafeAreaView} from 'react-native';
+import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
 const Box = ({children}) => {
 	const customStyle = {
@@ -8,7 +8,11 @@ const Box = ({children}) => {
 		padding: scale(10),
 	};
 
-	return <View style={customStyle}>{children}</View>;
-};
+	return (
+	  <SafeAreaView>
+		<ScrollView contentInsetAdjustmentBehavior="automatic" style={customStyle}>{children}</ScrollView>
+     </SafeAreaView>
+	)
+}
 
 export default Box;

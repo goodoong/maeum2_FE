@@ -10,6 +10,7 @@ const LoginScreen = ({route, navigation}) => {
 
 	const moveAccountScreen = () => {
 		navigation.navigate('account');
+		console.log("연결댔다")
 	};
 
 	return (
