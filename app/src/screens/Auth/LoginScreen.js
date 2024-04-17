@@ -1,27 +1,36 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import Box from '../../components/common/atom/Box';
-import CustomText from '../../components/common/atom/CustomText';
+import useMoveNavigation from '../../hooks/useMoveNavigation';
+import Container from '../../components/common/atom/Container';
 import CustomTitle from '../../components/common/atom/CustomTitle';
+import CustomBtn from '../../components/common/atom/CustomBtn';
 
-const LoginScreen = ({route, navigation}) => {
+const LoginScreen = ({navigation}) => {
   useEffect(() => {}, []);
 
-  const moveAccountScreen = () => {
-    navigation.navigate('account');
-    console.log('연결댔다');
+  const moveScreen = useMoveNavigation(navigation);
+
+  const handlePress = () => {
+    moveScreen('account');
   };
 
   return (
-    <TouchableOpacity onPress={moveAccountScreen}>
-      <Box>
-        <View className="items-center">
-          <CustomTitle>마음의 창</CustomTitle>
-          <CustomText>연동 페이지로 이동합니다.</CustomText>
-        </View>
-      </Box>
-    </TouchableOpacity>
+    <Container>
+      <CustomTitle>마음의 창</CustomTitle>
+      <CustomBtn
+        size="sm"
+        color="buttonyellow"
+        rounded={true}
+        onPress={handlePress}
+        title="회원 가입"
+      />
+      <CustomBtn
+        size="sm"
+        color="buttonpink"
+        rounded={true}
+        onPress={handlePress}
+        title="로그인"
+      />
+    </Container>
   );
 };
 
