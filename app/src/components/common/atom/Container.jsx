@@ -3,7 +3,7 @@ import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
 const Container = ({children}) => {
   const customStyle = {
-    width: moderateScale(360),
+    width: moderateScale(390),
     height: verticalScale(680),
     alignItems: 'center',
   };

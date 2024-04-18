@@ -4,6 +4,8 @@ import {TouchableOpacity} from 'react-native';
 import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
 const CustomBtn = ({onPress, title, size, color, rounded}) => {
+
+  
   const buttonStyle = {
     width:
       size === 'sm'
@@ -12,7 +14,7 @@ const CustomBtn = ({onPress, title, size, color, rounded}) => {
         ? moderateScale(279)
         : size === 'lg'
         ? moderateScale(327)
-        : moderateScale(50),
+        : moderateScale(68),
     height: size === 'xs' ? verticalScale(34) : verticalScale(48),
     backgroundColor:
       color === 'buttonyellow'
@@ -23,7 +25,7 @@ const CustomBtn = ({onPress, title, size, color, rounded}) => {
     borderRadius: rounded ? 48 : 0,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: scale(30),
+    marginTop : scale(12)
   };
 
   return (
