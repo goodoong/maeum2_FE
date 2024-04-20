@@ -1,4 +1,12 @@
 module.exports = {
-  root: true,
-  extends: '@react-native',
+	root: true,
+	extends: [
+		'eslint:recommended',
+		'@react-native-community',
+		'airbnb',
+		'airbnb/hooks',
+		'plugin:prettier/recommended',
+		'eslint-config-prettier',
+		'prettier',
+	],
 };

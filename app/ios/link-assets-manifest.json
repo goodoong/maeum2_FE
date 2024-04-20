@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Dongle-Regular.ttf",
+      "sha1": "740c531d37fda2172f86e397855eb18a6b1b5825"
+    },
+    {
+      "path": "src/assets/fonts/Jua-Regular.ttf",
+      "sha1": "9122d54d461d57735caeeb843b9961a96225468b"
+    }
+  ]
+}
