@@ -9,13 +9,13 @@ const CustomBtn = ({onPress, title, size, color, rounded}) => {
   const buttonStyle = {
     width:
       size === 'sm'
-        ? moderateScale(182)
+        ? moderateScale(182,0.3)
         : size === 'md'
-        ? moderateScale(279)
+        ? moderateScale(279,0.3)
         : size === 'lg'
-        ? moderateScale(327)
-        : moderateScale(68),
-    height: size === 'xs' ? verticalScale(34) : verticalScale(48),
+        ? moderateScale(327,0.3)
+        : moderateScale(68,0.3),
+    height: size === 'xs' ? moderateScale(34,0.3) : moderateScale(48,0.3),
     backgroundColor:
       color === 'buttonyellow'
         ? '#faae2b'

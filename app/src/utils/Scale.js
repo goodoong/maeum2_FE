@@ -13,4 +13,4 @@ const verticalScale = size => height / guidelineBaseHeight * size;
 // factor값 제어
 const moderateScale = (size, factor = 0.5) => size + ( scale(size) - size ) * factor;
 
-export {scale, verticalScale, moderateScale};
+export {scale, verticalScale, moderateScale, width, height};
