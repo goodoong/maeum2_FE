@@ -1,16 +1,13 @@
-import React, { useEffect } from "react";
-import { Text, View } from "react-native";
+import React from "react";
+import Maintemplate from "../components/feat_mina/templates/Maintemplate";
 
-const MainScreen = ({ route, navigation, appState }) => {
-    useEffect(() => {
 
-    }, []);
+const MainScreen = () => {
 
     return (
-        <View>
-            <Text> 메인 페이지로 이동하였습니다!!</Text>
-        </View>
-
+    <>
+       <Maintemplate/>
+    </>
     )
 
 }
