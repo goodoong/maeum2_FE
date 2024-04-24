@@ -6,7 +6,7 @@ const Signup1Screen = ({route, navigation}) => {
   useEffect(() => {}, []);
 
   const moveAuthorizationScreen = () => {
-    navigation.navigate('authorization');
+    navigation.push('authorization');
   };
 
   return (

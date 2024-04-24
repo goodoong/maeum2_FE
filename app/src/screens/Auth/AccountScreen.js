@@ -6,7 +6,7 @@ const AccountScreen = ({ route, navigation }) => {
   useEffect(() => {}, []);
 
   const moveSignupScreen = () => {
-    navigation.navigate("signup1");
+    navigation.push("signup1");
   };
 
   return (

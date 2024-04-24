@@ -32,7 +32,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'home'}
+        initialRouteName={'login'}
         screenOptions={customStackNavigationOptions}>
         {/* 로그인 페이지 */}
         <Stack.Screen name="login">
