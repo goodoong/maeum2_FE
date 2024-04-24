@@ -1,5 +1,4 @@
 import React from 'react';
-import useMoveNavigation from '../../hooks/useMoveNavigation';
 import Container from '../../components/common/atom/Container';
 import CustomTitle from '../../components/common/atom/CustomTitle';
 import BtnBox from '../../components/common/molecules/BtnBox';
