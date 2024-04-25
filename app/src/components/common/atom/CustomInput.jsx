@@ -6,7 +6,7 @@ import {
   verticalScale,
 } from '../../../utils/Scale';
 
-const CustomInput = () => {
+const CustomInput = ({ keyboardType, placeholder }) => {
   const [text, onChangeText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
@@ -34,10 +34,10 @@ const CustomInput = () => {
         style={inputStyle}
         onChangeText={onChangeText}
         value={text}
-        placeholder="Email"
+        placeholder={placeholder}
         onFocus={handleFocus} 
         onBlur={handleBlur}
-        keyboardType="numeric" // props로 isNumber값을 받고 여부에 따라 숫자 키패드 표시
+        keyboardType={keyboardType}//"numeric" // props로 isNumber값을 받고 여부에 따라 숫자 키패드 표시
       />
     </SafeAreaView>
   );
