@@ -1,10 +1,10 @@
 import {View, SafeAreaView} from 'react-native';
-import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
+import {width,height} from '../../../utils/Scale';
 
 const Container = ({children}) => {
   const customStyle = {
-    width: moderateScale(390),
-    height: verticalScale(680),
+    width: width,
+    height: height,
     alignItems: 'center',
   };
 

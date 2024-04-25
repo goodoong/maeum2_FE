@@ -10,7 +10,7 @@ const AuthorizationScreen = ({ route, navigation }) => {
     }, []);
 
     const moveSignup2Screen = () => {
-        navigation.navigate('signup2');
+        navigation.push('signup2');
     }
 
     return (
