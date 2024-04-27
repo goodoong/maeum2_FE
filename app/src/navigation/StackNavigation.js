@@ -2,13 +2,22 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+// Auth Page
 import LoginScreen from '../screens/Auth/LoginScreen';
 import AccountScreen from '../screens/Auth/AccountScreen';
 import AuthorizationScreen from '../screens/Auth/AuthorizationScreen';
 import Signup1Screen from '../screens/Auth/Signup1Screen';
 import Signup2Screen from '../screens/Auth/Signup2Screen';
+
+// Main 
 import MainScreen from '../screens/MainScreen';
+
+// Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
+import ReportScreen from '../screens/Setting/ReportScreen';
+
+
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -64,6 +73,10 @@ const StackNavigation = () => {
         {/* 세팅 페이지 */}
         <Stack.Screen name="setting">
           {props => <SettingScreen {...props} />}
+        </Stack.Screen>
+        {/* 리포트 페이지 */}
+        <Stack.Screen name="report">
+          {props => <ReportScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

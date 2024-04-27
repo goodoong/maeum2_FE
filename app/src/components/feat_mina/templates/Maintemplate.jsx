@@ -11,6 +11,7 @@ import Mainorganism from '../organism/Mainorganism';
 const Header = styled(View);
 
 const Maintemplate = ({route, navigation, appState}) => {
+  
   const moveSettingScreen = () => {
     navigation.push('setting');
   };

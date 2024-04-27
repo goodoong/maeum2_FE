@@ -12,8 +12,8 @@ const SettingProfile = () => {
     <CustomBox className="flex flex-row w-full">
       <Image source={ProfileImage} />
       <CustomBox className="flex-col" style={{paddingLeft: scale(20)}}>
-        <CustomText size="lg">안녕</CustomText>
-        <CustomText size="sm">안녕</CustomText>
+        <CustomText size="lg">마음이</CustomText>
+        <CustomText size="sm" color="darkgray">maeum@gmail.com</CustomText>
       </CustomBox>
     </CustomBox>
   );
