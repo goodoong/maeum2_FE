@@ -12,10 +12,14 @@ import Signup2Screen from '../screens/Auth/Signup2Screen';
 
 // Main 
 import MainScreen from '../screens/MainScreen';
+import TutorialScreen from '../screens/TutorialScreen';
 
 // Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
 import ReportScreen from '../screens/Setting/ReportScreen';
+import InformationScreen from '../screens/Setting/InformationScreen';
+import InformationFixScreen from '../screens/Setting/InformationFixScreen';
+import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 
 
 /**
@@ -77,6 +81,22 @@ const StackNavigation = () => {
         {/* 리포트 페이지 */}
         <Stack.Screen name="report">
           {props => <ReportScreen {...props} />}
+        </Stack.Screen>
+        {/* 튜토리얼 페이지 */}
+        <Stack.Screen name="tutorial">
+          {props => <TutorialScreen {...props} />}
+        </Stack.Screen>
+        {/* 회원 정보 페이지 */}
+        <Stack.Screen name="info">
+          {props => <InformationScreen {...props} />}
+        </Stack.Screen>
+        {/* 회원 정보 수정 페이지 */}
+        <Stack.Screen name="infofix">
+          {props => <InformationFixScreen {...props} />}
+        </Stack.Screen>
+        {/* 기록 상세 페이지 */}
+        <Stack.Screen name="history">
+          {props => <HistoryDetailScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
