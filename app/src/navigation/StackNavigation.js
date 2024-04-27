@@ -8,7 +8,7 @@ import AuthorizationScreen from '../screens/Auth/AuthorizationScreen';
 import Signup1Screen from '../screens/Auth/Signup1Screen';
 import Signup2Screen from '../screens/Auth/Signup2Screen';
 import MainScreen from '../screens/MainScreen';
-import SettingScreen from "../screens/Setting/SettingScreen"
+import SettingScreen from '../screens/Setting/SettingScreen';
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -32,12 +32,11 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'login'}
-        screenOptions={({ route }) => ({
+        initialRouteName={'main'}
+        screenOptions={({route}) => ({
           ...customStackNavigationOptions,
-          headerShown: !(route.name === 'login' || route.name === 'main')
-        })}
-      >
+          headerShown: !(route.name === 'login' || route.name === 'main'),
+        })}>
         {/* 로그인 페이지 */}
         <Stack.Screen name="login">
           {props => <LoginScreen {...props} />}
