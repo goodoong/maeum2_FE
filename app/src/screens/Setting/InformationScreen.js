@@ -1,9 +1,9 @@
 import React from "react";
-import { Text } from "react-native";
+import Informationtemplate from "../../components/feat_mina/templates/Informationtemplate";
 
-const InformationScreen = () => {
+const InformationScreen = ({navigation}) => {
     return (
-        <Text>회원정보 페이지</Text>
+        <Informationtemplate navigation={navigation}/>
     )
 }
 
