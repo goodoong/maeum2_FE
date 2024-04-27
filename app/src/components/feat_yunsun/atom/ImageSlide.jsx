@@ -1,9 +1,7 @@
 import React, { useRef } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Text,Button } from 'react-native';
 import Swiper from 'react-native-swiper';
-import { moderateScale } from '../../../utils/Scale';
-import NextButton from './NextButton';
-import DirectionButton from './DirectionButton';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const ImageSlide = () => {
     const swiperRef = useRef(null);
@@ -26,16 +24,14 @@ const ImageSlide = () => {
   );
   return (
     <View>
-    <Swiper style={styles.wrapper} autoplay={false} circleloop={true} ref={swiperRef}>
+    <Swiper autoplay={false} circleloop={true} ref={swiperRef}>
       <Slide uri={"https://source.unsplash.com/1024x768/?nature"} />
       <Slide uri={"https://source.unsplash.com/1024x768/?water"} />
       <Slide uri={ "https://source.unsplash.com/1024x768/?girl"} />
     </Swiper>
     <View style={styles.buttonContainer}>
-       
-        <DirectionButton direction="<"  onPress={goToPreviousSlide}/>
-        <NextButton onPress={goToNextSlide} />
-       
+    <Icon name='arrow-circle-left' size={50} color='#FFA8BA' onPress={goToPreviousSlide} />
+    <Icon name='arrow-circle-right' size={50} color='#FFA8BA' onPress={goToNextSlide} /> 
   </View>
   </View>
   );
