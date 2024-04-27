@@ -1,15 +1,11 @@
-import React from "react";
-import { Text } from "react-native";
+import React from 'react';
+import Settingtemplate from '../../components/feat_mina/templates/Settingtemplate';
 
-
-
-const SettingScreen = () => {
-
-    return (
-        <>
-         <Text> 세팅 </Text>
-        </>
-    )
-
-}
+const SettingScreen = ({navigation}) => {
+  return (
+    <>
+      <Settingtemplate navigation={navigation} />
+    </>
+  );
+};
 export default SettingScreen;

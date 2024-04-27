@@ -2,13 +2,26 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+// Auth Page
 import LoginScreen from '../screens/Auth/LoginScreen';
 import AccountScreen from '../screens/Auth/AccountScreen';
 import AuthorizationScreen from '../screens/Auth/AuthorizationScreen';
 import Signup1Screen from '../screens/Auth/Signup1Screen';
 import Signup2Screen from '../screens/Auth/Signup2Screen';
+
+// Main 
 import MainScreen from '../screens/MainScreen';
-import SettingScreen from "../screens/Setting/SettingScreen"
+import TutorialScreen from '../screens/TutorialScreen';
+
+// Settin Page
+import SettingScreen from '../screens/Setting/SettingScreen';
+import ReportScreen from '../screens/Setting/ReportScreen';
+import InformationScreen from '../screens/Setting/InformationScreen';
+import InformationFixScreen from '../screens/Setting/InformationFixScreen';
+import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
+
+
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -32,12 +45,11 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'login'}
-        screenOptions={({ route }) => ({
+        initialRouteName={'main'}
+        screenOptions={({route}) => ({
           ...customStackNavigationOptions,
-          headerShown: !(route.name === 'login' || route.name === 'main')
-        })}
-      >
+          headerShown: !(route.name === 'login' || route.name === 'main'),
+        })}>
         {/* 로그인 페이지 */}
         <Stack.Screen name="login">
           {props => <LoginScreen {...props} />}
@@ -65,6 +77,26 @@ const StackNavigation = () => {
         {/* 세팅 페이지 */}
         <Stack.Screen name="setting">
           {props => <SettingScreen {...props} />}
+        </Stack.Screen>
+        {/* 리포트 페이지 */}
+        <Stack.Screen name="report">
+          {props => <ReportScreen {...props} />}
+        </Stack.Screen>
+        {/* 튜토리얼 페이지 */}
+        <Stack.Screen name="tutorial">
+          {props => <TutorialScreen {...props} />}
+        </Stack.Screen>
+        {/* 회원 정보 페이지 */}
+        <Stack.Screen name="info">
+          {props => <InformationScreen {...props} />}
+        </Stack.Screen>
+        {/* 회원 정보 수정 페이지 */}
+        <Stack.Screen name="infofix">
+          {props => <InformationFixScreen {...props} />}
+        </Stack.Screen>
+        {/* 기록 상세 페이지 */}
+        <Stack.Screen name="history">
+          {props => <HistoryDetailScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

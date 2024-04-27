@@ -5,7 +5,12 @@ import {moderateScale} from '../../../utils/Scale';
 const CustomText = ({children, size, color}) => {
   const customStyle = {
     fontFamily: 'Jua-Regular',
-    fontSize: size === 'sm' ? moderateScale(16) : moderateScale(18),
+    fontSize:
+      size === 'sm'
+        ? moderateScale(16)
+        : size === 'lg'
+        ? moderateScale(24)
+        : moderateScale(18),
     color:
       color === 'btntxt'
         ? '#00332c'

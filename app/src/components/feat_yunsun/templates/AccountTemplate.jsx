@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../../common/atom/Container";
 import CustomTitle from "../../common/atom/CustomTitle";
 import CustomText from "../../common/atom/CustomText";
-import AccountBtnBox from "../organism/AccountBtnBox";
+import AccountBtnBox from "../organism/AccountBtnbox";
 
 const AccountTemplate = ({navigation}) =>{
  
