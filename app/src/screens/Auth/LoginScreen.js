@@ -33,7 +33,6 @@ const LoginScreen = ({ navigation }) => {
     <Container>
       <CustomTitle>마음의 창</CustomTitle>
       <BtnBox buttons={buttons} />
-      <CustomInput/>
     </Container>
   );
 };
