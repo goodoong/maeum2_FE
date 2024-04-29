@@ -14,6 +14,8 @@ const BtnBox = ({ buttons }) => {
                     color={button.color}
                     rounded={button.rounded}
                     title={button.title}
+                    bordercolor={button.bordercolor}
+                    borderwidth={button.borderwidth}
                 />
             ))}
         </View>

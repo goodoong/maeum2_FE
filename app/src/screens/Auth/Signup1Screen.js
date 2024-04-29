@@ -6,8 +6,12 @@ import CustomInput from '../../components/common/atom/CustomInput';
 import CustomText from '../../components/common/atom/CustomText';
 import CustomBtn from '../../components/common/atom/CustomBtn';
 
+
+
 const Signup1Screen = ({route, navigation}) => {
   useEffect(() => {}, []);
+
+
 
   const moveAuthorizationScreen = () => {
     navigation.push('authorization');

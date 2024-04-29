@@ -3,7 +3,7 @@ import CustomText from './CustomText';
 import {TouchableOpacity} from 'react-native';
 import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
-const CustomBtn = ({onPress, title, size, color, rounded}) => {
+const CustomBtn = ({onPress, title, size, color, rounded, bordercolor, borderwidth}) => {
 
   
   const buttonStyle = {
@@ -21,13 +21,22 @@ const CustomBtn = ({onPress, title, size, color, rounded}) => {
         ? '#faae2b'
         : color === 'buttonpink'
         ? '#ffa8ba'
-        : '#00473e',
+        : color === 'buttonwhite'
+        ? '#ffffff'
+        :'#00473e',
     borderRadius: rounded ? 48 : 0,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop : scale(12)
+    marginTop : scale(12),
+    borderWidth: 
+      borderwidth
+       ? 2
+       : 0,
+    borderColor:
+      bordercolor==='lightgray'
+      ?'#e3e5e5'
+      :''
   };
-
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
       <CustomText style="btntxt">{title}</CustomText>

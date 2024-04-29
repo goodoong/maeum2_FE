@@ -9,16 +9,20 @@ const AccountBtnBox =({ navigation }) =>{
         {
           onPress: () => moveSignup1Screen('signup1'),
           size: 'lg',
-          color: 'buttonyellow',
+          color: 'buttonwhite',
           rounded: true,
           title: '카카오 로그인',
+          bordercolor: 'lightgray',
+          borderwidth:true
         },
         {
           onPress: () => moveSignup1Screen('signup1'),
           size: 'lg',
-          color: 'buttonpink',
+          color: 'buttonwhite',
           rounded: true,
           title: '구글 로그인',
+          bordercolor: 'lightgray',
+          borderwidth:true
         }
       ];
     return(
