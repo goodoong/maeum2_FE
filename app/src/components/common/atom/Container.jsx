@@ -1,4 +1,4 @@
-import {View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView, ScrollView} from 'react-native';
 import {width, height} from '../../../utils/Scale';
 import {scale} from '../../../utils/Scale';
 
