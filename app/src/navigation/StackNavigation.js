@@ -13,6 +13,7 @@ import Signup2Screen from '../screens/Auth/Signup2Screen';
 // Main 
 import MainScreen from '../screens/MainScreen';
 import TutorialScreen from '../screens/TutorialScreen';
+import SplashScreen from '../screens/SplashScreen';
 
 // Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
@@ -45,10 +46,10 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'main'}
+        initialRouteName={'splash'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
-          headerShown: !(route.name === 'login' || route.name === 'main'),
+          headerShown: !(route.name === 'login' || route.name === 'main' || route.name === 'splash'),
         })}>
         {/* 로그인 페이지 */}
         <Stack.Screen name="login">
@@ -97,6 +98,10 @@ const StackNavigation = () => {
         {/* 기록 상세 페이지 */}
         <Stack.Screen name="history">
           {props => <HistoryDetailScreen {...props} />}
+        </Stack.Screen>
+        {/* 스플레쉬 페이지 */}
+        <Stack.Screen name="splash">
+          {props => <SplashScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
