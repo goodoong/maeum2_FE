@@ -10,11 +10,11 @@ const ProfileImage = ({ size }) => {
     let height = 0;
     
     if (size === 'xs') {
-        width = 17;
-        height = 17;
+        width = 20;
+        height = 20;
     } else if (size === 'sm') {
-        width = 34;
-        height = 34;
+        width = 40;
+        height = 30;
     } else if (size === 'lg') {
         width = 80;
         height = 60;

@@ -1,9 +1,9 @@
 import React from "react";
-import { Text } from "react-native";
+import InfotmationFixtemplate from "../../components/feat_mina/templates/InformationFixtemplate";
 
-const InformationFixScreen = () => {
+const InformationFixScreen = ({navigation}) => {
     return (
-        <Text>회원정보 수정 페이지</Text>
+       <InfotmationFixtemplate navigation={navigation} />
     )
 }
 

@@ -6,6 +6,7 @@ import Container from "../../common/atom/Container";
 import CustomBtn from "../../common/atom/CustomBtn";
 import ProfileImage from "../molecules/ProfileImage";
 import CustomText from "../../common/atom/CustomText";
+import CustomInput from "../../common/atom/CustomInput";
 import { scale } from "../../../utils/Scale";
 import { kidInformationData } from "../mocks/mockdata";
 import { guardianInformationData } from "../mocks/mockdata";
@@ -13,19 +14,31 @@ import { guardianInformationData } from "../mocks/mockdata";
 const Header = styled(View);
 const Section = styled(View);
 
-const renderItem = ({ item }) => (
 
-  <Section className="w-full flex-row justify-between items-end" style={{ padding: scale(20)}}>
-    <CustomText color={item.color}>{item.key}</CustomText>
-    <CustomText>{item.data}</CustomText>
-  </Section>
-);
+const renderItem = ({ item }) => {
+    if (item.color) {
+      return (
+        <Section className="w-full flex-row" style={{ padding: scale(20)}}>
+          <CustomText color={item.color}>{item.key}</CustomText>
+          <CustomText>{item.data}</CustomText>
+        </Section>
+      );
+    } else {
+      return (
+        <Section className="w-full flex-row justify-center">
+          <CustomInput placeholder={item.key} value={item.data}/>
+        </Section>
+      );
+    }
+  };
+  
 
 
-const Informationtemplate = ({ navigation }) => {
+const InfotmationFixtemplate = ({ navigation }) => {
 
-  const moveInformationFixScreen = () => {
-    navigation.navigate('infofix');
+// API 관련 버튼, 나중에 form이나 hook으로 따로 빼야함
+  const moveInformationScreen = () => {
+    navigation.navigate('info');
   };
 
 
@@ -65,8 +78,8 @@ const Informationtemplate = ({ navigation }) => {
                 size="xs"
                 color="buttonpink"
                 rounded={true}
-                title="수정"
-                onPress={moveInformationFixScreen}
+                title="저장"
+                onPress={moveInformationScreen}
               />
             </Section>
           </>
@@ -78,4 +91,4 @@ const Informationtemplate = ({ navigation }) => {
 };
 
 
-export default Informationtemplate;
+export default InfotmationFixtemplate;

@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '../../components/common/atom/Container';
 import CustomTitle from '../../components/common/atom/CustomTitle';
 import BtnBox from '../../components/common/molecules/BtnBox';
-import CustomInput from '../../components/common/atom/CustomInput';
+import Splash from '../../components/common/atom/Splash';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -32,6 +32,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <Container>
       <CustomTitle>마음의 창</CustomTitle>
+      <Splash width={350} height={350}></Splash>
       <BtnBox buttons={buttons} />
     </Container>
   );

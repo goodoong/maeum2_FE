@@ -18,6 +18,8 @@ const CustomText = ({children, size, color}) => {
         ? '#475d5b'
         : color === 'headline'
         ? '#00473e'
+        : color === 'pink'
+        ? '#ffa8ba'
         : '#090a0a',
   };
 

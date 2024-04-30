@@ -6,14 +6,14 @@ import {
   verticalScale,
 } from '../../../utils/Scale';
 
-const CustomInput = ({ keyboardType, placeholder }) => {
+const CustomInput = ({ keyboardType, placeholder, width }) => {
   const [text, onChangeText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   const inputStyle = {
-    width: moderateScale(327),
-    height: verticalScale(48),
-    margin: scale(12),
+    width:  moderateScale(width, 0.3) || moderateScale(327, 0.3),
+    height: moderateScale(48, 0.3),
+    marginBottom: scale(12),
     borderWidth: 2,
     padding: scale(10),
     borderRadius: 8,
