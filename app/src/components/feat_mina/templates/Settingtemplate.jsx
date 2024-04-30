@@ -1,26 +1,34 @@
-import React, {useState} from 'react';
-import {FlatList, TouchableOpacity, Alert} from 'react-native';
-import {styled} from 'nativewind';
+import React, { useState } from 'react';
+import { FlatList, TouchableOpacity, Alert } from 'react-native';
+import { styled } from 'nativewind';
 import Container from '../../common/atom/Container';
 import SettingProfile from '../organism/SettingProfile';
 import CustomBtn from '../../common/atom/CustomBtn';
 import CustomText from '../../common/atom/CustomText';
-import {scale, moderateScale} from '../../../utils/Scale';
+import { moderateScale } from '../../../utils/Scale';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {settingList1} from '../constant/data';
+import { settingList1 } from '../constant/data';
 import CustomModal from '../../common/atom/CustomModal';
 
 const List = styled(FlatList);
 const ListContent = styled(TouchableOpacity);
 
-const Settingtemplate = ({navigation}) => {
+const Settingtemplate = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalContent, setModalContent] = useState('');
+  const [modalConfirmText, setModalConfirmText] = useState('');
+  const [modalCancelText, setModalCancelText] = useState('');
 
   const moveReportScreen = () => {
     navigation.push('report');
   };
 
   const handleLogout = () => {
+    setModalTitle('로그아웃');
+    setModalContent('정말 로그아웃 하시겠습니까?');
+    setModalConfirmText('네, 로그아웃 할래요');
+    setModalCancelText('아니요');
     setModalVisible(true);
   };
 
@@ -29,11 +37,10 @@ const Settingtemplate = ({navigation}) => {
     setModalVisible(false);
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <ListContent
-      // icon이랑 text 가로 여백 조정 필요, space 적용 안되는 문제
       className="flex-row space-x-6"
-      style={{marginBottom: scale(30)}}
+      style={{ marginBottom: moderateScale(30) }}
       onPress={() => {
         if (item.key === '로그아웃') {
           handleLogout();
@@ -64,6 +71,10 @@ const Settingtemplate = ({navigation}) => {
       <CustomModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+        title={modalTitle}
+        content={modalContent}
+        confirmText={modalConfirmText}
+        cancelText={modalCancelText}
       />
     </Container>
   );

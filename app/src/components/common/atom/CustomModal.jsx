@@ -1,26 +1,28 @@
 import React from 'react';
-import { Alert, Modal, View, Text, Button } from 'react-native';
+import { Modal, View } from 'react-native';
+import CustomText from './CustomText';
+import CustomBtn from './CustomBtn';
+import { styled } from 'nativewind';
+import { moderateScale, verticalScale } from '../../../utils/Scale';
 
-const CustomModal = ({ modalVisible, setModalVisible }) => {
+const Background = styled(View)
+const Box = styled(View)
+
+const CustomModal = ({ modalVisible, setModalVisible, title, content, confirmText, cancelText }) => {
   return (
     <Modal
-      presentationStyle={'overFullScreen'}
-      animationType="fade"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-        setModalVisible(!modalVisible);
-      }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor: 'rgba(0,0,0,0.5)' }}>
-        <View style={{ backgroundColor: 'pink', padding: 20, borderRadius: 10}}>
-          <Text>로그아웃 하시겠습니까?</Text>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
-            <Button title="확인" onPress={() => setModalVisible(false)} />
-            <Button title="취소" onPress={() => setModalVisible(false)} />
-          </View>
-        </View>
-      </View>
+    presentationStyle={'overFullScreen'}
+    animationType="fade"
+    transparent={true}
+    visible={modalVisible}>
+    <Background  className="flex flex-1 justify-center items-center"style={{backgroundColor: 'rgba(0,0,0,0.5)' }}>
+      <Box  className="flex flex-col bg-white rounded-xl justify-center items-center space-y-4"style={{width: moderateScale(327,0.3), height:verticalScale(222)}}>
+          <CustomText size="lg">{title}</CustomText>
+          <CustomText size="sm" color="darkgray">{content}</CustomText>
+          <CustomBtn title={confirmText} size="md" color="buttonyellow" rounded={true} onPress={() => setModalVisible(false)} />
+          <CustomBtn title={cancelText} size="md" color="buttonpink" rounded={true} onPress={() => setModalVisible(false)} />
+        </Box>
+      </Background>
     </Modal>
   );
 };
