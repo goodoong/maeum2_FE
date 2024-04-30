@@ -1,22 +1,25 @@
 import React from 'react';
-import { View } from "react-native";
+import {View, Text} from 'react-native';
 import CustomTitle from '../../common/atom/CustomTitle';
-import CustomText from "../../common/atom/CustomText";
-import { styled } from 'nativewind';
-import { scale } from "../../../utils/Scale";
+import CustomText from '../../common/atom/CustomText';
+import {styled} from 'nativewind';
+import {scale} from '../../../utils/Scale';
 
-const Body = styled(View)
+// styled 함수를 사용하여 View를 스타일링한 컴포넌트 생성
+const Body = styled(View);
 
-
-const Mainorganism = () => {
-    
-    return (
-       <Body className="w-full" style={{paddingLeft: scale(20)}}>
-        {/* 메세지 값 서버에서 전달 받아서 출력 */}
-        <CustomTitle color="pink">마음아</CustomTitle>
-        <CustomText></CustomText>
-       </Body>
-    );
+const MainOrganism = () => {
+  return (
+    <Body
+      className="w-full flex-col space-y-4"
+      style={{paddingLeft: scale(20)}}>
+      {/* 메시지 값을 서버에서 전달 받아서 출력 */}
+      <CustomTitle color="pink">마음아</CustomTitle>
+      <CustomText>오늘 하루도 분명 재밌을거야!</CustomText> 
+      {/* 이건 디폴트 */}
+      <CustomText>아래 버튼을 눌러 게임을 시작해봐</CustomText>
+    </Body>
+  );
 };
 
-export default Mainorganism;
+export default MainOrganism;

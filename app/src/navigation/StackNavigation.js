@@ -10,7 +10,7 @@ import AuthorizationScreen from '../screens/Auth/AuthorizationScreen';
 import Signup1Screen from '../screens/Auth/Signup1Screen';
 import Signup2Screen from '../screens/Auth/Signup2Screen';
 
-// Main 
+// Main
 import MainScreen from '../screens/MainScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import SplashScreen from '../screens/SplashScreen';
@@ -21,7 +21,6 @@ import ReportScreen from '../screens/Setting/ReportScreen';
 import InformationScreen from '../screens/Setting/InformationScreen';
 import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
-
 
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
@@ -49,7 +48,11 @@ const StackNavigation = () => {
         initialRouteName={'main'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
-          headerShown: !(route.name === 'login' || route.name === 'main' || route.name === 'splash'),
+          headerShown: !(
+            route.name === 'login' ||
+            route.name === 'main' ||
+            route.name === 'splash'
+          ),
         })}>
         {/* 로그인 페이지 */}
         <Stack.Screen name="login">
