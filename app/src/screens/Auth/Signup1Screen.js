@@ -5,6 +5,9 @@ import CustomBar from '../../components/common/atom/CustomBar';
 import CustomInput from '../../components/common/atom/CustomInput';
 import CustomText from '../../components/common/atom/CustomText';
 import CustomBtn from '../../components/common/atom/CustomBtn';
+import { styled } from 'nativewind';
+
+const Box = styled(Container)
 
 const Signup1Screen = ({route, navigation}) => {
   useEffect(() => {}, []);
@@ -13,7 +16,7 @@ const Signup1Screen = ({route, navigation}) => {
     navigation.push('authorization');
   };
   return (
-    <Container>
+    <Box className='space-y-4'>
       <CustomTitle>회원가입</CustomTitle>
       <CustomText size='sm' color='darkgray'>보호자 정보를 입력해주세요</CustomText>
       <CustomBar rate={50}/>
@@ -26,7 +29,7 @@ const Signup1Screen = ({route, navigation}) => {
         title="다음"
        onPress={moveAuthorizationScreen}
       />
-    </Container>
+    </Box>
   );
 };
 export default Signup1Screen;

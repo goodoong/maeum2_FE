@@ -6,6 +6,9 @@ import CustomInput from "../../components/common/atom/CustomInput";
 import CustomTitle from "../../components/common/atom/CustomTitle";
 import CustomText from "../../components/common/atom/CustomText";
 import CustomBtn from "../../components/common/atom/CustomBtn";
+import { styled } from 'nativewind';
+
+const Box = styled(Container)
 
 const AuthorizationScreen = ({ route, navigation }) => {
 
@@ -18,7 +21,7 @@ const AuthorizationScreen = ({ route, navigation }) => {
     }
 
     return (
-        <Container> 
+        <Box className="space-y-4"> 
             <CustomTitle>전화번호 인증</CustomTitle>
             <CustomText size='sm' color=''>(전화번호)로 온 번호 네 자리를 입력해주세요</CustomText>
             <CustomInput keyboardType="numeric"  placeholder="인증번호" />
@@ -32,7 +35,7 @@ const AuthorizationScreen = ({ route, navigation }) => {
              title="다음"
              onPress={moveSignup2Screen}
             />
-        </Container>
+        </Box>
     )
 
 }
