@@ -9,6 +9,10 @@ import CustomText from "../../components/common/atom/CustomText";
 import CustomInput from "../../components/common/atom/CustomInput";
 import CustomBar from "../../components/common/atom/CustomBar";
 import CustomBtn from "../../components/common/atom/CustomBtn";
+import { styled } from 'nativewind';
+
+const Box = styled(Container)
+
 // 회원가입 완료 후 홈 화면으로 리다이렉트
 const resetAction = CommonActions.reset({
     index: 0,
@@ -29,7 +33,7 @@ const Signup2Screen = ({ route, navigation }) => {
     }
 
     return (
-       <Container>
+       <Box className="space-y-4">
       <CustomTitle>회원가입</CustomTitle>
       <CustomText size='sm' color='darkgray'>아이 정보를 입력해주세요</CustomText>
       <CustomBar rate={100}/>
@@ -44,7 +48,7 @@ const Signup2Screen = ({ route, navigation }) => {
              title="완료"
              onPress={movemainScreen}
             />
-       </Container>
+       </Box>
     )
 
 }

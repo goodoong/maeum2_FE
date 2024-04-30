@@ -3,6 +3,9 @@ import Container from '../../components/common/atom/Container';
 import CustomTitle from '../../components/common/atom/CustomTitle';
 import BtnBox from '../../components/common/molecules/BtnBox';
 import Splash from '../../components/common/atom/Splash';
+import { styled } from 'nativewind';
+
+const Title = styled(CustomTitle)
 
 
 const LoginScreen = ({ navigation }) => {
@@ -31,7 +34,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <Container>
-      <CustomTitle>마음의 창</CustomTitle>
+      <Title className="mt-10">마음의 창</Title>
       <Splash width={350} height={350}></Splash>
       <BtnBox buttons={buttons} />
     </Container>
