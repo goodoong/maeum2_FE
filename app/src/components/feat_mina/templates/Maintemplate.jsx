@@ -7,6 +7,7 @@ import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {moderateScale, scale} from '../../../utils/Scale';
 import Mainorganism from '../organism/Mainorganism';
+import TestLottie from '../../common/atom/TestLottie';
 
 const Header = styled(View);
 
@@ -24,7 +25,7 @@ const Maintemplate = ({route, navigation, appState}) => {
         </TouchableOpacity>
       </Header>
       <Mainorganism />
-      {/* 이미지 */}
+      <TestLottie width={300} height={300}/>
       <CustomBtn
         size="sm"
         color="buttonyellow"
