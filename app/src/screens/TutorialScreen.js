@@ -1,6 +1,6 @@
 import React from "react";
-import ImageSlide from "../components/feat_yunsun/atom/ImageSlide";
 import Container from "../components/common/atom/Container";
+import ImageSlide from "../components/feat_yunsun/organism/ImageSlide";
 
 const TutorialScreen = ({ route, navigation, appState }) => {
     return (
