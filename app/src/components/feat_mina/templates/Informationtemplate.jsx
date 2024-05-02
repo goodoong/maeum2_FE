@@ -15,8 +15,8 @@ const Section = styled(View);
 
 const renderItem = ({ item }) => (
 
-  <Section className="w-full flex-row justify-between items-end" style={{ padding: scale(20)}}>
-    <CustomText color={item.color}>{item.key}</CustomText>
+  <Section className="w-full flex-row justify-between items-end" style={{ padding: scale(12), backgroundColor: item.color}}>
+    <CustomText>{item.key}</CustomText>
     <CustomText>{item.data}</CustomText>
   </Section>
 );
@@ -31,31 +31,27 @@ const Informationtemplate = ({ navigation }) => {
 
   return (
     <Container>
+      <Section style={{ marginBottom: scale(16) }}>
       <VirtualizedList
         renderItem={renderItem}
         keyExtractor={(item) => item.key}
         getItemCount={() => kidInformationData.length + guardianInformationData.length + 2}
         getItem={(data, index) => {
           if (index === 0) {
-            return { key: "아이 정보", data: "", color:"darkgray" }; 
+            return { key: "아이 정보", data: "", color:"lightgray" }; 
           } else if (index < kidInformationData.length + 1) {
             return kidInformationData[index - 1]; 
           } else if (index === kidInformationData.length + 1) {
-            return { key: "보호자 정보", data: "", color:"darkgray" };
+            return { key: "보호자 정보", data: "", color:"lightgray" };
           } else {
             const guardianIndex = index - kidInformationData.length - 2; 
             return guardianInformationData[guardianIndex];
           }
         }}
-        getItemLayout={(data, index) => ({
-          length: scale(20), 
-          offset: scale(20) * index,
-          index,
-        })}
         ListHeaderComponent={
           <>
             {/* 타이틀 */}
-            <Header className="w-full flex-row" style={{ marginBottom: scale(20) }}>
+            <Header className="w-full flex-row" style={{ marginBottom: scale(16) }}>
               <CustomTitle>회원 정보</CustomTitle>
             </Header>
             {/* 섹션 */}
@@ -73,6 +69,7 @@ const Informationtemplate = ({ navigation }) => {
         }
         ListHeaderComponentStyle={{ marginBottom: scale(20) }} 
       />
+      </Section>
     </Container>
   );
 };
