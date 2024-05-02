@@ -31,18 +31,18 @@ const Informationtemplate = ({ navigation }) => {
 
   return (
     <Container>
-      <Section style={{ marginBottom: scale(16) }}>
+      <Section style={{ marginBottom: scale(20) }}>
       <VirtualizedList
         renderItem={renderItem}
         keyExtractor={(item) => item.key}
         getItemCount={() => kidInformationData.length + guardianInformationData.length + 2}
         getItem={(data, index) => {
           if (index === 0) {
-            return { key: "아이 정보", data: "", color:"lightgray" }; 
+            return { key: "아이 정보", data: "", color:"whitesmoke" }; 
           } else if (index < kidInformationData.length + 1) {
             return kidInformationData[index - 1]; 
           } else if (index === kidInformationData.length + 1) {
-            return { key: "보호자 정보", data: "", color:"lightgray" };
+            return { key: "보호자 정보", data: "", color:"whitesmoke" };
           } else {
             const guardianIndex = index - kidInformationData.length - 2; 
             return guardianInformationData[guardianIndex];
