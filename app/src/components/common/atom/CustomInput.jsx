@@ -6,8 +6,8 @@ import {
   verticalScale,
 } from '../../../utils/Scale';
 
-const CustomInput = ({ keyboardType, placeholder, width, style }) => {
-  const [text, onChangeText] = useState('');
+const CustomInput = ({ keyboardType, placeholder, width, style, value }) => {
+  const [text, onChangeText] = useState(value);
   const [isFocused, setIsFocused] = useState(false);
 
   const inputStyle = {
