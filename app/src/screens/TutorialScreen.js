@@ -5,7 +5,7 @@ import ImageSlide from "../components/feat_yunsun/organism/ImageSlide";
 const TutorialScreen = ({ route, navigation, appState }) => {
     return (
         <Container>
-            <ImageSlide/>
+            <ImageSlide navigation={navigation}/>
         </Container>
     );
 };
