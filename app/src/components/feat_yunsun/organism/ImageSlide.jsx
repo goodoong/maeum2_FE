@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, Text, Button } from 'react-native';
+import { View, StyleSheet} from 'react-native';
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CustomSlide from '../atom/CustomSlide';
@@ -7,23 +7,24 @@ import { styled } from 'nativewind';
 import CustomBtn from '../../common/atom/CustomBtn';
 
 const SlideBox = styled(View);
-const SlideBtn= styled(View);
-const ImageSlide = () => {
+
+const ImageSlide = ({route, navigation}) => {
   const swiperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const moveMainScreen = () => {
+    navigation.push('main');
+  };
   const goToPreviousSlide = () => {
     if (swiperRef.current) {
       swiperRef.current.scrollBy(-1, true);
     }
   };
-
   const goToNextSlide = () => {
     if (swiperRef.current) {
       swiperRef.current.scrollBy(1, true);
     }
   };
-
   const onIndexChanged = (index) => {
     setCurrentIndex(index);
   };
@@ -31,7 +32,7 @@ const ImageSlide = () => {
  const ChangeBtn =()=>{
   if(currentIndex>=5){
     return(
-    <CustomBtn size='sm' rounded={'true'} color='buttonpink' title={'메인'} onPress={goToNextSlide}/>
+    <CustomBtn size='sm' rounded={'true'} color='buttonpink' title={'메인'} onPress={moveMainScreen}/>
     );
   }
   else{
@@ -42,7 +43,7 @@ const ImageSlide = () => {
   };
   return (
     <View>
-      <SlideBox className='flex-1 justify-center'>
+      <SlideBox className='basis-2/3 justify-center'>
         <Swiper autoplay={false} loop={true} ref={swiperRef} onIndexChanged={onIndexChanged}>
           <CustomSlide source={require('./../../../assets/Images/Tutorial1.png')} text="음성과 카메라 접근에 허용해주세요!" />
           <CustomSlide source={require('./../../../assets/Images/Tutorial2.png')} text="똑똑이와 스무고개를 시작해보세요!" />
@@ -61,11 +62,7 @@ const ImageSlide = () => {
 };
 
 const styles = StyleSheet.create({
-  slide: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  
   buttonContainer: {
     flex: 0.5,
     flexDirection: 'row',
