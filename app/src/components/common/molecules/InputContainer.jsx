@@ -7,9 +7,9 @@ const InputGroup = styled(View)
 
 const InputContainer = ({ inputs, control, register }) => {
   return (
-    <InputGroup className='flex flex-row space-y-6'>
+    <InputGroup className='flex flex-col'>
       {inputs.map((input, index) => (
-          <InputGroup className='flex flex-row'
+          <InputGroup className='flex flex-col'
           key={index}>
           <CustomInput
             control={control}
@@ -18,7 +18,7 @@ const InputContainer = ({ inputs, control, register }) => {
             placeholder={input.placeholder}
             autoFocus={input.autoFocus}
             defaultValue={input.defaultValue}
-            register={register} // register를 전달해줍니다.
+            register={register}
           />
         </InputGroup>
       ))}
