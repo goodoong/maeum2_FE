@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
-import {
-  moderateScale,
-  scale,
-  verticalScale,
-} from '../../../utils/Scale';
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
+import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
-const CustomInput = ({ keyboardType, placeholder, width, style, value }) => {
+const CustomInput = ({
+  keyboardType,
+  placeholder,
+  width,
+  style,
+  value,
+  autoFocus,
+}) => {
   const [text, onChangeText] = useState(value);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -17,7 +20,7 @@ const CustomInput = ({ keyboardType, placeholder, width, style, value }) => {
     borderWidth: 2,
     padding: scale(10),
     borderRadius: 8,
-    borderColor: isFocused ? '#faae2b' : '#E3E5E5'
+    borderColor: isFocused ? '#faae2b' : '#E3E5E5',
   };
 
   const handleFocus = () => {
@@ -38,6 +41,7 @@ const CustomInput = ({ keyboardType, placeholder, width, style, value }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         keyboardType={keyboardType}
+        autoFocus={autoFocus}
       />
     </SafeAreaView>
   );

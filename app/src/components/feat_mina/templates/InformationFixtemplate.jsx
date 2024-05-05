@@ -8,7 +8,7 @@ import {scale} from '../../../utils/Scale';
 import {kidInformationData} from '../mocks/mockdata';
 import {guardianInformationData} from '../mocks/mockdata';
 
-const renderItem = ({item}) => {
+const renderItem = ({item, index}) => {
   if (item.key === '아이 정보' || item.key === '보호자 정보') {
     return (
       <View
@@ -32,8 +32,8 @@ const renderItem = ({item}) => {
           backgroundColor: item.color,
         }}>
         <RadioButton
-          options={['남', '여']} // 라디오 버튼 옵션 설정
-          onChange={selectedOption => console.log(selectedOption)} // 선택된 옵션 변경 핸들러
+          options={['남', '여']}
+          onChange={selectedOption => console.log(selectedOption)}
           initialValue={item.data}
         />
       </View>
@@ -45,6 +45,7 @@ const renderItem = ({item}) => {
           keyboardType="default"
           placeholder={item.key}
           value={item.data}
+          autoFocus={index === 1}
         />
       </View>
     );
