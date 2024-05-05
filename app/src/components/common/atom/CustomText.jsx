@@ -5,12 +5,13 @@ import {moderateScale} from '../../../utils/Scale';
 const CustomText = ({children, size, color, style}) => {
   const customStyle = StyleSheet.flatten([
     styles.defaultText,
+    size === 'xs' && styles.xsmallText,
     size === 'sm' && styles.smallText,
     size === 'lg' && styles.largeText,
     color === 'btntxt' && {color: '#00332c'},
     color === 'darkgray' && {color: '#475d5b'},
     color === 'headline' && {color: '#00473e'},
-    color === 'pink' && {color: '#ffa8ba'},
+    color === 'red' && {color: '#d1180b'},
   ]);
 
   return <Text style={[customStyle, style]}>{children}</Text>;
@@ -21,6 +22,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Jua-Regular',
     fontSize: moderateScale(18),
     color: '#090a0a',
+  },
+  xsmallText: {
+    fontSize: moderateScale(14),
   },
   smallText: {
     fontSize: moderateScale(16),

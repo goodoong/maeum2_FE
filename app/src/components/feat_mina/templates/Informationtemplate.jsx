@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import CustomText from "../../common/atom/CustomText";
-import InformationForm from "../organism/InformationForm";
+import InformationForm from "../molecules/InformationForm";
 import { scale } from "../../../utils/Scale";
 import { kidInformationData, guardianInformationData } from "../mocks/mockdata";
 

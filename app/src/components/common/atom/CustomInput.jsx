@@ -1,7 +1,7 @@
 import React from 'react';
-import {Controller} from 'react-hook-form';
-import {SafeAreaView, TextInput} from 'react-native';
-import {moderateScale, scale} from '../../../utils/Scale';
+import { Controller } from 'react-hook-form';
+import { SafeAreaView, TextInput, StyleSheet } from 'react-native';
+import { moderateScale, scale } from '../../../utils/Scale';
 
 const CustomInput = ({
   control,
@@ -13,20 +13,16 @@ const CustomInput = ({
   autoFocus,
   defaultValue,
 }) => {
-  const inputStyle = {
-    width: moderateScale(width, 0.3) || moderateScale(327, 0.3),
-    height: moderateScale(48, 0.3),
-    marginBottom: scale(12),
-    borderWidth: 2,
-    padding: scale(10),
-    borderRadius: 8,
-  };
+  const inputStyle = StyleSheet.flatten([
+    styles.defaultInput,
+    { width: moderateScale(width, 0.3) || moderateScale(327, 0.3) }
+  ]);
 
   return (
     <SafeAreaView>
       <Controller
         control={control}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
             style={[inputStyle, style]}
             onChangeText={onChange}
@@ -43,5 +39,17 @@ const CustomInput = ({
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  defaultInput: {
+    height: moderateScale(48, 0.3),
+    borderWidth: 2,
+    padding: scale(10),
+    marginBottom: scale(10),
+    borderRadius: 8,
+    borderColor: '#ccc',
+    backgroundColor: '#fff',
+  },
+});
 
 export default CustomInput;

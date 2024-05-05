@@ -4,7 +4,7 @@ import {styled} from 'nativewind';
 import CustomTitle from '../../common/atom/CustomTitle';
 import Container from '../../common/atom/Container';
 import CustomBtn from '../../common/atom/CustomBtn';
-import ProfileImage from '../molecules/ProfileImage';
+import ProfileImage from './ProfileImage';
 import {scale} from '../../../utils/Scale';
 
 const Header = styled(View);
