@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import * as Progress from 'react-native-progress';
-import { moderateScale, verticalScale } from '../../../utils/Scale';
+import { moderateScale, scale, verticalScale } from '../../../utils/Scale';
 
 const CustomBar = ({rate, style}) => {
   const styles = StyleSheet.create({
     columnCenter: {
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginBottom: scale(10),
     }
   });
 
