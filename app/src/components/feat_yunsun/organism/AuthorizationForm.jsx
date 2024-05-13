@@ -37,9 +37,11 @@ const AuthorizationForm = ({ navigation, data, onSubmit, renderItem }) => {
             />
              <CustomBtn 
              size='lg'
-             color='gray'
+             color='buttonwhite'
              rounded= {true}
              title="인증번호 다시받기"
+             borderColor= {true}
+             borderWidth= {true}
              //onPress={handleSubmit(onSubmit)} 
             />
         </Form>

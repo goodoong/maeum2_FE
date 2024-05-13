@@ -4,6 +4,7 @@ import CustomTitle from '../../common/atom/CustomTitle';
 import BtnBox from '../../common/molecules/BtnBox';
 import Splash from '../../common/atom/Splash';
 import { styled } from 'nativewind';
+import { ScrollView } from 'react-native';
 
 const Title = styled(CustomTitle)
 
@@ -33,11 +34,13 @@ const LoginTemplate = ({ navigation }) => {
   ];
 
   return (
+    <ScrollView>
     <Container>
       <Title className="mt-10">마음의 창</Title>
       <Splash width={350} height={350}></Splash>
       <BtnBox buttons={buttons} />
     </Container>
+    </ScrollView>
   );
 };
 

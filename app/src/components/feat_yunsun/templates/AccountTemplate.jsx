@@ -12,7 +12,6 @@ const AccountTemplate = ({navigation}) =>{
  
 
     return (
-        
         <Box className="space-y-4">
           <CustomTitle>마음의 창</CustomTitle>
           <CustomText size="sm" color="darkgray">연동할 계정을 선택해주세요</CustomText>
