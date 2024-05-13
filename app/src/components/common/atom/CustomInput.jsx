@@ -12,6 +12,7 @@ const CustomInput = ({
   style,
   autoFocus,
   defaultValue,
+  keyboardType
 }) => {
   const inputStyle = StyleSheet.flatten([
     styles.defaultInput,
@@ -30,6 +31,7 @@ const CustomInput = ({
             onBlur={onBlur}
             placeholder={placeholder}
             autoFocus={autoFocus}
+            keyboardType={keyboardType}
           />
         )}
         name={name}
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     height: moderateScale(48, 0.3),
     borderWidth: 2,
     padding: scale(10),
-    marginBottom: scale(10),
+    margin: scale(10),
     borderRadius: 8,
     borderColor: '#ccc',
     backgroundColor: '#fff',

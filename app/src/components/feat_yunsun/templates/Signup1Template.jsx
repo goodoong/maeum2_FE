@@ -15,7 +15,7 @@ const Signup1Template = ({ navigation }) => {
 
   const onSubmit = data => {
     console.log(data); 
-  // navigation.navigate('authorization');
+    navigation.navigate('authorization');
   };
 
   return (

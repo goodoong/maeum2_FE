@@ -21,7 +21,8 @@ const RadioButton = ({options, onChange, initialValue}) => {
   };
 
   return (
-    <ButtonGroup className="flex flex-row items-center space-x-20">
+    <ButtonGroup style={{margin: scale(10)}}>
+      <ButtonGroup className="flex flex-row items-center space-x-20">
       {options.map((option, index) => (
         <TouchableOpacity
           key={index}
@@ -40,6 +41,7 @@ const RadioButton = ({options, onChange, initialValue}) => {
           </SingleButtonSet>
         </TouchableOpacity>
       ))}
+     </ButtonGroup>
     </ButtonGroup>
   );
 };

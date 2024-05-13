@@ -37,7 +37,7 @@ export const InformationList = [
   },
   {
     key: '연락처',
-    Regex : /^010-\d{4}-\d{4}$/,
-    errormsg: '올바른 연락처를 입력해주세요.',
+    Regex: /^\d{11}$/,
+    errormsg: '특수문자 제외, 숫자 11자리로 입력해주세요.',
   },
 ];
