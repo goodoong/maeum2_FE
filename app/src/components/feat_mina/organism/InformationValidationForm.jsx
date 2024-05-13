@@ -62,7 +62,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, val
         } else {
             const informationItem = validationList[index - 2];
           return (
-            <View className="w-full flex-col justify-center items-center">
+            <View className="w-full flex-col justify-center items-center" style={{ marginBottom: scale(10)}}> 
               <InputContainer
                 inputs={[
                   {
@@ -80,7 +80,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, val
                 register={register}
               />
               {errors[item.key] && (
-                <View className="flex-row" style={{ marginBottom: scale(10), width: moderateScale(327, 0.3) }}>
+                <View className="flex-row" style={{ width: moderateScale(327, 0.3) }}>
                   <CustomText size="xs" color="red">{errors[item.key].message || "캐릭터 이름은 한글이나 영문 2~20자 사이로 입력해주세요."}</CustomText>
                 </View>
               )}

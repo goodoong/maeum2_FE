@@ -21,7 +21,7 @@ const InformationForm = ({navigation, data, moveScreen, isFix, renderItem}) => {
 
   return (
     <Container>
-      <Section style={{marginBottom: scale(100)}}>
+      <Section style={{marginBottom:scale(20)}}>
         <VirtualizedList
           renderItem={renderItem}
           keyExtractor={item => item.key}
