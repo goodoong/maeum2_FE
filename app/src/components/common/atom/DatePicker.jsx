@@ -1,8 +1,10 @@
-// import React, {useState} from 'react';
-// import DatePicker from 'react-native-date-picker';
+import React, {useState} from 'react';
+import DatePicker from 'react-native-date-picker';
 
-// export default () => {
-//   const [date, setDate] = useState(new Date());
+const CustomDatePicker = () => {
+  const [date, setDate] = useState(new Date());
 
-//   return <DatePicker date={date} onDateChange={setDate} />;
-// };
+  return <DatePicker date={date} onDateChange={setDate} />;
+};
+
+export default CustomDatePicker;

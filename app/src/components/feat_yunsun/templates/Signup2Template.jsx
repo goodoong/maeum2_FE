@@ -3,10 +3,10 @@ import { CommonActions } from '@react-navigation/native';
 import Container from "../../common/atom/Container";
 import CustomText from "../../common/atom/CustomText";
 import CustomTitle from "../../common/atom/CustomTitle";
-import CustomInput from "../../common/atom/CustomInput";
-import CustomBtn from "../../common/atom/CustomBtn";
+import Signup2Form from "../organism/Signup2Form";
 import CustomBar from "../../common/atom/CustomBar";
 import { styled } from 'nativewind';
+import { InformationList } from '../../feat_mina/constant/data';
 
 const Box = styled(Container)
 
@@ -24,8 +24,9 @@ const Signup2Template = ({ route, navigation }) => {
 
     }, []);
 
-    const movemainScreen = () => {
+    const onSubmit = data => {
         navigation.dispatch(resetAction);
+        console.log(data)
         //navigation.navigate('main');
     }
 
@@ -34,17 +35,10 @@ const Signup2Template = ({ route, navigation }) => {
       <CustomTitle>회원가입</CustomTitle>
       <CustomText size='sm' color='darkgray'>아이 정보를 입력해주세요</CustomText>
       <CustomBar rate={100}/>
-      <CustomInput keyboardType="default"  placeholder="성" />
-      <CustomInput keyboardType="default"  placeholder="이름" /> 
-      <CustomInput keyboardType="numeric"  placeholder="생년월일(6자리)" />
-      <CustomInput keyboardType="default"  placeholder="성별" />
-      <CustomBtn 
-             size='lg'
-             color='buttonyellow'
-             rounded= {true}
-             title="완료"
-             onPress={movemainScreen}
-            />
+      <Signup2Form  
+        data={{ InformationList }}
+       onSubmit={onSubmit}
+      />
        </Box>
     )
 
