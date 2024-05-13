@@ -7,7 +7,7 @@ import CustomText from '../../common/atom/CustomText';
 import RadioButton from '../../common/atom/RadioButton';
 import { scale, moderateScale } from '../../../utils/Scale';
 
-const InformationValidationForm = ({ navigation, data, onSubmit, renderItem }) => {
+const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, validationList }) => {
   const {
     control,
     handleSubmit,
@@ -18,7 +18,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem }) =
 
   // 성별 값 data 폼 객체에 추가 
   useEffect(() => {
-    const initialGender = data.kidInformationData.find(item => item.key === '성별')?.data;
+    const initialGender = data.response.kidInformationData.find(item => item.key === '성별')?.data;
     setValue('성별', initialGender);
   }, [setValue]);
 
@@ -29,7 +29,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem }) =
       moveScreen={handleSubmit(onSubmit)}
       isFix={false}
       renderItem={({ item, index }) => {
-        if (index === 0 || index === 5) {
+        if (index === 0 || index === 6) {
           return (
             <View
               className="w-full flex-row"
@@ -60,7 +60,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem }) =
             </View>
           );
         } else {
-            const informationItem = data.InformationList[index - 1];
+            const informationItem = validationList[index - 2];
           return (
             <View className="w-full flex-col justify-center items-center">
               <InputContainer
@@ -81,7 +81,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem }) =
               />
               {errors[item.key] && (
                 <View className="flex-row" style={{ marginBottom: scale(10), width: moderateScale(327, 0.3) }}>
-                  <CustomText size="xs" color="red">{errors[item.key].message}</CustomText>
+                  <CustomText size="xs" color="red">{errors[item.key].message || "캐릭터 이름은 한글이나 영문 2~20자 사이로 입력해주세요."}</CustomText>
                 </View>
               )}
             </View>
