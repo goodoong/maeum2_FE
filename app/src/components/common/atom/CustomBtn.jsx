@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomText from './CustomText';
-import {TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
 const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderColor, img}) => {
@@ -29,12 +29,17 @@ const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderCol
     borderColor: borderColor ? '#e3e5e5': '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop : scale(12)
+    marginTop : scale(12),
+    flexDirection: 'row'
+
   };
+
 
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
-      <CustomText style="btntxt">{title}</CustomText>
+  
+      <Image source={img}/><CustomText style="btntxt">{title}</CustomText>
+
     </TouchableOpacity>
   );
 };
