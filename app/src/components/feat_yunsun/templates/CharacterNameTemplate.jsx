@@ -7,7 +7,7 @@ import Container from '../../common/atom/Container';
 import CustomText from '../../common/atom/CustomText';
 import CustomInput from '../../common/atom/CustomInput';
 import CustomBtn from '../../common/atom/CustomBtn';
-import TestLottie from '../../common/atom/TestLottie';
+import TestLottie from '../../common/atom/CharacterBody';
 
 const CustomContainer = styled(Container);
 

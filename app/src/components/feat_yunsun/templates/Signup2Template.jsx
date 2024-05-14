@@ -14,7 +14,7 @@ const Box = styled(Container)
 // 회원가입 완료 후 홈 화면으로 리다이렉트
 const resetAction = CommonActions.reset({
     index: 0,
-    routes: [{ name: 'main' }],
+    routes: [{ name: 'charactername' }],
   });
  
 
@@ -32,8 +32,7 @@ const Signup2Template = ({ route, navigation }) => {
     }
 
     return (
-      <ScrollView>
-       <Box className="space-y-4">
+    <Box className="space-y-4">
       <CustomTitle>회원가입</CustomTitle>
       <CustomText size='sm' color='darkgray'>아이 정보를 입력해주세요</CustomText>
       <CustomBar rate={100}/>
@@ -41,8 +40,7 @@ const Signup2Template = ({ route, navigation }) => {
         data={{ InformationList }}
        onSubmit={onSubmit}
       />
-       </Box>
-       </ScrollView>
+    </Box>
     )
 
 }

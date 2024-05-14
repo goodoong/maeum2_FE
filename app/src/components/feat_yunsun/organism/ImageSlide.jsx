@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
-import { View, StyleSheet, ScrollView} from 'react-native';
+import { View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CustomSlide from '../atom/CustomSlide';
 import { styled } from 'nativewind';
 import CustomBtn from '../../common/atom/CustomBtn';
+import Container from '../../common/atom/Container';
+import { verticalScale } from '../../../utils/Scale';
 
 const SlideBox = styled(View);
 
@@ -42,9 +44,9 @@ const ImageSlide = ({route, navigation}) => {
   }
   };
   return (
-    <ScrollView>
-    <View className='flex flex-col space-y-20'>
-      <SlideBox className='basis-3/4 justify-center space-y-10'>
+  <Container>
+    <View className='flex flex-col'>
+      <SlideBox className='justify-center' style={{height:verticalScale(500)}}>
         <Swiper autoplay={false} loop={true} ref={swiperRef} onIndexChanged={onIndexChanged}>
           <CustomSlide source={require('./../../../assets/Images/Tutorial1.png')} text="음성과 카메라 접근에 허용해주세요!" />
           <CustomSlide source={require('./../../../assets/Images/Tutorial2.png')} text="똑똑이와 스무고개를 시작해보세요!" />
@@ -54,12 +56,12 @@ const ImageSlide = ({route, navigation}) => {
           <CustomSlide source={require('./../../../assets/Images/Tutorial6.png')} text="질문 횟수 설명 정답이면 버튼을 눌러주세요!" />
         </Swiper>
       </SlideBox>
-      <View className='flex flex-row basis-1/4 space-y-5 justify-between'>
+      <View className='flex flex-row justify-between'>
         <Icon name='arrow-circle-left' size={50} color='#FFA8BA' onPress={goToPreviousSlide} />
         <ChangeBtn/>
       </View>
     </View>
-    </ScrollView>
+    </Container>
   );
 };
 
