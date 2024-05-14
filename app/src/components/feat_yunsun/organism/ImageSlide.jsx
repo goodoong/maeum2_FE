@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, ScrollView, Button, Dimensions, StyleSheet } from 'react-native';
+import { View, ScrollView, Button, StyleSheet } from 'react-native';
 import CustomText from '../../common/atom/CustomText';
 import CustomImage from '../../common/atom/CustomImage';
 import { moderateScale, verticalScale, width } from '../../../utils/Scale';
@@ -21,7 +21,6 @@ const slides = [
 const ImageSlide = ({ navigation }) => {
   const scrollViewRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
 
   const navigateToMain = () => {
     navigation.navigate('Main');
@@ -44,6 +43,7 @@ const ImageSlide = ({ navigation }) => {
 
   return (
     <>
+    <CustomContainer>
       <ScrollView
         horizontal
         pagingEnabled
@@ -55,24 +55,27 @@ const ImageSlide = ({ navigation }) => {
         {slides.map((slide, index) => (
           <CustomContainer key={index}>
             <Slide style={{ width: width }} className="items-center">
-              <CustomImage source={slide.source} width={moderateScale(300, 0.1)} height={verticalScale(450)} />
+              <CustomImage source={slide.source} width={moderateScale(130, 0.3)} height={verticalScale(270)} />
               <CustomText size="lg" color="headline">{slide.text}</CustomText>
             </Slide>
           </CustomContainer>
         ))}
       </ScrollView>
       <View style={styles.buttonContainer}>
+      {/*  <Icon name='arrow-circle-left' size={50} color='#FFA8BA' onPress={goToPreviousSlide} />  */}
         <Button
           title="Prev"
           onPress={() => scrollToIndex(Math.max(0, currentIndex - 1))}
           disabled={currentIndex === 0}
         />
         {currentIndex === slides.length - 1 ? (
+        // <CustomBtn size='sm' rounded={'true'} color='buttonpink' title={'메인'} onPress={moveMainScreen}/>
           <Button
             title="Go to Main"
             onPress={navigateToMain}
           />
         ) : (
+        //  <Icon name='arrow-circle-right' size={50} color='#FFA8BA' onPress={goToNextSlide} /> 
           <Button
             title="Next"
             onPress={() => scrollToIndex(currentIndex + 1)}
@@ -80,10 +83,12 @@ const ImageSlide = ({ navigation }) => {
           />
         )}
       </View>
+      </CustomContainer>
     </>
   );
 };
 
+// native wind 로 수정
 const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
