@@ -15,7 +15,7 @@ const AccountBtnBox =({ navigation }) =>{
           title: '카카오 로그인',
           borderColor: true,
           borderWidth : true,
-          img: require('./../../../assets/Images/Images/Kakaotalk.png')
+          img: require('./../../../assets/Images/Kakaotalk.png')
           
         },
         {
@@ -26,7 +26,7 @@ const AccountBtnBox =({ navigation }) =>{
           title: '구글 로그인',
           borderColor: true,
           borderWidth : true,
-          img: require('./../../../assets/Images/Images/Google.png')
+          img: require('./../../../assets/Images/Google.png')
         }
       ];
     return(
