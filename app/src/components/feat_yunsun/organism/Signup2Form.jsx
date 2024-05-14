@@ -57,7 +57,7 @@ const Signup2Form = ({ navigation, data, onSubmit, renderItem }) => {
             size='lg'
             color='buttonyellow'
             rounded= {true}
-            title="다음"
+            title="완료"
             onPress={handleSubmit(onSubmit)} 
       />
       </Form>

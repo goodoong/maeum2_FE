@@ -1,8 +1,5 @@
 import React from "react";
 import BtnBox from "../../common/molecules/BtnBox";
-import { View } from "react-native";
-import { Image } from "react-native";
-import { StyleSheet } from "react-native";
 
 const AccountBtnBox =({ navigation }) =>{
     const moveSignup1Screen = (screen) => {

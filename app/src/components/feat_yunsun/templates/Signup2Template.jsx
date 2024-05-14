@@ -7,6 +7,7 @@ import Signup2Form from "../organism/Signup2Form";
 import CustomBar from "../../common/atom/CustomBar";
 import { styled } from 'nativewind';
 import { InformationList } from '../../feat_mina/constant/data';
+import { ScrollView } from "react-native";
 
 const Box = styled(Container)
 
@@ -31,6 +32,7 @@ const Signup2Template = ({ route, navigation }) => {
     }
 
     return (
+      <ScrollView>
        <Box className="space-y-4">
       <CustomTitle>회원가입</CustomTitle>
       <CustomText size='sm' color='darkgray'>아이 정보를 입력해주세요</CustomText>
@@ -40,6 +42,7 @@ const Signup2Template = ({ route, navigation }) => {
        onSubmit={onSubmit}
       />
        </Box>
+       </ScrollView>
     )
 
 }
