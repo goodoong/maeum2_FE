@@ -14,14 +14,14 @@ const InformationForm = ({navigation, data, moveScreen, isFix, renderItem}) => {
   // 아이 정보와 보호자 정보를 합친 전체 정보 배열
   const allInformationData = [
     {key: '아이 정보', data: '', color: 'whitesmoke'},
-    ...data.kidInformationData,
+    ...data.response.kidInformationData, // 수정된 부분
     {key: '보호자 정보', data: '', color: 'whitesmoke'},
-    ...data.guardianInformationData,
+    ...data.response.guardianInformationData, // 수정된 부분
   ];
 
   return (
     <Container>
-      <Section style={{marginBottom: scale(20)}}>
+      <Section style={{marginBottom:scale(20)}}>
         <VirtualizedList
           renderItem={renderItem}
           keyExtractor={item => item.key}

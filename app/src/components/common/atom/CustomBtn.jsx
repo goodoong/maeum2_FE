@@ -1,11 +1,10 @@
 import React from 'react';
 import CustomText from './CustomText';
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
 const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderColor, img}) => {
 
-  
   const buttonStyle = {
     width:
       size === 'sm'
@@ -25,21 +24,18 @@ const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderCol
         ? '#ffffff'
         : '#00473e',
     borderRadius: rounded ? 48 : 0,
-    borderWidth: borderWidth ? 1 :0,
-    borderColor: borderColor ? '#e3e5e5': '#ffffff',
+    borderWidth: borderWidth ? 1 : 0,
+    borderColor: borderColor ? '#e3e5e5' : '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop : scale(12),
     flexDirection: 'row'
-
   };
-
 
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
-  
-      <Image source={img}/><CustomText style="btntxt">{title}</CustomText>
-
+      {img && <Image source={img} />} 
+      <CustomText style="btntxt">{title}</CustomText>
     </TouchableOpacity>
   );
 };
