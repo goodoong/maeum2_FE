@@ -14,6 +14,7 @@ import Signup2Screen from '../screens/Auth/Signup2Screen';
 import MainScreen from '../screens/MainScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import SplashScreen from '../screens/SplashScreen';
+import CharacterNameScreen from '../screens/CharacterNameScreen';
 
 // Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
@@ -45,13 +46,15 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'splash'}
+        initialRouteName={'main'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
             route.name === 'login' ||
             route.name === 'main' ||
-            route.name === 'splash'
+            route.name === 'splash' || 
+            route.name === 'charactername' ||
+            route.name === 'tutorial'
           ),
         })}>
         {/* 로그인 페이지 */}
@@ -105,6 +108,10 @@ const StackNavigation = () => {
         {/* 스플레쉬 페이지 */}
         <Stack.Screen name="splash">
           {props => <SplashScreen {...props} />}
+        </Stack.Screen>
+        {/* 캐릭터 이름 설정 페이지 */}
+        <Stack.Screen name="charactername">
+          {props => <CharacterNameScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

@@ -3,18 +3,16 @@ import { View } from "react-native";
 import CustomText from "../../common/atom/CustomText";
 import InformationForm from "../molecules/InformationForm";
 import { scale } from "../../../utils/Scale";
-import { kidInformationData, guardianInformationData } from "../mocks/mockdata";
+import { mockData } from "../mocks/mockdata";
 
 const renderItem = ({ item }) => (
-  <View className="w-full flex-row justify-between items-end" style={{ padding: scale(12), backgroundColor: item.color}}>
+  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: scale(12), backgroundColor: item.color }}>
     <CustomText>{item.key}</CustomText>
     <CustomText>{item.data}</CustomText>
   </View>
 );
 
-const Informationtemplate = ({ navigation }) => {
-
-  //  API 연결 시 핸들러 수정 
+const InformationTemplate = ({ navigation }) => {
   const moveInformationFixScreen = () => {
     navigation.navigate('infofix');
   };
@@ -22,7 +20,7 @@ const Informationtemplate = ({ navigation }) => {
   return (
     <InformationForm
       navigation={navigation}
-      data={{ kidInformationData, guardianInformationData }}
+      data={mockData}
       moveScreen={moveInformationFixScreen}
       isFix={true}
       renderItem={renderItem}
@@ -30,4 +28,4 @@ const Informationtemplate = ({ navigation }) => {
   );
 };
 
-export default Informationtemplate;
+export default InformationTemplate;
