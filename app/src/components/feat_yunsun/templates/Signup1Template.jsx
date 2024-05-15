@@ -7,7 +7,6 @@ import CustomText from '../../common/atom/CustomText';
 import Signup1Form from '../organism/Signup1Form';
 import { InformationList } from '../../feat_mina/constant/data';
 import { styled } from 'nativewind';
-import { ScrollView } from 'react-native';
 
 const Box = styled(Container);
 
@@ -20,7 +19,6 @@ const Signup1Template = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
     <Box className='space-y-4'>
       <CustomTitle>회원가입</CustomTitle>
       <CustomText size='sm' color='darkgray'>보호자 정보를 입력해주세요</CustomText>
@@ -30,7 +28,6 @@ const Signup1Template = ({ navigation }) => {
         onSubmit={onSubmit}
       />
     </Box>
-    </ScrollView>
   );
 };
 

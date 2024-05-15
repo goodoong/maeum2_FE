@@ -2,12 +2,12 @@ import React from 'react';
 import {View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styled} from 'nativewind';
+import { moderateScale, verticalScale } from '../../../utils/Scale';
 import Container from '../../common/atom/Container';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {moderateScale, scale} from '../../../utils/Scale';
 import Mainorganism from '../organism/Mainorganism';
-import TestLottie from '../../common/atom/TestLottie';
+import CharacterBody from '../../common/atom/CharacterBody';
 
 const Header = styled(View);
 
@@ -25,7 +25,7 @@ const Maintemplate = ({route, navigation, appState}) => {
         </TouchableOpacity>
       </Header>
       <Mainorganism />
-      <TestLottie width={300} height={300}/>
+      <CharacterBody width={500} height={500} />
       <CustomBtn
         size="sm"
         color="buttonyellow"
