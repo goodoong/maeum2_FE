@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../common/atom/Container';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomTitle from '../../common/atom/CustomTitle';
 import BtnBox from '../../common/molecules/BtnBox';
 import Splash from '../../common/atom/Splash';
@@ -33,11 +33,11 @@ const LoginTemplate = ({ navigation }) => {
   ];
 
   return (
-     <Container>
+     <ScrollContainer>
          <Title className="mt-10">마음의 창</Title>
          <Splash width={350} height={350}></Splash>
         <BtnBox buttons={buttons} />
-      </Container>
+      </ScrollContainer>
   );
 };
 

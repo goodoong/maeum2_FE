@@ -5,12 +5,12 @@ import CustomImage from '../../common/atom/CustomImage';
 import CustomBtn from '../../common/atom/CustomBtn';
 import { moderateScale, verticalScale, width } from '../../../utils/Scale';
 import { styled } from 'nativewind';
-import Container from '../../common/atom/Container';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 const Slide = styled(View);
-const CustomContainer = styled(Container);
+const CustomContainer = styled(ScrollContainer);
 
 const slides = [
   { source: require('../../../assets/Images/Tutorial1.png'), text: "음성과 카메라 접근에 허용해주세요!" },
@@ -59,7 +59,7 @@ const ImageSlide = ({ navigation }) => {
           <CustomContainer key={index}>
             <Slide style={{ width: width, paddingRight: 20 }} className="items-center">
               <CustomImage source={slide.source} width={moderateScale(350, 0.3)} height={verticalScale(400)} />
-              <CustomText  style={{flexWrap: 'wrap'}}size="lg" color="headline" numberOfLines={3}>{slide.text}</CustomText>
+              <CustomText size="lg" color="headline" numberOfLines={3}>{slide.text}</CustomText>
             </Slide>
           </CustomContainer>
         ))}
