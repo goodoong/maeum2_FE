@@ -4,7 +4,6 @@ import Signup2Template from "../../components/feat_yunsun/templates/Signup2Templ
 const Signup2Screen = ({navigation }) => {
   
   return (
-    
     < Signup2Template navigation={navigation}/>
   );
 };

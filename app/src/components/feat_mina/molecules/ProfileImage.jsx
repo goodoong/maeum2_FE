@@ -2,7 +2,7 @@
 // 서버에서 불러온 이미지 값 || null 이면 기본 이미지 출력
 
 import React from 'react';
-import CustomImage from '../../common/atom/CustomImgae';
+import CustomImage from '../../common/atom/CustomImage';
 import DefaultImage from '../../../assets/Images/ProfileImage.png';
 
 const ProfileImage = ({ size }) => {

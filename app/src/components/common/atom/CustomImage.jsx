@@ -11,8 +11,8 @@ const CustomImage = ({source, width, height}) => {
       className="overflow-visible"
       source={source}
       style={{
-        width: moderateScale(width),
-        height: verticalScale(height),
+        width: moderateScale(width,0.2),
+        height: moderateScale(height,0.2),
       }}
     />
   );
