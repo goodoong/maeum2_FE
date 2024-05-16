@@ -37,3 +37,5 @@ const Maintemplate = ({route, navigation, appState}) => {
 };
 
 export default Maintemplate;
+
+
