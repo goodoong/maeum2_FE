@@ -5,12 +5,12 @@ import CustomImage from '../../common/atom/CustomImage';
 import CustomBtn from '../../common/atom/CustomBtn';
 import { moderateScale, verticalScale, width } from '../../../utils/Scale';
 import { styled } from 'nativewind';
-import Container from '../../common/atom/Container';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 const Slide = styled(View);
-const CustomContainer = styled(Container);
+const CustomContainer = styled(ScrollContainer);
 
 const slides = [
   { source: require('../../../assets/Images/Tutorial1.png'), text: "음성과 카메라 접근에 허용해주세요!" },
@@ -20,20 +20,16 @@ const slides = [
   { source: require('../../../assets/Images/Tutorial5.png'), text: "똑똑이와 눈을 마주치면서 대화해보세요!" },
   { source: require('../../../assets/Images/Tutorial6.png'), text: "질문 횟수 설명 정답이면 버튼을 눌러주세요!" }
 ];
-
 const ImageSlide = ({ navigation }) => {
   const scrollViewRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const navigateToMain = () => {
     navigation.navigate('main');
   };
-
   const scrollToIndex = (index) => {
     scrollViewRef.current.scrollTo({ x: width * index, animated: true });
     setCurrentIndex(index);
   };
-
   const handleScrollEndDrag = (event) => {
     const viewSize = event.nativeEvent.layoutMeasurement.width;
     const contentOffset = event.nativeEvent.contentOffset.x;
@@ -43,7 +39,6 @@ const ImageSlide = ({ navigation }) => {
     }
     scrollToIndex(newIndex);
   };
-
   return (
     <>
     <CustomContainer>
@@ -58,7 +53,7 @@ const ImageSlide = ({ navigation }) => {
         {slides.map((slide, index) => (
           <CustomContainer key={index}>
             <Slide style={{ width: width, paddingRight: 20 }} className="items-center">
-              <CustomImage source={slide.source} width={moderateScale(350, 0.3)} height={verticalScale(400, 0.3)} />
+              <CustomImage source={slide.source} width={moderateScale(350, 0.3)} height={verticalScale(400)} />
               <CustomText size="lg" color="headline" numberOfLines={3}>{slide.text}</CustomText>
             </Slide>
           </CustomContainer>
@@ -77,5 +72,4 @@ const ImageSlide = ({ navigation }) => {
     </>
   );
 };
-
 export default ImageSlide;
