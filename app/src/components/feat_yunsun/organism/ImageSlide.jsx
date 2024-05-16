@@ -58,8 +58,8 @@ const ImageSlide = ({ navigation }) => {
         {slides.map((slide, index) => (
           <CustomContainer key={index}>
             <Slide style={{ width: width, paddingRight: 20 }} className="items-center">
-              <CustomImage source={slide.source} width={moderateScale(350, 0.3)} height={verticalScale(400)} />
-              <CustomText  style={{flexWrap: 'wrap'}}size="lg" color="headline" numberOfLines={3}>{slide.text}</CustomText>
+              <CustomImage source={slide.source} width={moderateScale(350, 0.3)} height={verticalScale(400, 0.3)} />
+              <CustomText size="lg" color="headline" numberOfLines={3}>{slide.text}</CustomText>
             </Slide>
           </CustomContainer>
         ))}
