@@ -1,6 +1,6 @@
 import React from "react";
 import Splash from "../components/common/atom/Splash";
-import Container from "../components/common/atom/Container";
+import ScrollContainer from "../components/common/atom/ScrollContainer";
 import CustomTitle from "../components/common/atom/CustomTitle";
 
 const SplashScreen = ({ navigation }) => {
@@ -10,10 +10,10 @@ const SplashScreen = ({ navigation }) => {
     };
 
     return (
-        <Container>
+        <ScrollContainer>
             <Splash width={300} height={300} loop={false} onAnimationFinish={moveLoginScreen} />
             <CustomTitle>마음의 창</CustomTitle>
-        </Container>
+        </ScrollContainer>
     );
 };
 export default SplashScreen;

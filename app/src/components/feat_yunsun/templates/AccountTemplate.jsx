@@ -1,11 +1,11 @@
 import React from "react";
-import Container from "../../common/atom/Container";
+import ScrollContainer from "../../common/atom/ScrollContainer";
 import CustomTitle from "../../common/atom/CustomTitle";
 import CustomText from "../../common/atom/CustomText";
 import AccountBtnBox from "../organism/AccountBtnbox";
 import { styled } from "nativewind";
 
-const Box = styled(Container)
+const Box = styled(ScrollContainer)
 
 
 const AccountTemplate = ({navigation}) =>{

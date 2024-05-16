@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../common/atom/Container';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBar from '../../common/atom/CustomBar';
 import CustomBtn from '../../common/atom/CustomBtn';
 import CustomTitle from '../../common/atom/CustomTitle';
@@ -8,7 +8,7 @@ import Signup1Form from '../organism/Signup1Form';
 import { InformationList } from '../../feat_mina/constant/data';
 import { styled } from 'nativewind';
 
-const Box = styled(Container);
+const Box = styled(ScrollContainer);
 
 const Signup1Template = ({ navigation }) => {
 

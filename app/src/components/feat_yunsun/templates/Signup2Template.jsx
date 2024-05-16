@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { CommonActions } from '@react-navigation/native';
-import Container from "../../common/atom/Container";
+import ScrollContainer from "../../common/atom/ScrollContainer";
 import CustomText from "../../common/atom/CustomText";
 import CustomTitle from "../../common/atom/CustomTitle";
 import Signup2Form from "../organism/Signup2Form";
@@ -9,7 +9,7 @@ import { styled } from 'nativewind';
 import { InformationList } from '../../feat_mina/constant/data';
 import { ScrollView } from "react-native";
 
-const Box = styled(Container)
+const Box = styled(ScrollContainer)
 
 // 회원가입 완료 후 홈 화면으로 리다이렉트
 const resetAction = CommonActions.reset({

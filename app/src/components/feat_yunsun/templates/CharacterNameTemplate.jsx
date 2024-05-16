@@ -3,13 +3,13 @@ import { View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { styled } from 'nativewind';
 
-import Container from '../../common/atom/Container';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomText from '../../common/atom/CustomText';
 import CustomInput from '../../common/atom/CustomInput';
 import CustomBtn from '../../common/atom/CustomBtn';
 import TestLottie from '../../common/atom/CharacterBody';
 
-const CustomContainer = styled(Container);
+const CustomContainer = styled(ScrollContainer);
 
 const CharacterNameTemplate = ({ navigation }) => {
   const {

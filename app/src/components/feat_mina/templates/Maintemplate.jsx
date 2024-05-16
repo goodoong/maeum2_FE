@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styled} from 'nativewind';
 import { moderateScale, verticalScale } from '../../../utils/Scale';
-import Container from '../../common/atom/Container';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Mainorganism from '../organism/Mainorganism';
@@ -18,7 +18,7 @@ const Maintemplate = ({route, navigation, appState}) => {
   };
 
   return (
-    <Container>
+    <ScrollContainer>
       <Header className="w-full flex-row justify-end">
         <TouchableOpacity onPress={moveSettingScreen}>
           <Icon name="settings" size={moderateScale(55)} color="darkgray" />
@@ -32,7 +32,7 @@ const Maintemplate = ({route, navigation, appState}) => {
         rounded={true}
         title="게임 시작하기"
       />
-    </Container>
+    </ScrollContainer>
   );
 };
 

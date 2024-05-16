@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import AuthorizationForm from "../organism/AuthorizationForm";
-import Container from "../../common/atom/Container";
+import ScrollContainer from "../../common/atom/ScrollContainer";
 import CustomText from "../../common/atom/CustomText";
 import CustomTitle from "../../common/atom/CustomTitle";
 import { styled } from 'nativewind';
 
-const Box = styled(Container)
+const Box = styled(ScrollContainer)
 
 const AuthorizationTemplate = ({ route, navigation }) => {
 
