@@ -23,6 +23,9 @@ import InformationScreen from '../screens/Setting/InformationScreen';
 import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 
+// Game Page 
+import STTScreen from '../screens/STTScreen';
+
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -46,7 +49,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'main'}
+        initialRouteName={'sttscreen'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
@@ -112,6 +115,10 @@ const StackNavigation = () => {
         {/* 캐릭터 이름 설정 페이지 */}
         <Stack.Screen name="charactername">
           {props => <CharacterNameScreen {...props} />}
+        </Stack.Screen>
+        {/* STT */}
+        <Stack.Screen name="sttscreen">
+          {props => <STTScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

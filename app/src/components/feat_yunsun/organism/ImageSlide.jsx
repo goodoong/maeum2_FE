@@ -20,20 +20,16 @@ const slides = [
   { source: require('../../../assets/Images/Tutorial5.png'), text: "똑똑이와 눈을 마주치면서 대화해보세요!" },
   { source: require('../../../assets/Images/Tutorial6.png'), text: "질문 횟수 설명 정답이면 버튼을 눌러주세요!" }
 ];
-
 const ImageSlide = ({ navigation }) => {
   const scrollViewRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const navigateToMain = () => {
     navigation.navigate('main');
   };
-
   const scrollToIndex = (index) => {
     scrollViewRef.current.scrollTo({ x: width * index, animated: true });
     setCurrentIndex(index);
   };
-
   const handleScrollEndDrag = (event) => {
     const viewSize = event.nativeEvent.layoutMeasurement.width;
     const contentOffset = event.nativeEvent.contentOffset.x;
@@ -43,7 +39,6 @@ const ImageSlide = ({ navigation }) => {
     }
     scrollToIndex(newIndex);
   };
-
   return (
     <>
     <CustomContainer>
@@ -77,5 +72,4 @@ const ImageSlide = ({ navigation }) => {
     </>
   );
 };
-
 export default ImageSlide;
