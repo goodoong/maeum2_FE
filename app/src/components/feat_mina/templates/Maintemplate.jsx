@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {styled} from 'nativewind';
-import { moderateScale, verticalScale } from '../../../utils/Scale';
+import { View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { styled } from 'nativewind';
+import { moderateScale } from '../../../utils/Scale';
 import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -11,7 +11,7 @@ import CharacterBody from '../../common/atom/CharacterBody';
 
 const Header = styled(View);
 
-const Maintemplate = ({route, navigation, appState}) => {
+const Maintemplate = ({ route, navigation, appState }) => {
   
   const moveSettingScreen = () => {
     navigation.push('setting');
@@ -25,7 +25,10 @@ const Maintemplate = ({route, navigation, appState}) => {
         </TouchableOpacity>
       </Header>
       <Mainorganism />
-      <CharacterBody width={500} height={500} />
+      <View style={{position: 'relative',width: 500, height: 500,}}>
+        <CharacterBody width={500} height={500} />
+       {/*표정*/}
+      </View>
       <CustomBtn
         size="sm"
         color="buttonyellow"
@@ -37,5 +40,4 @@ const Maintemplate = ({route, navigation, appState}) => {
 };
 
 export default Maintemplate;
-
 

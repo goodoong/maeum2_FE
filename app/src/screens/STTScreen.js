@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 import Voice from '@react-native-voice/voice';
 
+
 const STTScreen = () => {
   const [isRecord, setIsRecord] = useState(false);
   const [text, setText] = useState('');
@@ -11,6 +12,7 @@ const STTScreen = () => {
     : isRecord
     ? 'Say something...'
     : 'Press Start button';
+    
 
   const _onSpeechStart = () => {
     console.log('onSpeechStart');
@@ -35,12 +37,13 @@ const STTScreen = () => {
 
   const _onRecordVoice = () => {
     if (isRecord) {
-      Voice.stop();
+       Voice.stop();
     } else {
       Voice.start('ko-KR');
     }
-    setIsRecord(!isRecord);
+     setIsRecord(!isRecord);
   };
+
 
   useEffect(() => {
     Voice.onSpeechStart = _onSpeechStart;
