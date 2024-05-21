@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Button, Text, StyleSheet } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Button, Text, StyleSheet} from 'react-native';
 import Voice from '@react-native-voice/voice';
 
 
@@ -23,14 +23,14 @@ const STTScreen = () => {
     console.log('onSpeechEnd');
   };
 
-  const _onSpeechResults = (event) => {
+  const _onSpeechResults = event => {
     console.log('onSpeechResults');
     const spokenText = event.value[0];
     console.log('Recognized text:', spokenText); // 인식된 텍스트를 콘솔에 출력
     setText(spokenText);
   };
 
-  const _onSpeechError = (event) => {
+  const _onSpeechError = event => {
     console.log('_onSpeechError');
     console.log(event.error);
   };
