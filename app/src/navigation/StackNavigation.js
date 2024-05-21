@@ -23,7 +23,7 @@ import InformationScreen from '../screens/Setting/InformationScreen';
 import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 
-// Game Page 
+// Game Page
 import STTScreen from '../screens/STTScreen';
 
 /**
@@ -49,13 +49,13 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'sttscreen'}
+        initialRouteName={'splash'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
             route.name === 'login' ||
             route.name === 'main' ||
-            route.name === 'splash' || 
+            route.name === 'splash' ||
             route.name === 'charactername' ||
             route.name === 'tutorial'
           ),
