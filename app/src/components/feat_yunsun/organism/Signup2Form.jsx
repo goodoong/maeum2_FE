@@ -10,6 +10,7 @@ import {styled} from 'nativewind';
 import ModalDatePicker from '../../common/atom/ModalDatePicker';
 
 const Form = styled(View);
+const Box = styled(View);
 
 const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
   const {
@@ -20,13 +21,13 @@ const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
     setValue,
   } = useForm();
 
-  const informationItem = data.InformationList;
+  const informationItem = data;
   const [date, setDate] = useState(new Date());
 
   return (
     <>
       <Form className="w-full flex-col justify-center items-center">
-        {informationItem.slice(0, 2).map((item, index) => (
+        {informationItem.map((item, index) => (
           <React.Fragment key={index}>
             <InputContainer
               inputs={[
@@ -55,7 +56,10 @@ const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
             )}
           </React.Fragment>
         ))}
-        <ModalDatePicker title="생년월일" />
+        <Box className="w-80 flex flex-row justify-between">
+          <CustomText>2015-05-05</CustomText>
+          <ModalDatePicker title="생년월일" />
+        </Box>
         <RadioButton
           options={['남', '여']}
           onChange={selectedOption => {

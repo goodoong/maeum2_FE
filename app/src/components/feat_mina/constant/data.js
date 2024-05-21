@@ -17,17 +17,8 @@ export const kidInfoValidation = [
     Regex: /^[가-힣]{1,20}$/, // 한글 또는 영문으로 시작하고, 2자 이상 20자 이하
     errormsg: '이름은 한글로 시작하고, 1자 이상 20자 이하로 입력해주세요.',
   },
-  {
-    key: '생년월일',
-    Regex: null,
-    errormsg: '생년월일을 입력해주세요.',
-  },
-  {
-    key: '성별',
-    Regex: null,
-    errormsg: null,
-  },
 ];
+
 export const guardianInfoValidation = [
   {
     key: 'Email',

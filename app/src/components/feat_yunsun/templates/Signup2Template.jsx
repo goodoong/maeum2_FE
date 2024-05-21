@@ -6,7 +6,7 @@ import CustomTitle from '../../common/atom/CustomTitle';
 import Signup2Form from '../organism/Signup2Form';
 import CustomBar from '../../common/atom/CustomBar';
 import {styled} from 'nativewind';
-import {InformationList} from '../../feat_mina/constant/data';
+import {kidInfoValidation} from '../../feat_mina/constant/data';
 import {ScrollView} from 'react-native';
 
 const Box = styled(ScrollContainer);
@@ -33,7 +33,7 @@ const Signup2Template = ({route, navigation}) => {
         아이 정보를 입력해주세요
       </CustomText>
       <CustomBar rate={100} />
-      <Signup2Form data={{InformationList}} onSubmit={onSubmit} />
+      <Signup2Form data={kidInfoValidation} onSubmit={onSubmit} />
     </Box>
   );
 };

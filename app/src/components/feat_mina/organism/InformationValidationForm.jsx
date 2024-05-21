@@ -6,6 +6,7 @@ import InformationForm from '../molecules/InformationForm';
 import CustomText from '../../common/atom/CustomText';
 import RadioButton from '../../common/atom/RadioButton';
 import {scale, moderateScale} from '../../../utils/Scale';
+import ModalDatePicker from '../../common/atom/ModalDatePicker';
 
 const InformationValidationForm = ({
   navigation,
@@ -29,6 +30,8 @@ const InformationValidationForm = ({
     )?.data;
     setValue('성별', initialGender);
   }, [setValue]);
+
+  // 생년월일 값 data 폼 객체에 추가
 
   return (
     <InformationForm
@@ -65,6 +68,20 @@ const InformationValidationForm = ({
                 }}
                 initialValue={item.data}
               />
+            </View>
+          );
+        } else if (item.key === '생년월일') {
+          return (
+            <View
+              className="w-full flex-row justify-between items-center"
+              style={{
+                padding: scale(12),
+                marginBottom: scale(6),
+                backgroundColor: item.color,
+              }}>
+              <CustomText>2015-05-05</CustomText>
+              {/* 생년월일 선택하고 왼쪽에 선택값 출력하기 */}
+              <ModalDatePicker title="생년월일" />
             </View>
           );
         } else {

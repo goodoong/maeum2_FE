@@ -18,12 +18,12 @@ const Signup1Form = ({navigation, data, onSubmit, renderItem}) => {
     setValue,
   } = useForm();
 
-  const informationItem = data.InformationList;
+  const informationItem = data;
 
   return (
     <>
       <Form className="w-full flex-col justify-center items-center">
-        {informationItem.slice(5, 7).map((item, index) => (
+        {informationItem.map((item, index) => (
           <React.Fragment key={index}>
             <InputContainer
               inputs={[
