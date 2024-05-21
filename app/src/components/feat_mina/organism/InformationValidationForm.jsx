@@ -1,24 +1,32 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
-import { useForm } from 'react-hook-form';
+import React, {useEffect} from 'react';
+import {View} from 'react-native';
+import {useForm} from 'react-hook-form';
 import InputContainer from '../../common/molecules/InputContainer';
 import InformationForm from '../molecules/InformationForm';
 import CustomText from '../../common/atom/CustomText';
 import RadioButton from '../../common/atom/RadioButton';
-import { scale, moderateScale } from '../../../utils/Scale';
+import {scale, moderateScale} from '../../../utils/Scale';
 
-const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, validationList }) => {
+const InformationValidationForm = ({
+  navigation,
+  data,
+  onSubmit,
+  renderItem,
+  validationList,
+}) => {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
     register,
     setValue,
   } = useForm();
 
-  // 성별 값 data 폼 객체에 추가 
+  // 성별 값 data 폼 객체에 추가
   useEffect(() => {
-    const initialGender = data.response.kidInformationData.find(item => item.key === '성별')?.data;
+    const initialGender = data.response.kidInformationData.find(
+      item => item.key === '성별',
+    )?.data;
     setValue('성별', initialGender);
   }, [setValue]);
 
@@ -28,7 +36,7 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, val
       data={data}
       moveScreen={handleSubmit(onSubmit)}
       isFix={false}
-      renderItem={({ item, index }) => {
+      renderItem={({item, index}) => {
         if (index === 0 || index === 6) {
           return (
             <View
@@ -60,16 +68,24 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, val
             </View>
           );
         } else {
-            const informationItem = validationList[index - 2];
+          const informationItem = validationList.find(v => v.key === item.key);
           return (
-            <View className="w-full flex-col justify-center items-center" style={{ marginBottom: scale(10)}}> 
+            <View
+              className="w-full flex-col justify-center items-center"
+              style={{marginBottom: scale(10)}}>
               <InputContainer
                 inputs={[
                   {
                     name: item.key,
                     rules: {
-                      required: { value: true, message: informationItem?.errormsg },
-                      pattern: { value: informationItem?.Regex, message: informationItem?.errormsg }
+                      required: {
+                        value: true,
+                        message: informationItem?.errormsg,
+                      },
+                      pattern: {
+                        value: informationItem?.Regex,
+                        message: informationItem?.errormsg,
+                      },
                     },
                     placeholder: item.key,
                     autoFocus: index === 1,
@@ -80,8 +96,13 @@ const InformationValidationForm = ({ navigation, data, onSubmit, renderItem, val
                 register={register}
               />
               {errors[item.key] && (
-                <View className="flex-row" style={{ width: moderateScale(327, 0.3) }}>
-                  <CustomText size="xs" color="red">{errors[item.key].message || "캐릭터 이름은 한글이나 영문 2~20자 사이로 입력해주세요."}</CustomText>
+                <View
+                  className="flex-row"
+                  style={{width: moderateScale(327, 0.3)}}>
+                  <CustomText size="xs" color="red">
+                    {errors[item.key].message ||
+                      '캐릭터 이름은 한글이나 영문 2~20자 사이로 입력해주세요.'}
+                  </CustomText>
                 </View>
               )}
             </View>
