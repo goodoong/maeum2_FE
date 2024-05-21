@@ -56,9 +56,16 @@ const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
             )}
           </React.Fragment>
         ))}
-        <Box className="w-80 flex flex-row justify-between">
-          <CustomText>2015-05-05</CustomText>
-          <ModalDatePicker title="생년월일" />
+        <Box className="w-80 flex flex-row justify-between items-center">
+          <CustomText>{date.toISOString().split('T')[0]}</CustomText>
+          <ModalDatePicker 
+            title="생년월일" 
+            date={date} 
+            setDate={(selectedDate) => {
+              setDate(selectedDate);
+              setValue('생년월일', selectedDate.toISOString().split('T')[0]);
+            }} 
+          />
         </Box>
         <RadioButton
           options={['남', '여']}

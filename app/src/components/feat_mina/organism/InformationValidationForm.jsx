@@ -23,6 +23,8 @@ const InformationValidationForm = ({
     setValue,
   } = useForm();
 
+  const [date, setDate] = useState(new Date());
+  
   // 성별 값 data 폼 객체에 추가
   useEffect(() => {
     const initialGender = data.response.kidInformationData.find(
@@ -79,9 +81,15 @@ const InformationValidationForm = ({
                 marginBottom: scale(6),
                 backgroundColor: item.color,
               }}>
-              <CustomText>2015-05-05</CustomText>
-              {/* 생년월일 선택하고 왼쪽에 선택값 출력하기 */}
-              <ModalDatePicker title="생년월일" />
+               <CustomText>{date.toISOString().split('T')[0]}</CustomText>
+               <ModalDatePicker 
+                  title="생년월일" 
+                  date={date} 
+                  setDate={(selectedDate) => {
+                  setDate(selectedDate);
+                  setValue('생년월일', selectedDate.toISOString().split('T')[0]);
+            }} 
+          />
             </View>
           );
         } else {

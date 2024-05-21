@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React,{useState} from 'react';
 import {Button} from 'react-native';
 import DatePicker from 'react-native-date-picker';
 
-const ModalDatePicker = ({title}) => {
-  const [date, setDate] = useState(new Date());
+const ModalDatePicker = ({title, date, setDate}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,10 +14,10 @@ const ModalDatePicker = ({title}) => {
         date={date}
         mode="date"
         locale="ko-KR"
-        maximumDate={new Date('2023-12-31')} // 연령 제한
-        onConfirm={date => {
+        maximumDate={new Date()}
+        onConfirm={selectedDate => {
           setOpen(false);
-          setDate(date);
+          setDate(selectedDate);
         }}
         onCancel={() => {
           setOpen(false);
