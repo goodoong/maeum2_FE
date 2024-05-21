@@ -23,4 +23,4 @@ const SadEyes = ({ width, height, loop, onAnimationFinish }) => {
     );
 };
 export default SadEyes;
-//200 200
+//300 300
