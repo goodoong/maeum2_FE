@@ -32,8 +32,18 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSExceptionDomains</key>
+ 		 <dict>
+   		 <key>54.234.82.206</key> <!-- 또는 사용 중인 도메인 -->
+    	 <dict>
+      	 <key>NSIncludesSubdomains</key>
+    	 <true/>
+         <key>NSExceptionAllowsInsecureHTTPLoads</key>
+        <true/>
+       </dict>
+    </dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<false/>
+		<true/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
