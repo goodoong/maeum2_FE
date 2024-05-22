@@ -2,20 +2,17 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
 // Auth Page
 import LoginScreen from '../screens/Auth/LoginScreen';
 import AccountScreen from '../screens/Auth/AccountScreen';
 import AuthorizationScreen from '../screens/Auth/AuthorizationScreen';
 import Signup1Screen from '../screens/Auth/Signup1Screen';
 import Signup2Screen from '../screens/Auth/Signup2Screen';
-
 // Main
 import MainScreen from '../screens/MainScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import SplashScreen from '../screens/SplashScreen';
 import CharacterNameScreen from '../screens/CharacterNameScreen';
-
 // Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
 import ReportScreen from '../screens/Setting/ReportScreen';
@@ -32,12 +29,10 @@ import STTScreen from '../screens/STTScreen';
 const StackNavigation = () => {
   // RootStackPageList에서 페이지를 관리합니다
   const Stack = createStackNavigator();
-
   const customStackNavigationOptions = {
     gestureEnabled: false,
     title: '',
   };
-
   const navTheme = {
     ...DefaultTheme,
     colors: {
@@ -45,11 +40,10 @@ const StackNavigation = () => {
       background: 'white',
     },
   };
-
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'splash'}
+        initialRouteName={'main'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
@@ -124,5 +118,4 @@ const StackNavigation = () => {
     </NavigationContainer>
   );
 };
-
 export default StackNavigation;
