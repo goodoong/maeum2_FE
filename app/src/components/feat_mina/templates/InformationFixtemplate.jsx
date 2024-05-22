@@ -1,20 +1,22 @@
 import React from 'react';
-import { InformationList } from '../constant/data';
-import { mockData } from '../mocks/mockdata';
+import {mockData} from '../mocks/mockdata';
 import InformationValidationForm from '../organism/InformationValidationForm';
+import {kidInfoValidation, guardianInfoValidation} from '../constant/data';
 
-const InformationFixtemplate = ({ navigation }) => {
-  
+const InformationFixtemplate = ({navigation}) => {
   const onSubmit = data => {
-    console.log(data); 
+    console.log(data);
     navigation.navigate('info');
   };
+
+  // 유효성 검사 목록 합치기
+  const validationList = [...kidInfoValidation, ...guardianInfoValidation];
 
   return (
     <InformationValidationForm
       navigation={navigation}
       data={mockData}
-      validationList = {InformationList}
+      validationList={validationList}
       onSubmit={onSubmit}
     />
   );
