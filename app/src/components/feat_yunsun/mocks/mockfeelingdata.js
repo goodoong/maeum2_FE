@@ -1,7 +1,6 @@
 const feelingData = [
-	{"key": "feeling", "data": "happy"},
+	{"key": "feeling", "data": "default"},
   ];
-
 
   export const mockfeelingData = {
 	success: true,

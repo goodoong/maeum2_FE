@@ -13,6 +13,7 @@ import DefaultEyes from '../../common/atom/DefaultEyes';
 import SadEyes from '../../common/atom/SadEyes';
 import DefaultMouth from '../../common/atom/DefaultMouth';
 import SadMouth from '../../common/atom/SadMouth';
+import HappyMouth from '../../common/atom/HappyMouth';
 
 const Header = styled(View);
 
@@ -46,8 +47,11 @@ const Maintemplate = ({ route, navigation, appState }) => {
       <View style={{position: 'relative',width: 500, height: 500,}}>
         <CharacterBody width={500} height={500} />
        {/*표정*/}
-       {feeling === 'happy' && <DefaultEyes width={300} height={300}/>}
-       {feeling === 'happy' && <DefaultMouth width={100} height={100}/>}
+       {feeling === 'default' && <DefaultEyes width={300} height={300}/>}
+       {feeling === 'default' && <DefaultMouth width={100} height={100}/>} 
+
+      {feeling === 'happy' && <DefaultEyes width={300} height={300}/>}
+      {feeling === 'happy' && <HappyMouth width={100} height={100}/>}
 
       {feeling === 'sad' && <SadEyes width={300} height={300}/>}
       {feeling === 'sad' && <SadMouth width={200} height={200}/>}
