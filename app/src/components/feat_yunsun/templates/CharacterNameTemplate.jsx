@@ -8,6 +8,7 @@ import CustomText from '../../common/atom/CustomText';
 import CustomInput from '../../common/atom/CustomInput';
 import CustomBtn from '../../common/atom/CustomBtn';
 import TestLottie from '../../common/atom/CharacterBody';
+import Character from '../../common/molecules/Character';
 
 const CustomContainer = styled(ScrollContainer);
 
@@ -29,8 +30,7 @@ const CharacterNameTemplate = ({ navigation }) => {
       <CustomContainer className='space-y-4'>
         <CustomText size="md" color="darkgray">앞으로 함께할 친구의</CustomText>
         <CustomText size="md" color="darkgray">이름을 정해주세요!</CustomText>
-        {/* 로티 캐릭터 이미지 */}
-        <TestLottie width={300} height={300}/>
+        <Character feelingdata="happy" />
         <CustomInput 
           keyboardType="default"  
           placeholder="친구의 이름을 지어주세요!" 
