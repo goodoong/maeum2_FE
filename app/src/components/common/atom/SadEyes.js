@@ -8,7 +8,7 @@ const Box = styled(View)
 
 const SadEyes = ({ width, height, loop, onAnimationFinish }) => {
     return (
-     <Box className="w-full flex jusify-center items-center" style={{position:'absolute', top:'8%', left:'11%'}}> 
+     <Box className="w-full flex jusify-center items-center" style={{position:'absolute', top: moderateScale(70), left:moderateScale(45, 0.3)}}> 
         <LottieView
             style={{
                 width: moderateScale(width,0.3),

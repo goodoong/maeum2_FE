@@ -11,6 +11,7 @@ const CharacterBody = ({ width, height, loop, onAnimationFinish }) => {
      <Box className="w-full flex jusify-center items-center right-2">
         <LottieView
             style={{
+                position: 'relative',
                 width: moderateScale(width,0.3),
                 height: moderateScale(height),
             }}
