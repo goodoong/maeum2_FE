@@ -32,12 +32,26 @@ instance.interceptors.response.use(
     if (error.response) {
       const errorCode = error.response.status;
       const errorMessage = error.response.data ? error.response.data.message : error.message;
-      const errorState = ["Redirect", "Client", "Server"][
-        Math.floor(errorCode / 100) - 3
-      ];
-      console.error(
-        `[API RESPONSE ERROR] ${errorCode}(${errorState}): ${errorMessage}`
-      );
+
+      switch (errorCode) {
+        case 400:
+          console.error(`[API RESPONSE ERROR] 400(Bad Request): ${errorMessage} - 잘못된 요청, 파라미터 누락 등`);
+          break;
+        case 401:
+          console.error(`[API RESPONSE ERROR] 401(Unauthorized): ${errorMessage} - 인증 실패`);
+          break;
+        case 403:
+          console.error(`[API RESPONSE ERROR] 403(Forbidden): ${errorMessage} - 접근 권한 없음`);
+          break;
+        case 404:
+          console.error(`[API RESPONSE ERROR] 404(Not Found): ${errorMessage} - 해당 API를 찾을 수 없음`);
+          break;
+        case 500:
+          console.error(`[API RESPONSE ERROR] 500(Internal Server Error): ${errorMessage} - 서버 내부 오류`);
+          break;
+        default:
+          console.error(`[API RESPONSE ERROR] ${errorCode}: ${errorMessage}`);
+      }
     } else if (error.request) {
       console.error('[API RESPONSE ERROR] No response received:', error.request);
     } else {
