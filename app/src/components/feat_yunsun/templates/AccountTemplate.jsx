@@ -3,13 +3,11 @@ import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomTitle from '../../common/atom/CustomTitle';
 import CustomText from '../../common/atom/CustomText';
 import AccountBtnBox from '../organism/AccountBtnbox';
-import {styled} from 'nativewind';
-import {useQuery} from '@tanstack/react-query';
-import {testAPI} from '../../../service/user'; // testAPI를 불러옵니다.
+import { styled } from 'nativewind';
 
 const Box = styled(ScrollContainer);
 
-const AccountTemplate = ({navigation}) => {
+const AccountTemplate = ({ navigation }) => {
   return (
     <Box className="space-y-4">
       <CustomTitle>마음의 창</CustomTitle>
