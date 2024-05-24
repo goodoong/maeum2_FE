@@ -7,6 +7,11 @@ export const testAPI = async () => {
 
 // 카카오에서 발급 받은 인가코드를 담아서 post
 export const kakaoapi = async (code) => {
-  const response = await instance.post('/api/login/kakao', { code });
-  return response.data;
+  try {
+    const response = await instance.post('/api/login/kakao', { code });
+    return response.data;
+  } catch (error) {
+    console.error('Error during Kakao login API call', error);
+    throw error;
+  }
 };

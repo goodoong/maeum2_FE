@@ -1,15 +1,13 @@
 import axios from "axios";
 
-// axios 인스턴스 생성
 export const instance = axios.create({
   baseURL: "http://54.234.82.206:8080",
-  timeout: 10000,
+  timeout: 50000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// 요청 인터셉터 설정
 instance.interceptors.request.use(
   async (config) => {
     console.log('[API REQUEST]', config);
@@ -17,12 +15,10 @@ instance.interceptors.request.use(
   },
   (error) => {
     console.log(`[API REQUEST ERROR] ${error}`);
-    console.dir(error);
     return Promise.reject(error);
   }
 );
 
-// 응답 인터셉터 설정
 instance.interceptors.response.use(
   (response) => {
     console.log('[API RESPONSE]', response);
