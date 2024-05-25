@@ -13,6 +13,7 @@ import MainScreen from '../screens/MainScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import SplashScreen from '../screens/SplashScreen';
 import CharacterNameScreen from '../screens/CharacterNameScreen';
+import WebViewScreen from '../screens/WebViewScreen';
 // Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
 import ReportScreen from '../screens/Setting/ReportScreen';
@@ -43,7 +44,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'charactername'}
+        initialRouteName={'account'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
@@ -113,6 +114,9 @@ const StackNavigation = () => {
         {/* STT */}
         <Stack.Screen name="sttscreen">
           {props => <STTScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="webviewscreen">
+          {props => <WebViewScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
