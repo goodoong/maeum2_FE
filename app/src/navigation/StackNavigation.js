@@ -13,16 +13,15 @@ import MainScreen from '../screens/MainScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import SplashScreen from '../screens/SplashScreen';
 import CharacterNameScreen from '../screens/CharacterNameScreen';
+import WebViewScreen from '../screens/WebViewScreen';
 // Settin Page
 import SettingScreen from '../screens/Setting/SettingScreen';
 import ReportScreen from '../screens/Setting/ReportScreen';
 import InformationScreen from '../screens/Setting/InformationScreen';
 import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
-
 // Game Page
 import STTScreen from '../screens/STTScreen';
-
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -43,7 +42,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'main'}
+        initialRouteName={'account'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
@@ -113,6 +112,9 @@ const StackNavigation = () => {
         {/* STT */}
         <Stack.Screen name="sttscreen">
           {props => <STTScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="webviewscreen">
+          {props => <WebViewScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
