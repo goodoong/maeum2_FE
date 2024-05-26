@@ -18,6 +18,9 @@ const ProfileImage = ({ size }) => {
     } else if (size === 'lg') {
         width = 80;
         height = 60;
+    } else if (size === 'xl') {
+        width = 93;
+        height = 93;
     } else {
         width = 34;
         height = 34;
