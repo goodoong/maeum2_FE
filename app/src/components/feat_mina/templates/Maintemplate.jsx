@@ -26,7 +26,7 @@ const Maintemplate = ({ route, navigation, appState }) => {
         </TouchableOpacity>
       </Header>
       <Mainorganism />
-      <View style={{position: 'relative',width: 500, height: 500,}}>
+      <View style={{width: 500, height: 500,}}>
         <Character feelingdata="default" />
       </View>
       <CustomBtn

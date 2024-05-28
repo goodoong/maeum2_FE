@@ -20,10 +20,8 @@ import ReportScreen from '../screens/Setting/ReportScreen';
 import InformationScreen from '../screens/Setting/InformationScreen';
 import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
-
 // Game Page
 import STTScreen from '../screens/STTScreen';
-
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -44,7 +42,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'account'}
+        initialRouteName={'main'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
