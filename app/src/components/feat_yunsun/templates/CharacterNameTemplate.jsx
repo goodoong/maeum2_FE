@@ -9,6 +9,7 @@ import CustomInput from '../../common/atom/CustomInput';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Character from '../../common/molecules/Character';
 import { charactername } from '../../../service/user';
+import { getItem } from '../../../hooks/useAsyncStorage';
 
 const CustomContainer = styled(ScrollContainer);
 
@@ -20,9 +21,15 @@ const CharacterNameTemplate = ({ navigation }) => {
     register,
   } = useForm();
 
+  const confirmAsyncValue = async () => {
+    const result = await getItem('token');
+    console.log(result)
+  };
+
   const onSubmit = data => {
     console.log(data); 
-    navigation.navigate('tutorial');
+    confirmAsyncValue();
+ //   navigation.navigate('tutorial');
   };
 
   return (
