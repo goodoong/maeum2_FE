@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import GameResultText from '../atom/GameResultText';
 import CustomBtn from '../../common/atom/CustomBtn';
 import GameReport from './GameReport';
+import FocusReport from './FocusReport';
 
 const Box = styled(View);
 
@@ -43,7 +44,8 @@ const ReportProfile = ({ navigation, data, onSubmit, renderItem }) => {
       <CustomText size="md">집중도</CustomText>
       </TouchableOpacity>
       </Box>
-      <GameReport/>
+      {/* <GameReport/> */}
+      <FocusReport/>
     </Box>
   );
 };
