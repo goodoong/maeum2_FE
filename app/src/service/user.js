@@ -49,3 +49,14 @@ export const signup = async (data) => {
     throw error;
   }
 };
+
+// 캐릭터 이름 post 
+export const charactername = async (ai_name) => {
+  try {
+    const response = await instance.post('/api/user/aiName', ai_name);
+    return response.data;
+  } catch (error) {
+    console.error('Error during API call', error);
+    throw error;
+  }
+};
