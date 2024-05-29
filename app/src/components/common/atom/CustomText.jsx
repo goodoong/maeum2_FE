@@ -12,8 +12,8 @@ const CustomText = ({children, size, color, style}) => {
     color === 'darkgray' && {color: '#475d5b'},
     color === 'headline' && {color: '#00473e'},
     color === 'red' && {color: '#d1180b'},
-    color === 'lightblack' && {color:'#2e2e30'}
-  
+    color === 'lightblack' && {color:'#2e2e30'},
+    color === 'white' && {color:'#ffffff'}
   ]);
 
   return <Text style={[customStyle, style]}>{children}</Text>;

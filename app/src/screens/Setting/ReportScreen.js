@@ -1,9 +1,10 @@
 import React from "react";
 import { Text } from "react-native";
-import ReportProfile from "../../components/feat_yunsun/organism/ReportProfile";
-const ReportScreen = () => {
+
+import ReportTemplate from "../../components/feat_yunsun/templates/ReportTemplate";
+const ReportScreen = ({navigation}) => {
     return (
-        <ReportProfile/>
+        <ReportTemplate  navigation={navigation}/>
         
     )
 }

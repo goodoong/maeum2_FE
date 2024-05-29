@@ -9,12 +9,9 @@ import { scale } from '../../../utils/Scale';
 const Box = styled(View);
 
 const GameReport = ({ navigation, data, onSubmit, renderItem }) => {
-    // const moveGameReportScreen = () => {
-    //     navigation.push('gamereport');
-    //   };
-     // const moveFocusReportScreen = () => {
-    //     navigation.push('focusreport');
-    //   };
+    const moveHistoryScreen = () => {
+        navigation.push('history');
+      };
 
 
   return (
@@ -30,11 +27,12 @@ const GameReport = ({ navigation, data, onSubmit, renderItem }) => {
         {/* 시간 */}
         <CustomText size='sm' color='darkgray'>AM 9:26</CustomText>
         </Box>
-
         <Box className="flex flex-row w-full justify-between">
         <CustomText size='sm'>마음이가 3번 만에 답을 맞췄어요.</CustomText>
-        <CustomBtn size='s' color='buttonwhite' borderColor='yellow' borderWidth='true' title='상세보기'/>
+        <CustomBtn size='s' color='buttonwhite' borderColor='yellow' borderWidth='true' title='상세보기' onPress={moveHistoryScreen}/>
         </Box>
+        <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#E0E1E9', width: '95%', marginVertical: scale(10) }} />
+
       </Box>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import { Text } from "react-native";
+import HistoryDetailTemplate from "../../components/feat_yunsun/templates/HistoryDetailTemplate";
 
 const HistoryDetailScreen = () => {
     return (
-        <Text>기록 상세 페이지</Text>
+     <HistoryDetailTemplate/>
     )
 }
 

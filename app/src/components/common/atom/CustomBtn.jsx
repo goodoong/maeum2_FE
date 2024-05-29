@@ -24,6 +24,8 @@ const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderCol
         ? '#ffa8ba'
         : color === 'buttonwhite'
         ? '#ffffff'
+        : color === 'buttonlight'
+        ? '#F2F4F5'
         : '#00473e',
     borderRadius: rounded ? 48 : 5,
     borderWidth: borderWidth ? 1 : 0,
