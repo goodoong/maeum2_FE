@@ -1,5 +1,5 @@
 import React from "react";
-import AuthorizationTemplate from "../../components/feat_yunsun/templates/AuthorizationScreen";
+import AuthorizationTemplate from "../../components/feat_yunsun/templates/AuthorizationTemplate";
 
 const AuthorizationScreen = ({navigation }) => {
   

@@ -8,12 +8,12 @@ export const settingList1 = [
 // 유효성 검사 리스트
 export const kidInfoValidation = [
   {
-    key: '성',
+    key: 'child_first_name',
     Regex: /^[가-힣]{1,10}$/,
     errormsg: '성은 한글로 시작하고, 1자 이상 10자 이하로 입력해주세요.',
   }, // 한글로 10글자 이하
   {
-    key: '이름',
+    key: 'child_last_name',
     Regex: /^[가-힣]{1,20}$/, // 한글 또는 영문으로 시작하고, 2자 이상 20자 이하
     errormsg: '이름은 한글로 시작하고, 1자 이상 20자 이하로 입력해주세요.',
   },
@@ -21,12 +21,12 @@ export const kidInfoValidation = [
 
 export const guardianInfoValidation = [
   {
-    key: 'Email',
+    key: 'email',
     Regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     errormsg: '올바른 이메일 주소를 입력해주세요.',
   },
   {
-    key: '연락처',
+    key: 'phone_number',
     Regex: /^\d{11}$/,
     errormsg: '특수문자 제외, 숫자 11자리로 입력해주세요.',
   },
