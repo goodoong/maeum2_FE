@@ -6,6 +6,8 @@ import CustomText from '../../common/atom/CustomText';
 import CustomTitle from '../../common/atom/CustomTitle';
 import ProfileImage from '../../feat_mina/molecules/ProfileImage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import GameResultText from '../atom/GameResultText';
+import CustomBtn from '../../common/atom/CustomBtn';
 import GameReport from './GameReport';
 
 const Box = styled(View);
@@ -34,13 +36,14 @@ const ReportProfile = ({ navigation, data, onSubmit, renderItem }) => {
       {/* 점선 */}
       <Box style={{ borderWidth: 1, borderStyle: 'dashed', borderColor: '#E0E1E9', width: '95%', marginVertical: scale(10) }}/>
       <Box className="flex flex-row w-full space-x-24" style={{ paddingLeft: scale(40) }}>
-        <TouchableOpacity onPress={moveGameReportScreen}>
+        <TouchableOpacity >
       <CustomText size="md">게임 기록</CustomText>
       </TouchableOpacity>
-      <TouchableOpacity onPress={moveFocusReportScreen}>
+      <TouchableOpacity >
       <CustomText size="md">집중도</CustomText>
       </TouchableOpacity>
       </Box>
+      <GameReport/>
     </Box>
   );
 };

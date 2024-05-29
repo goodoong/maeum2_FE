@@ -13,6 +13,8 @@ const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderCol
         ? moderateScale(279,0.3)
         : size === 'lg'
         ? moderateScale(327,0.3)
+        : size ==='s'
+        ? moderateScale (100, 0.3)
         : moderateScale(68,0.3),
     height: size === 'xs' ? moderateScale(34,0.3) : moderateScale(48,0.3),
     backgroundColor:
@@ -23,9 +25,14 @@ const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderCol
         : color === 'buttonwhite'
         ? '#ffffff'
         : '#00473e',
-    borderRadius: rounded ? 48 : 0,
+    borderRadius: rounded ? 48 : 5,
     borderWidth: borderWidth ? 1 : 0,
-    borderColor: borderColor ? '#e3e5e5' : '#ffffff',
+    borderColor:
+     borderColor === 'lightgray'
+     ? '#e3e5e5' 
+     :borderColor === 'yellow'
+     ? '#FAAE2B'
+      :'#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop : scale(12),
