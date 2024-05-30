@@ -17,7 +17,7 @@ const WebViewScreen = ({ route, navigation }) => {
       const code = extractCodeFromUrl(event.url);
       if (code) {
         console.log('Kakao authorization code:', code);
-        setIsLoading(true); // 로딩 시작, 로딩으로 비동기 처리 필요!
+        setIsLoading(true); // 로딩 시작, 로딩으로 비동기 처리 필요, 이때 로딩 화면 보여줘야함
 
         try {
           const response = await kakaoapi(code);

@@ -63,14 +63,14 @@ const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
             date={date} 
             setDate={(selectedDate) => {
               setDate(selectedDate);
-              setValue('생년월일', selectedDate.toISOString().split('T')[0]);
+              setValue('child_birth', selectedDate.toISOString().split('T')[0]);
             }} 
           />
         </Box>
         <RadioButton
           options={['남', '여']}
           onChange={selectedOption => {
-            setValue('성별', selectedOption);
+            setValue('child_gender', selectedOption);
           }}
         />
         <CustomBtn

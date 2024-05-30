@@ -7,8 +7,9 @@ import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomText from '../../common/atom/CustomText';
 import CustomInput from '../../common/atom/CustomInput';
 import CustomBtn from '../../common/atom/CustomBtn';
-import TestLottie from '../../common/atom/CharacterBody';
 import Character from '../../common/molecules/Character';
+import { charactername } from '../../../service/user';
+import { getItem } from '../../../hooks/useAsyncStorage';
 
 const CustomContainer = styled(ScrollContainer);
 
@@ -20,9 +21,15 @@ const CharacterNameTemplate = ({ navigation }) => {
     register,
   } = useForm();
 
+  const confirmAsyncValue = async () => {
+    const result = await getItem('token');
+    console.log(result)
+  };
+
   const onSubmit = data => {
     console.log(data); 
-    navigation.navigate('tutorial');
+    confirmAsyncValue();
+ //   navigation.navigate('tutorial');
   };
 
   return (
@@ -35,7 +42,7 @@ const CharacterNameTemplate = ({ navigation }) => {
           keyboardType="default"  
           placeholder="친구의 이름을 지어주세요!" 
           control={control}
-          name="characterName"
+          name="ai_name"
           rules={{ required: '이름을 입력하세요.', pattern: { value: /^[가-힣a-zA-Z]{2,20}$/, message: '2~20자의 한글 또는 영문으로 입력하세요.' } }}
           autoFocus={true}
           register={register}
