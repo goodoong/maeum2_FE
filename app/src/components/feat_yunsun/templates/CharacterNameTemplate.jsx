@@ -37,10 +37,8 @@ const CharacterNameTemplate = ({ navigation }) => {
     Alert.alert('Error', '캐릭터 이름 설정에 실패했습니다. 다시 시도해주세요.');
   } finally {
    setLoading(false); // 로딩 종료
-}
-   
-
-  };
+  }
+};
 
   return (
     <>
