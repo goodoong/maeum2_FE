@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getItem } from "../hooks/useAsyncStorage";
 
 export const instance = axios.create({
   baseURL: "http://54.234.82.206:8080",
@@ -12,6 +13,15 @@ export const instance = axios.create({
 instance.interceptors.request.use(
   async (config) => {
     console.log('[API REQUEST]', config);
+
+    // AsyncStorage에서 토큰 가져오기
+    const token = await getItem('token');
+    if (token) {
+      config.headers['Authorization'] = `${token}`;
+    } else {
+      console.log("요청에 토큰이 담기지 않았습니다.")
+    }
+
     return config;
   },
   (error) => {
