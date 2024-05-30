@@ -15,3 +15,48 @@ export const kakaoapi = async (code) => {
     throw error;
   }
 };
+
+
+// 휴대폰 번호 담아서 인증 요청 post 
+export const smsrequestapi = async (phone_number) => {
+  try {
+    const response = await instance.post('/api/user/sms/send', { phone_number });
+    return response.data;
+  } catch (error) {
+    console.error('Error during API call', error);
+    throw error;
+  }
+};
+
+// 인증 번호 담아서 post 
+export const smscodeapi = async (data) => {
+  try {
+    const response = await instance.post('/api/user/sms/verification', data);
+    return response.data;
+  } catch (error) {
+    console.error('Error during API call', error);
+    throw error;
+  }
+};
+
+// 회원가입 post
+export const signup = async (data) => {
+  try {
+    const response = await instance.post('/api/user/signUp', data);
+    return response.data;
+  } catch (error) {
+    console.error('Error during API call', error);
+    throw error;
+  }
+};
+
+// 캐릭터 이름 post 
+export const charactername = async (ai_name) => {
+  try {
+    const response = await instance.post('/api/user/aiName', ai_name);
+    return response.data;
+  } catch (error) {
+    console.error('Error during API call', error);
+    throw error;
+  }
+};

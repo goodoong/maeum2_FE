@@ -1,21 +1,17 @@
 import React from "react"
 import CustomInput from "../../common/atom/CustomInput"
-import { TouchableOpacity } from "react-native-gesture-handler";
 import CustomBtn from "../../common/atom/CustomBtn"
-import CustomText from "../../common/atom/CustomText"
 import { useForm } from 'react-hook-form';
 import { View } from "react-native";
 import { styled } from "nativewind";
 
 const Form = styled(View)
 
-const AuthorizationForm = ({ navigation, data, onSubmit, renderItem }) => {
+const AuthorizationForm = ({ onSubmit }) => {
     const {
       control,
       handleSubmit,
-      formState: { errors },
       register,
-      setValue,
     } = useForm();
 
     return (
@@ -24,8 +20,7 @@ const AuthorizationForm = ({ navigation, data, onSubmit, renderItem }) => {
                 keyboardType="numeric"  
                 placeholder="인증번호" 
                 control={control}
-                name="인증번호"
-                //rules={input.rules}
+                name="verification_code"
                 autoFocus={true}
                 register={register}/>
             <CustomBtn 
@@ -35,14 +30,14 @@ const AuthorizationForm = ({ navigation, data, onSubmit, renderItem }) => {
              title="다음"
              onPress={handleSubmit(onSubmit)} 
             />
-             <CustomBtn 
+            <CustomBtn 
              size='lg'
              color='buttonwhite'
              rounded= {true}
              title="인증번호 다시받기"
              borderColor= {true}
              borderWidth= {true}
-             //onPress={handleSubmit(onSubmit)} 
+             // 여기에 재전송 로직 추가
             />
         </Form>
     )

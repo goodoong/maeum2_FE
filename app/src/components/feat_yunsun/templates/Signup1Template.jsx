@@ -6,16 +6,32 @@ import CustomText from '../../common/atom/CustomText';
 import Signup1Form from '../organism/Signup1Form';
 import {guardianInfoValidation} from '../../feat_mina/constant/data';
 import {styled} from 'nativewind';
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { setEmail, setNumber } from '../../../redux/slice/TemplateUserSlice';
+import { smsrequestapi } from '../../../service/user';
 
 const Box = styled(ScrollContainer);
 
 const Signup1Template = ({navigation}) => {
+  const dispatch = useDispatch();
 
-  const onSubmit = data => {
+  const onSubmit = async (data) => {
     console.log(data);
-    navigation.navigate('authorization');
+    dispatch(setEmail(data.email));
+    dispatch(setNumber(data.phone_number));
+
+    try {
+      const response = await smsrequestapi(data.phone_number);
+      if (response.success) {
+        navigation.navigate('authorization');
+      } else {
+        console.error('request failed', response.error);
+        Alert.alert('Error', '문자 인증 요청에 실패했습니다. 다시 시도해주세요.');
+      }
+    } catch (error) {
+      console.error('Error during Request', error);
+      Alert.alert('Error', '문자 인증 요청에 실패했습니다. 다시 시도해주세요.');
+    }
   };
 
   const authCode = useSelector((state) => state.template.tempId);
