@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import CustomText from "../../common/atom/CustomText";
 import InformationForm from "../molecules/InformationForm";
 import { scale } from "../../../utils/Scale";
-import { mockData } from "../mocks/mockdata";
+import { mypage } from "../../../service/setting";
 
 const renderItem = ({ item }) => (
   <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: scale(12), backgroundColor: item.color }}>
@@ -13,14 +13,33 @@ const renderItem = ({ item }) => (
 );
 
 const InformationTemplate = ({ navigation }) => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await mypage();
+        setData(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const moveInformationFixScreen = () => {
     navigation.navigate('infofix');
   };
 
+  if (!data) {
+    return <CustomText>Loading...</CustomText>; // 데이터를 불러오기 전 로딩 상태 표시
+  }
+
   return (
     <InformationForm
       navigation={navigation}
-      data={mockData}
+      data={data}
       moveScreen={moveInformationFixScreen}
       isFix={true}
       renderItem={renderItem}

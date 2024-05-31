@@ -1,27 +1,33 @@
 import React from 'react';
-import {View, VirtualizedList} from 'react-native';
-import {styled} from 'nativewind';
+import { View, VirtualizedList } from 'react-native';
+import { styled } from 'nativewind';
 import CustomTitle from '../../common/atom/CustomTitle';
 import Container from '../../common/atom/Container';
 import CustomBtn from '../../common/atom/CustomBtn';
 import ProfileImage from './ProfileImage';
-import {scale} from '../../../utils/Scale';
+import { scale } from '../../../utils/Scale';
 
 const Header = styled(View);
 const Section = styled(View);
 
-const InformationForm = ({navigation, data, moveScreen, isFix, renderItem}) => {
+const InformationForm = ({ navigation, data, moveScreen, isFix, renderItem }) => {
   // 아이 정보와 보호자 정보를 합친 전체 정보 배열
+  const kidInformationData = data.response.kidInformationData;
+  const guardianInformationData = data.response.guardianInformationData.map(item => ({
+    key: item.key,
+    data: item.value 
+  }));
+
   const allInformationData = [
-    {key: '아이 정보', data: '', color: 'whitesmoke'},
-    ...data.response.kidInformationData, // 수정된 부분
-    {key: '보호자 정보', data: '', color: 'whitesmoke'},
-    ...data.response.guardianInformationData, // 수정된 부분
+    { key: '아이 정보', data: '', color: 'whitesmoke' },
+    ...kidInformationData,
+    { key: '보호자 정보', data: '', color: 'whitesmoke' },
+    ...guardianInformationData,
   ];
 
   return (
     <Container>
-      <Section style={{marginBottom:scale(20)}}>
+      <Section style={{ marginBottom: scale(20) }}>
         <VirtualizedList
           renderItem={renderItem}
           keyExtractor={item => item.key}
@@ -31,12 +37,12 @@ const InformationForm = ({navigation, data, moveScreen, isFix, renderItem}) => {
             <>
               <Header
                 className="w-full flex-row"
-                style={{marginBottom: scale(16)}}>
+                style={{ marginBottom: scale(16) }}>
                 <CustomTitle>회원 정보</CustomTitle>
               </Header>
               <Section
                 className="w-full flex-row justify-between items-end"
-                style={{padding: scale(6)}}>
+                style={{ padding: scale(6) }}>
                 <ProfileImage size="lg" />
                 <CustomBtn
                   size="xs"
@@ -48,7 +54,7 @@ const InformationForm = ({navigation, data, moveScreen, isFix, renderItem}) => {
               </Section>
             </>
           }
-          ListHeaderComponentStyle={{marginBottom: scale(20)}}
+          ListHeaderComponentStyle={{ marginBottom: scale(20) }}
         />
       </Section>
     </Container>
