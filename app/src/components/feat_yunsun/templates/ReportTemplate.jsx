@@ -23,15 +23,21 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
   return (
     <Box className="flex-col space-y-4" style={{ paddingLeft: scale(20) }}>
       <CustomTitle>발전 상황 리포트</CustomTitle>
-     <ReportProfile/>
+      <ReportProfile />
       {/* 점선 */}
       <Box style={{ borderWidth: 1, borderStyle: 'dashed', borderColor: '#E0E1E9', width: '95%', marginVertical: scale(10) }} />
       <Box className="flex flex-row w-full space-x-24" style={{ paddingLeft: scale(40) }}>
         <TouchableOpacity onPress={() => handlePress('game')}>
           <CustomText size="md">게임 기록</CustomText>
+          {visibleReport === 'game' && (
+            <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#FF7FA0', width: '90%', marginVertical: scale(10) }} />
+          )}
         </TouchableOpacity>
         <TouchableOpacity onPress={() => handlePress('focus')}>
           <CustomText size="md">집중도</CustomText>
+          {visibleReport === 'focus' && (
+            <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#FF7FA0', width: '90%', marginVertical: scale(10) }} />
+          )}
         </TouchableOpacity>
       </Box>
       {visibleReport === 'game' && <GameReport navigation={navigation} />}
