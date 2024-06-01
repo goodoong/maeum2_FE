@@ -43,7 +43,7 @@ export const smscodeapi = async (data) => {
 export const signup = async (data) => {
   try {
     const response = await instance.post('/api/user/signUp', data);
-    return response.data;
+    return response;
   } catch (error) {
     console.error('Error during API call', error);
     throw error;

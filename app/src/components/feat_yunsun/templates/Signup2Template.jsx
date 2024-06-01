@@ -38,7 +38,7 @@ const Signup2Template = ({ route, navigation }) => {
         phone_number,
       };
       const response = await signup(requestData);
-      if (response.success) {
+      if (response.data.success) {
         // 응답 헤더에서 토큰 추출
         const headers = response.headers;
         const token = headers && (headers['authorization'] || headers['Authorization']);
