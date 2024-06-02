@@ -13,7 +13,7 @@ const CustomBtn = ({onPress, title, size, color, rounded, borderWidth, borderCol
         ? moderateScale(279,0.3)
         : size === 'lg'
         ? moderateScale(327,0.3)
-        : size ==='s'
+        : size ==='xs'
         ? moderateScale (100, 0.3)
         : moderateScale(68,0.3),
     height: size === 'xs' ? moderateScale(34,0.3) : moderateScale(48,0.3),
