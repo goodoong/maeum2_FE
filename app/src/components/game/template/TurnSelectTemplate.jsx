@@ -19,7 +19,8 @@ const TurnSelectTemplate = ({route, navigation, appState}) => {
         <CustomBtn
           size="xs"
           color="buttonlight"
-          rounded={true}
+          borderColor="green"
+          borderWidth="true"
           title="그만할래요"
         />
       </Header>

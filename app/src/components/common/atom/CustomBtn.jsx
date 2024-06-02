@@ -36,12 +36,14 @@ const CustomBtn = ({
         ? '#F2F4F5'
         : '#00473e',
     borderRadius: rounded ? 48 : 5,
-    borderWidth: borderWidth ? 1 : 0,
+    borderWidth: borderWidth ? 2 : 0,
     borderColor:
       borderColor === 'lightgray'
         ? '#e3e5e5'
         : borderColor === 'yellow'
         ? '#FAAE2B'
+        : borderColor === 'green'
+        ? '#00473e'
         : '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
