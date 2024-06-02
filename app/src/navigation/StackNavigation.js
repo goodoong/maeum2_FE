@@ -22,6 +22,7 @@ import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 // Game Page
 import STTScreen from '../screens/STTScreen';
+import TurnSelectScreen from '../screens/Game/TurnSelectScreen';
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -50,8 +51,13 @@ const StackNavigation = () => {
             route.name === 'main' ||
             route.name === 'splash' ||
             route.name === 'charactername' ||
-            route.name === 'tutorial'
+            route.name === 'tutorial' ||
+            route.name === 'turnselectscreen'
           ),
+          cardStyle: {
+            backgroundColor:
+              route.name === 'turnselectscreen' ? '#f2f7f5' : 'white',
+          },
         })}>
         {/* 로그인 페이지 */}
         <Stack.Screen name="login">
@@ -113,8 +119,13 @@ const StackNavigation = () => {
         <Stack.Screen name="sttscreen">
           {props => <STTScreen {...props} />}
         </Stack.Screen>
+        {/* 카카오 연동 웹뷰 */}
         <Stack.Screen name="webviewscreen">
           {props => <WebViewScreen {...props} />}
+        </Stack.Screen>
+        {/* 게임 순서 정하기 */}
+        <Stack.Screen name="turnselectscreen">
+          {props => <TurnSelectScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
