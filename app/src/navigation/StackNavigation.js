@@ -43,7 +43,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'charactername'}
+        initialRouteName={'report'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
