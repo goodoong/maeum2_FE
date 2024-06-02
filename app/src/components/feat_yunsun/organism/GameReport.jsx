@@ -8,17 +8,17 @@ import { scale } from '../../../utils/Scale';
 
 const Box = styled(View);
 
-const GameReport = ({ navigation, data, onSubmit, renderItem }) => {
+const GameReport = ({ navigation, date, data, onSubmit, renderItem }) => {
     const moveHistoryScreen = () => {
         navigation.push('history');
       };
 
 
   return (
-      <Box className="flex flex-col content-center space-y-4" style={{width: '95%', height:'50%', marginTop:scale(20)}}>
+      <Box className="flex flex-col content-center space-y-4" style={{width: '95%', height:'50%',}}>
 
          {/* 날짜 */}
-         <CustomText size='md'>2024.03.26</CustomText> 
+         <CustomText size='md'>{date}</CustomText> 
 
         <Box className="flex flex-row w-full justify-between">
         {/* 결과 */}

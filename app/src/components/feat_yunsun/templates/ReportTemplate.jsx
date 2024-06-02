@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { FlatList, TouchableOpacity, View } from 'react-native';
 import { scale } from '../../../utils/Scale';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
@@ -10,14 +10,19 @@ import ReportProfile from '../organism/ReportProfile';
 
 const Box = styled(View);
 
-const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
+const ReportTemplate = ({ navigation, data }) => {
   const [visibleReport, setVisibleReport] = useState('game'); // 기본값을 'game'으로 설정
 
   const handlePress = (report) => {
     setVisibleReport(report);
   };
+
   const moveHistoryScreen = () => {
     navigation.push('history');
+  };
+
+  const renderGameReport = ({ item }) => {
+    return <GameReport navigation={navigation} date={item.date} />;
   };
 
   return (
@@ -40,7 +45,13 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
           )}
         </TouchableOpacity>
       </Box>
-      {visibleReport === 'game' && <GameReport navigation={navigation} />}
+      {visibleReport === 'game' && (
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={renderGameReport}
+        />
+      )}
       {visibleReport === 'focus' && <FocusReport />}
     </Box>
   );
