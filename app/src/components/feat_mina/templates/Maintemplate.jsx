@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { styled } from 'nativewind';
-import { moderateScale } from '../../../utils/Scale';
+import React, {useEffect, useState} from 'react';
+import {View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {styled} from 'nativewind';
+import {moderateScale} from '../../../utils/Scale';
 import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -11,12 +11,13 @@ import Character from '../../common/molecules/Character';
 
 const Header = styled(View);
 
-const Maintemplate = ({ route, navigation, appState }) => {
-
+const Maintemplate = ({route, navigation, appState}) => {
   const moveSettingScreen = () => {
     navigation.push('setting');
   };
-
+  const moveGameScreen = () => {
+    navigation.push('turnselectscreen');
+  };
 
   return (
     <ScrollContainer>
@@ -26,7 +27,7 @@ const Maintemplate = ({ route, navigation, appState }) => {
         </TouchableOpacity>
       </Header>
       <Mainorganism />
-      <View style={{width: 500, height: 500,}}>
+      <View style={{width: 500, height: 500}}>
         <Character feelingdata="default" />
       </View>
       <CustomBtn
@@ -34,10 +35,10 @@ const Maintemplate = ({ route, navigation, appState }) => {
         color="buttonyellow"
         rounded={true}
         title="게임 시작하기"
+        onPress={moveGameScreen}
       />
     </ScrollContainer>
   );
 };
 
 export default Maintemplate;
-
