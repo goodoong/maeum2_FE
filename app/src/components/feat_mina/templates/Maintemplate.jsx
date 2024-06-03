@@ -16,7 +16,7 @@ const Maintemplate = ({route, navigation, appState}) => {
     navigation.push('setting');
   };
   const moveGameScreen = () => {
-    navigation.push('turnselectscreen');
+    navigation.push('selectscreen');
   };
 
   return (
