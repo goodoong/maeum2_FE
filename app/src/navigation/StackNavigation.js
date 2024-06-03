@@ -23,6 +23,7 @@ import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 // Game Page
 import STTScreen from '../screens/STTScreen';
 import GameSelectScreen from '../screens/Game/GameSelectScreen';
+import GameScreen from '../screens/Game/GameScreen';
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -43,7 +44,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'main'}
+        initialRouteName={'login'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
@@ -53,7 +54,8 @@ const StackNavigation = () => {
             route.name === 'charactername' ||
             route.name === 'tutorial' ||
             route.name === 'selectscreen' ||
-            route.name === 'sttscreen'
+            route.name === 'sttscreen' ||
+            route.name === 'gamescreen'
           ),
           cardStyle: {
             backgroundColor: route.name === ('selectscreen' && 'sttscreen') ? '#f2f7f5' :'white',
@@ -126,6 +128,10 @@ const StackNavigation = () => {
         {/* 게임  정하기 */}
         <Stack.Screen name="selectscreen">
           {props => <GameSelectScreen {...props} />}
+        </Stack.Screen>
+        {/* 게임 화면 */}
+        <Stack.Screen name="gamescreen">
+          {props => <GameScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

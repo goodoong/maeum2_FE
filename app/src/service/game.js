@@ -22,3 +22,10 @@ export const AIturn = async (user_input) => {
       throw error;
     }
   };
+
+
+// 게임 종료 할 때 
+export const gamequit = async () => {
+  const response = await instance.get('/api/main/quit');
+  return response.data;
+};

@@ -9,6 +9,7 @@ import CustomModal from '../../common/atom/CustomModal';
 import SettingList from "../organism/SettingList";
 import useFetchSetting from "../../../hooks/useFetchSetting";
 import { removeItem } from "../../../hooks/useAsyncStorage";
+import Loading from "../../common/atom/Loading";
 
 
 const Settingtemplate = ({ navigation }) => {
@@ -51,7 +52,7 @@ const Settingtemplate = ({ navigation }) => {
   };
 
   if (loading) {
-    return <CustomText>Loading...</CustomText>; // 데이터를 불러오기 전 로딩 상태 표시
+    return  <Loading width={100} height={100} loop={true} /> 
   }
 
   return (

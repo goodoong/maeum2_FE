@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TurnSelect from '../organisms/TurnSelect';
 import SubjectSelect from '../organisms/SubjectSelect';
@@ -6,7 +6,7 @@ import useGameTurn from '../../../hooks/useGameTurn';
 import { setTempTurn } from '../../../redux/slice/TemplateTurn';
 import GameTemplate from './GameTemplate';
 
-const SelectRenderContent = ({navigation}) => {
+const SelectRenderContent = ({ navigation }) => {
   const [stage, setStage] = useState('turnSelect');
   const [subtitleText, setSubtitleText] = useState("순서를 정해보자\n어떤 순서로 하고 싶어?");
   const [loading, setLoading] = useState(false);
@@ -18,10 +18,11 @@ const SelectRenderContent = ({navigation}) => {
   const handleButtonPress = async (message, turnValue, title) => {
     setSubtitleText(message);
     setUserInput(title);
-    setLoading(true);
     if (turnValue) {
       dispatch(setTempTurn(turnValue));
     }
+    setStage('subjectSelect'); // 주제 선택 화면으로 전환
+    setSubtitleText("주제를 정해보자\n어떤 주제로 하고 싶어?");
   };
 
   const handleSubjectPress = async (message) => {
@@ -30,29 +31,24 @@ const SelectRenderContent = ({navigation}) => {
     setLoading(true);
   };
 
-  useEffect(() => {
-    const sendRequestIfNeeded = async () => {
-      if (loading && userInput) {
-        await new Promise(resolve => setTimeout(resolve, 500)); 
-        try {
-          const response = await sendRequest(userInput);
-          console.log('Response:', response);
-          if (stage === 'turnSelect') {
-            setStage('subjectSelect'); // 주제 선택 화면으로 전환
-            setSubtitleText("주제를 정해보자\n어떤 주제로 하고 싶어?");
-          } else if (stage === 'subjectSelect') {
-            // Handle the response for subject select
-            console.log('Subject selected and request sent');
-          }
-        } catch (error) {
-          console.error('Error handling user input:', error);
-        }
+  const sendRequestIfNeeded = useCallback(async () => {
+    if (loading && userInput && stage === 'subjectSelect') {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      try {
+        const response = await sendRequest(userInput);
+        console.log('Response:', response);
+        setLoading(false);
+        navigation.navigate('gamescreen', { message: response.data.response[0].message });
+      } catch (error) {
+        console.error('Error handling user input:', error);
         setLoading(false);
       }
-    };
+    }
+  }, [loading, userInput, stage, sendRequest, navigation]);
 
+  useEffect(() => {
     sendRequestIfNeeded();
-  }, [tempTurn, loading, userInput, stage, sendRequest]);
+  }, [sendRequestIfNeeded]);
 
   const renderContent = () => {
     if (stage === 'turnSelect') {
@@ -64,10 +60,11 @@ const SelectRenderContent = ({navigation}) => {
   };
 
   return (
-    <GameTemplate 
-      subtitleText={subtitleText} 
-      loading={loading} 
-      renderContent={renderContent} 
+    <GameTemplate
+      subtitleText={subtitleText}
+      loading={loading}
+      renderContent={renderContent}
+      navigation={navigation}
     />
   );
 };
