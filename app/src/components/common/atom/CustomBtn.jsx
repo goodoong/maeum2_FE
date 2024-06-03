@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomText from './CustomText';
-import {Image, TouchableOpacity, View} from 'react-native';
-import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { moderateScale, scale, verticalScale } from '../../../utils/Scale';
 
 const CustomBtn = ({
   onPress,
@@ -49,6 +49,14 @@ const CustomBtn = ({
     justifyContent: 'center',
     marginTop: scale(12),
     flexDirection: 'row',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   };
 
   return (
