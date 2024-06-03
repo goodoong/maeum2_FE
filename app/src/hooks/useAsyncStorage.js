@@ -19,3 +19,13 @@ export const getItem = async (key) => {
     throw e;
   }
 };
+
+export const removeItem = async (key) => {
+  try {
+    await AsyncStorage.removeItem(key);
+    
+    console.log(`removeItem... ${key}`);
+  } catch (e) {
+    throw e;
+  }
+};

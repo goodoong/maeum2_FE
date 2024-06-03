@@ -43,7 +43,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={'login'}
+        initialRouteName={'main'}
         screenOptions={({route}) => ({
           ...customStackNavigationOptions,
           headerShown: !(
@@ -52,10 +52,11 @@ const StackNavigation = () => {
             route.name === 'splash' ||
             route.name === 'charactername' ||
             route.name === 'tutorial' ||
-            route.name === 'selectscreen'
+            route.name === 'selectscreen' ||
+            route.name === 'sttscreen'
           ),
           cardStyle: {
-            backgroundColor: route.name === 'selectscreen' ? '#f2f7f5' :'white',
+            backgroundColor: route.name === ('selectscreen' && 'sttscreen') ? '#f2f7f5' :'white',
           },
         })}>
         {/* 로그인 페이지 */}
