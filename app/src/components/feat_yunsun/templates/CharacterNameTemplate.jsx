@@ -45,7 +45,9 @@ const CharacterNameTemplate = ({ navigation }) => {
       <CustomContainer className='space-y-4'>
         <CustomText size="md" color="darkgray">앞으로 함께할 친구의</CustomText>
         <CustomText size="md" color="darkgray">이름을 정해주세요!</CustomText>
+        <View style={{width: 500, height: 500}}>
         <Character feelingdata="happy" />
+      </View>
         <CustomInput 
           keyboardType="default"  
           placeholder="친구의 이름을 지어주세요!" 
