@@ -22,7 +22,7 @@ import InformationFixScreen from '../screens/Setting/InformationFixScreen';
 import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 // Game Page
 import STTScreen from '../screens/STTScreen';
-import SelectScreen from '../screens/Game/SelectScreen';
+import GameSelectScreen from '../screens/Game/GameSelectScreen';
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -125,7 +125,7 @@ const StackNavigation = () => {
         </Stack.Screen>
         {/* 게임  정하기 */}
         <Stack.Screen name="selectscreen">
-          {props => <SelectScreen {...props} />}
+          {props => <GameSelectScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
