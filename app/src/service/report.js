@@ -1,8 +1,8 @@
 import { instance } from './instance';
 
-export const chat = async (page) => {
+export const chat = async () => {
   try {
-    const response = await instance.get(`/api/chats?page=${page}&limit=3`);
+    const response = await instance.get('/api/chats');
     if (response.data.success) {
       return response.data.response;
     } else {

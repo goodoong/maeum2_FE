@@ -2,7 +2,7 @@ import {instance} from './instance';
 
 export const testAPI = async () => {
   const response = await instance.get('/api/test');
-  return response.da
+  return response.data;
 };
 
 // 카카오에서 발급 받은 인가코드를 담아서 post

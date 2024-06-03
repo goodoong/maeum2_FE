@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, View, FlatList, ActivityIndicator } from 'react-native';
+import { TouchableOpacity, View, FlatList, ActivityIndicator, Text } from 'react-native';
 import { scale } from '../../../utils/Scale';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
@@ -16,6 +16,7 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
   const [gameData, setGameData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [hasMoreData, setHasMoreData] = useState(true);
 
   const handlePress = (report) => {
     setVisibleReport(report);
@@ -26,10 +27,16 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
   };
 
   const loadGameData = async (page) => {
+    if (!hasMoreData) return;
+    
     setLoading(true);
     try {
       const newData = await chat(page);
-      setGameData((prevData) => [...prevData, ...newData]);
+      if (newData.length === 0) {
+        setHasMoreData(false);
+      } else {
+        setGameData((prevData) => [...prevData, ...newData]);
+      }
     } catch (error) {
       console.error('Error fetching game data:', error);
     } finally {
@@ -42,7 +49,9 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
   }, [page]);
 
   const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
+    if (hasMoreData && !loading) {
+      setPage((prevPage) => prevPage + 1);
+    }
   };
 
   const renderGameReport = ({ item }) => <GameReport navigation={navigation} data={item} />;
@@ -53,7 +62,7 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
       <ReportProfile />
       {/* 점선 */}
       <Box style={{ borderWidth: 1, borderStyle: 'dashed', borderColor: '#E0E1E9', width: '95%', marginVertical: scale(10) }} />
-      <Box className="flex flex-row w-full space-x-24" style={{ paddingLeft: scale(40) }}>
+      <Box className="flex flex-row w-full space-x-24" style={{ paddingLeft: scale(60) }}>
         <TouchableOpacity onPress={() => handlePress('game')}>
           <CustomText size="md">게임 기록</CustomText>
           {visibleReport === 'game' && (
@@ -75,6 +84,10 @@ const ReportTemplate = ({ navigation, data, onSubmit, renderItem }) => {
           onEndReached={handleLoadMore}
           onEndReachedThreshold={0.5}
           ListFooterComponent={loading ? <ActivityIndicator size="large" color="#0000ff" /> : null}
+          ListEmptyComponent={!loading &&  
+          <Box className="justify-center items-center"style={{ marginTop: scale(40) }}>
+          <CustomText size="lg">게임기록이 없습니다</CustomText>
+           </Box>}
         />
       )}
       {visibleReport === 'focus' && <FocusReport />}
