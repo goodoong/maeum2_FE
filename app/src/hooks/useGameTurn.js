@@ -6,10 +6,10 @@ const useGameTurn = () => {
 
   const sendRequest = async (user_input) => {
     if (turn === 'AIturn') {
-      return await AIturn(user_input);
+      return await AIturn({ user_input });
     }
     if (turn === 'childturn') {
-      return await childturn(user_input);
+      return await childturn({ user_input });
     }
     throw new Error('Turn value is not set or is invalid');
   };

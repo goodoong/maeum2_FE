@@ -4,6 +4,8 @@ import CustomText from "../../common/atom/CustomText";
 import InformationForm from "../molecules/InformationForm";
 import { scale } from "../../../utils/Scale";
 import { mypage } from "../../../service/setting";
+import Loading from "../../common/atom/Loading";
+
 
 const renderItem = ({ item }) => (
   <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: scale(12), backgroundColor: item.color }}>
@@ -33,7 +35,7 @@ const InformationTemplate = ({ navigation }) => {
   };
 
   if (!data) {
-    return <CustomText>Loading...</CustomText>; // 데이터를 불러오기 전 로딩 상태 표시
+    return  <Loading width={100} height={100} loop={true} />; // 데이터를 불러오기 전 로딩 상태 표시
   }
 
   return (
