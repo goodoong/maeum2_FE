@@ -1,7 +1,8 @@
 import React from 'react';
+import {Image, TouchableOpacity, View} from 'react-native';
 import CustomText from './CustomText';
-import { Image, TouchableOpacity, View } from 'react-native';
-import { moderateScale, scale, verticalScale } from '../../../utils/Scale';
+import Loading from './Loading';
+import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
 const CustomBtn = ({
   onPress,
@@ -12,6 +13,7 @@ const CustomBtn = ({
   borderWidth,
   borderColor,
   img,
+  isLoading,
 }) => {
   const buttonStyle = {
     width:
@@ -60,9 +62,18 @@ const CustomBtn = ({
   };
 
   return (
-    <TouchableOpacity style={buttonStyle} onPress={onPress}>
-      {img && <Image source={img} />}
-      <CustomText style="btntxt">{title}</CustomText>
+    <TouchableOpacity
+      style={buttonStyle}
+      onPress={onPress}
+      disabled={isLoading}>
+      {isLoading ? (
+        <Loading width={100} height={100} loop={true} />
+      ) : (
+        <>
+          {img && <Image source={img} />}
+          <CustomText style="btntxt">{title}</CustomText>
+        </>
+      )}
     </TouchableOpacity>
   );
 };

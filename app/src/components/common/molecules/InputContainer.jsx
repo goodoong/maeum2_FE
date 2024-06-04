@@ -1,16 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import CustomInput from '../atom/CustomInput';
-import { styled } from 'nativewind';
+import {styled} from 'nativewind';
 
-const InputGroup = styled(View)
+const InputGroup = styled(View);
 
-const InputContainer = ({ inputs, control, register }) => {
+const InputContainer = ({inputs, control, register}) => {
   return (
-    <InputGroup className='flex flex-col'>
+    <InputGroup className="flex flex-col">
       {inputs.map((input, index) => (
-          <InputGroup className='flex flex-col'
-          key={index}>
+        <InputGroup className="flex flex-col" key={index}>
           <CustomInput
             control={control}
             name={input.name}
@@ -19,6 +18,7 @@ const InputContainer = ({ inputs, control, register }) => {
             autoFocus={input.autoFocus}
             defaultValue={input.defaultValue}
             register={register}
+            keyboardType={input.keyboardType}
           />
         </InputGroup>
       ))}

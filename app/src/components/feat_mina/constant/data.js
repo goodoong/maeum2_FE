@@ -1,3 +1,5 @@
+import {Keyboard} from 'react-native';
+
 // 설정 페이지 EndPoint
 export const settingList1 = [
   {key: '도움말', icon: 'help', screen: 'tutorial'},
@@ -27,11 +29,13 @@ export const guardianInfoValidation = [
     placeholder: '이메일을 입력해주세요.',
     Regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     errormsg: '올바른 이메일 주소를 입력해주세요.',
+    keyboardType: 'default',
   },
   {
     key: 'phone_number',
     placeholder: '전화 번호를 입력해주세요.',
     Regex: /^\d{11}$/,
     errormsg: '특수문자 제외, 숫자 11자리로 입력해주세요.',
+    keyboardType: 'numeric',
   },
 ];
