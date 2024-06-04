@@ -15,7 +15,7 @@ const GameReport = ({ navigation, date, time }) => {
   };
 
   return (
-    <Box className="flex flex-col content-center space-y-4" style={{ width: '95%', height: '50%' }}>
+    <Box className="flex flex-col content-center space-y-4" style={{ width: '95%' }}>
       {/* 날짜 */}
       <CustomText size='md'>{date}</CustomText>
 
@@ -30,7 +30,7 @@ const GameReport = ({ navigation, date, time }) => {
         <CustomText size='sm'>마음이가 3번 만에 답을 맞췄어요.</CustomText>
         <CustomBtn size='xs' color='buttonwhite' borderColor='yellow' borderWidth='true' title='상세보기' onPress={moveHistoryScreen} />
       </Box>
-      <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#E0E1E9', width: '95%' }} />
+      <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#E0E1E9', width: '95%', marginBottom:scale(15) }} />
     </Box>
   );
 };
