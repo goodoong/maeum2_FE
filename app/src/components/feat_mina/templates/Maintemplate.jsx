@@ -20,7 +20,7 @@ const Maintemplate = ({route, navigation, appState}) => {
     const checkToken = async () => {
       const token = await getItem('token');
       if (!token) {
-        navigation.replace('login');
+        navigation.replace('splash');
       }
     };
 
