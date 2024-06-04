@@ -6,7 +6,7 @@ import { styled } from "nativewind";
 
 const Box = styled(View)
 
-const Loading = ({width, height, loop, onAnimationFinish }) => {
+const BtnLoading = ({width, height, loop, onAnimationFinish }) => {
     return (
      <Box className="w-full flex jusify-center items-center">
         <LottieView
@@ -14,7 +14,7 @@ const Loading = ({width, height, loop, onAnimationFinish }) => {
                 width: moderateScale(width,0.3),
                 height: moderateScale(height),
             }}
-            source={require('../../../assets/lottie/loading.json')}
+            source={require('../../../assets/lottie/buttonloading.json')}
             autoPlay
             loop={loop}
             onAnimationFinish={onAnimationFinish}
@@ -22,4 +22,4 @@ const Loading = ({width, height, loop, onAnimationFinish }) => {
     </Box>
     );
 };
-export default Loading;
+export default BtnLoading;
