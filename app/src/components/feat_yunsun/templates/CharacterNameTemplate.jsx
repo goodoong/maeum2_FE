@@ -11,6 +11,7 @@ import Character from '../../common/molecules/Character';
 import { charactername } from '../../../service/user';
 
 const CustomContainer = styled(ScrollContainer);
+const Header = styled(View)
 
 const CharacterNameTemplate = ({ navigation }) => {
   const {
@@ -43,9 +44,11 @@ const CharacterNameTemplate = ({ navigation }) => {
   return (
     <>
       <CustomContainer className='space-y-4'>
-        <CustomText size="md" color="darkgray">앞으로 함께할 친구의</CustomText>
-        <CustomText size="md" color="darkgray">이름을 정해주세요!</CustomText>
-        <View style={{width: 500, height: 500}}>
+        <Header className='mt-20 flex justify-center items-center'>
+         <CustomText size="lg" color="btntxt">앞으로 함께할 친구의</CustomText>
+         <CustomText size="lg" color="btntxt">이름을 정해주세요!</CustomText>
+        </Header>
+        <View style={{width: 500, height: 450}}>
         <Character feelingdata="happy" />
       </View>
         <CustomInput 

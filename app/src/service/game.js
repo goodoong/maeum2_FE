@@ -1,7 +1,7 @@
 import { instance } from "./instance";
 
 
-// 아이가 맞출 때 
+// 아이가 맞출 때   
 export const childturn = async (user_input) => {
     try {
       const response = await instance.post('/api/main/gpt1', user_input);
