@@ -3,13 +3,13 @@ import { View, Button } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import GameTemplate from './GameTemplate';
 import CustomText from '../../common/atom/CustomText';
-import { fetchTTS,playSound } from '../../../service/tts';
+import useTTS from '../../../hooks/useTTS';
 
 const GameRenderContent = ({ navigation }) => {
   const route = useRoute();
   const { message } = route.params;
   const [subtitle, setSubtitle] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { loading, handleTTS } = useTTS(); // useTTS 훅 사용
 
   useEffect(() => {
     if (message) {
@@ -17,18 +17,6 @@ const GameRenderContent = ({ navigation }) => {
       handleTTS(message);
     }
   }, [message]);
-
-  const handleTTS = async text => {
-    setLoading(true);
-    try {
-      const filePath = await fetchTTS(text);
-      playSound(filePath);
-    } catch (error) {
-      console.error('TTS 처리 오류:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const renderContent = () => (
     <View>
