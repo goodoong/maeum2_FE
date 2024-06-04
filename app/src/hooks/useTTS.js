@@ -23,7 +23,7 @@ const useTTS = () => {
     }
   };
 
-  return { loading, setLoading, handleTTS };
+  return { loading, handleTTS };
 };
 
 export default useTTS;

@@ -32,7 +32,7 @@ export const fetchTTS = async text => {
   }
 };
 
-export const playSound = filePath => {
+export const playSound = (filePath, callback) => {
   const sound = new Sound(filePath, '', error => {
     if (error) {
       console.error('음성 파일 재생 오류:', error);
@@ -40,6 +40,9 @@ export const playSound = filePath => {
     }
     sound.play(() => {
       sound.release();
+      if (callback) {
+        callback();
+      }
     });
   });
 };
