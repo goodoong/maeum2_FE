@@ -14,7 +14,7 @@ const Loading = ({width, height, loop, onAnimationFinish }) => {
                 width: moderateScale(width,0.3),
                 height: moderateScale(height),
             }}
-            source={require('../../../assets/lottie/loading.json')}
+            source={require('../../../assets/lottie/buttonloading.json')}
             autoPlay
             loop={loop}
             onAnimationFinish={onAnimationFinish}
