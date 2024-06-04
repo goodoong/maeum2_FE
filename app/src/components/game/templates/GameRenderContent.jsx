@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {View, Button} from 'react-native';
-import {useRoute} from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, Button } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 import GameTemplate from './GameTemplate';
 import CustomText from '../../common/atom/CustomText';
-import {fetchTTS, playSound} from '../../../service/tts';
+import { fetchTTS,playSound } from '../../../service/tts';
 
-const GameRenderContent = ({navigation}) => {
+const GameRenderContent = ({ navigation }) => {
   const route = useRoute();
-  const {message} = route.params;
+  const { message } = route.params;
   const [subtitle, setSubtitle] = useState('');
   const [loading, setLoading] = useState(false);
 

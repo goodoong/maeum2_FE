@@ -29,24 +29,24 @@ const WebViewScreen = ({route, navigation}) => {
               console.log('User is already a member, navigating to main.');
 
               // 응답 헤더에서 토큰 추출
-              const headers = response.headers;
-              console.log('Response Headers:', headers); // 헤더 로그 출력
-              const token = headers && headers.authorization;
+              // const headers = response.headers;
+              // console.log('Response Headers:', headers); // 헤더 로그 출력
+              // const token = headers && headers.authorization;
 
-              if (token) {
-                // Bearer 접두어 제거
-                const tokenValue = token.startsWith('Bearer ')
-                  ? token.slice(7)
-                  : token;
-                // 토큰을 AsyncStorage에 저장
-                await setItem('token', tokenValue);
-                console.log(`Token saved: ${tokenValue}`);
-                // 토큰 저장 후 홈 화면으로 리다이렉트
+              // if (token) {
+              //   // Bearer 접두어 제거
+              //   const tokenValue = token.startsWith('Bearer ')
+              //     ? token.slice(7)
+              //     : token;
+              //   // 토큰을 AsyncStorage에 저장
+              //   await setItem('token', tokenValue);
+              //   console.log(`Token saved: ${tokenValue}`);
+              //   // 토큰 저장 후 홈 화면으로 리다이렉트
                 navigation.navigate('main');
-              } else {
-                console.error('Token is missing in the response headers');
-                Alert.alert('Error', '로그인 실패했습니다. 다시 시도해주세요.');
-              }
+              // } else {
+              //   console.error('Token is missing in the response headers');
+              //   Alert.alert('Error', '로그인 실패했습니다. 다시 시도해주세요.');
+              // }
             } else {
               console.log('User is not a member, navigating to signup.');
               dispatch(setTempId(response.response.member_id));
