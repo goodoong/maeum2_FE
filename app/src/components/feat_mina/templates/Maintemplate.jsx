@@ -8,10 +8,25 @@ import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Mainorganism from '../organism/Mainorganism';
 import Character from '../../common/molecules/Character';
+import {getItem} from '../../../hooks/useAsyncStorage';
+import CustomModal from '../../common/atom/CustomModal';
 
 const Header = styled(View);
 
 const Maintemplate = ({route, navigation, appState}) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = await getItem('token');
+      if (!token) {
+        navigation.replace('login');
+      }
+    };
+
+    checkToken();
+  }, []);
+
   const moveSettingScreen = () => {
     navigation.push('setting');
   };
