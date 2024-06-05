@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {View, Button, Text, StyleSheet} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Button, Text, StyleSheet } from 'react-native';
 import Voice from '@react-native-voice/voice';
 
-
-const STTScreen = () => {
+const STTScreen = ({ onSpeechResult }) => {
   const [isRecord, setIsRecord] = useState(false);
   const [text, setText] = useState('');
   const buttonLabel = isRecord ? 'Stop' : 'Start';
@@ -12,7 +11,6 @@ const STTScreen = () => {
     : isRecord
     ? 'Say something...'
     : 'Press Start button';
-    
 
   const _onSpeechStart = () => {
     console.log('onSpeechStart');
@@ -23,27 +21,29 @@ const STTScreen = () => {
     console.log('onSpeechEnd');
   };
 
-  const _onSpeechResults = event => {
+  const _onSpeechResults = (event) => {
     console.log('onSpeechResults');
     const spokenText = event.value[0];
     console.log('Recognized text:', spokenText); // 인식된 텍스트를 콘솔에 출력
     setText(spokenText);
+    if (onSpeechResult) {
+      onSpeechResult(spokenText);
+    }
   };
 
-  const _onSpeechError = event => {
+  const _onSpeechError = (event) => {
     console.log('_onSpeechError');
     console.log(event.error);
   };
 
   const _onRecordVoice = () => {
     if (isRecord) {
-       Voice.stop();
+      Voice.stop();
     } else {
       Voice.start('ko-KR');
     }
-     setIsRecord(!isRecord);
+    setIsRecord(!isRecord);
   };
-
 
   useEffect(() => {
     Voice.onSpeechStart = _onSpeechStart;
@@ -57,23 +57,11 @@ const STTScreen = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.voiceText}>{voiceLabel}</Text>
+    <View>
+      <Text>{voiceLabel}</Text>
       <Button onPress={_onRecordVoice} title={buttonLabel} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5fcff',
-  },
-  voiceText: {
-    margin: 32,
-  },
-});
 
 export default STTScreen;
