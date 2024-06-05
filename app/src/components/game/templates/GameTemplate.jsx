@@ -5,7 +5,7 @@ import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Character from '../../common/molecules/Character';
 import CustomText from '../../common/atom/CustomText';
-import { moderateScale, scale } from '../../../utils/Scale';
+import { moderateScale, scale, verticalScale } from '../../../utils/Scale';
 import Loading from '../../common/atom/Loading';
 import CustomModal from '../../common/atom/CustomModal';
 import { gamequit } from '../../../service/game';
@@ -60,7 +60,7 @@ const GameTemplate = ({ subtitleText, loading, renderContent, navigation }) => {
         className="justify-center items-center rounded-lg bg-subtitle">
         <CustomText>{subtitleText}</CustomText>
       </Subtitle>
-      <View style={{ width: 500, height: 450 }}>
+      <View style={{width: moderateScale(500, 0.3), height: verticalScale(350)}}>
         <Character feelingdata="default" />
       </View>
       {loading ? 
