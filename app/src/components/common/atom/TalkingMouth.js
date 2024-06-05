@@ -8,7 +8,7 @@ const Box = styled(View)
 
 const TalkingMouth = ({width, height, loop, onAnimationFinish }) => {
     return (
-     <Box className="w-full flex jusify-center items-center" style={{position:'absolute',  top: moderateScale(150, -0.1), left:moderateScale(14, 0.2)}}>
+     <Box className="w-full flex jusify-center items-center" style={{position:'absolute',  top: moderateScale(150, -0.1), left:moderateScale(15, 0.2)}}>
         <LottieView
             style={{
                 width: moderateScale(width,0.1),
