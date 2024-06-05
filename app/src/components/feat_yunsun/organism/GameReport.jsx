@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { View } from 'react-native';
 import { styled } from 'nativewind';
@@ -9,7 +8,7 @@ import { scale } from '../../../utils/Scale';
 
 const Box = styled(View);
 
-const GameReport = ({ navigation, date, time }) => {
+const GameReport = ({ navigation, date, time, issolved }) => {
   const moveHistoryScreen = () => {
     navigation.push('history');
   };
@@ -21,8 +20,11 @@ const GameReport = ({ navigation, date, time }) => {
 
       <Box className="flex flex-row w-full justify-between">
         {/* 결과 */}
-        <GameResultText color='green' title={'성공'} />
-        {/* <GameResultText color='pink' title={'실패'}/> */}
+        {issolved ? (
+          <GameResultText color='green' title={'성공'} />
+        ) : (
+          <GameResultText color='pink' title={'실패'} />
+        )}
         {/* 시간 */}
         <CustomText size='sm' color='darkgray'>{time}</CustomText>
       </Box>
