@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import TurnSelect from '../organisms/TurnSelect';
 import SubjectSelect from '../organisms/SubjectSelect';
 import GameTemplate from './GameTemplate';
@@ -12,9 +12,11 @@ const SelectRenderContent = ({ navigation }) => {
     loading,
     handleButtonPress,
     handleSubjectPress,
+    feelingData: initialFeelingData,
   } = useGameSelectHandler(navigation);
   const { loading: ttsLoading, handleTTS } = useTTS();
   const prevSubtitleText = useRef();
+  const [feelingData, setFeelingData] = useState(initialFeelingData);
 
   useEffect(() => {
     if (subtitleText && subtitleText !== prevSubtitleText.current) {
@@ -22,6 +24,14 @@ const SelectRenderContent = ({ navigation }) => {
       prevSubtitleText.current = subtitleText;
     }
   }, [subtitleText, handleTTS]);
+
+  useEffect(() => {
+    if (ttsLoading) {
+      setFeelingData('talkingmouth'); 
+    } else {
+      setFeelingData(initialFeelingData); 
+    }
+  }, [ttsLoading, initialFeelingData]);
 
   const renderContent = () => {
     if (stage === 'turnSelect') {
@@ -38,6 +48,7 @@ const SelectRenderContent = ({ navigation }) => {
       loading={loading || ttsLoading}
       renderContent={renderContent}
       navigation={navigation}
+      feelingData={feelingData} // 수정된 feelingData 전달
     />
   );
 };

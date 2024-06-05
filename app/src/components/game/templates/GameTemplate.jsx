@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { styled } from 'nativewind';
 import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBtn from '../../common/atom/CustomBtn';
@@ -13,13 +13,12 @@ import { gamequit } from '../../../service/game';
 const Header = styled(View);
 const Subtitle = styled(View);
 
-const GameTemplate = ({ subtitleText, loading, renderContent, navigation }) => {
+const GameTemplate = ({ subtitleText, loading, renderContent, navigation, feelingData }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleQuitPress = () => {
     setModalVisible(true);
   };
-
 
   const handleConfirmQuit = async () => {
     try {
@@ -60,13 +59,14 @@ const GameTemplate = ({ subtitleText, loading, renderContent, navigation }) => {
         className="justify-center items-center rounded-lg bg-subtitle">
         <CustomText>{subtitleText}</CustomText>
       </Subtitle>
-      <View style={{width: moderateScale(500, 0.3), height: verticalScale(350)}}>
-        <Character feelingdata="default" />
+      <View style={{ width: moderateScale(500, 0.3), height: verticalScale(350) }}>
+        <Character feelingdata={feelingData}/>
       </View>
-      {loading ? 
-        <Loading width={100} height={100} loop={true} /> 
-        : renderContent()
-      }
+      {loading ? (
+        <Loading width={100} height={100} loop={true} />
+      ) : (
+        renderContent()
+      )}
       <CustomModal 
         modalVisible={modalVisible} 
         setModalVisible={setModalVisible} 

@@ -10,6 +10,7 @@ const GameRenderContent = ({ navigation }) => {
   const route = useRoute();
   const { message } = route.params;
   const [subtitle, setSubtitle] = useState('');
+  const [feelingStatus, setFeelingStatus] = useState('default'); 
   const [initialMessageSpoken, setInitialMessageSpoken] = useState(false);
   const { loading, handleTTS } = useTTS();
   const { sendRequest } = useGameTurn();
@@ -22,10 +23,21 @@ const GameRenderContent = ({ navigation }) => {
     }
   }, [message, initialMessageSpoken, handleTTS]);
 
+  useEffect(() => {
+    if (loading) {
+      setFeelingStatus('talkingmouth');
+    } else {
+      setFeelingStatus('default');
+    }
+  }, [loading]);
+
   const mutation = useMutation({
     mutationFn: sendRequest,
     onSuccess: (response) => {
       const receivedMessage = response.data.response[0].message;
+      const feelingStatus = response.data.response[0].status; 
+      console.log(feelingStatus);
+      setFeelingStatus(feelingStatus); 
       setSubtitle(receivedMessage);
       handleTTS(receivedMessage);
     },
@@ -49,6 +61,7 @@ const GameRenderContent = ({ navigation }) => {
       loading={loading || mutation.isLoading}
       renderContent={renderContent}
       navigation={navigation}
+      feelingData={feelingStatus} 
     />
   );
 };
