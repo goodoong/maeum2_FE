@@ -42,7 +42,7 @@ const ReportTemplate = ({ navigation }) => {
     if (!item) {
       return null;
     }
-    return <GameReport navigation={navigation} date={item.date} time={item.time} />;
+    return <GameReport navigation={navigation} date={item.date} time={item.time} issolved={item.isSolved} />;
   };
 
   return (
