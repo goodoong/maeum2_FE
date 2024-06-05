@@ -9,6 +9,7 @@ import CustomInput from '../../common/atom/CustomInput';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Character from '../../common/molecules/Character';
 import { charactername } from '../../../service/user';
+import { moderateScale, verticalScale, scale } from '../../../utils/Scale';
 
 const CustomContainer = styled(ScrollContainer);
 const Header = styled(View)
@@ -48,7 +49,7 @@ const CharacterNameTemplate = ({ navigation }) => {
          <CustomText size="lg" color="btntxt">앞으로 함께할 친구의</CustomText>
          <CustomText size="lg" color="btntxt">이름을 정해주세요!</CustomText>
         </Header>
-        <View style={{width: 500, height: 450}}>
+        <View style={{width: moderateScale(500, 0.3), height: verticalScale(350), marginBottom: scale(10)}}>
         <Character feelingdata="happy" />
       </View>
         <CustomInput 

@@ -34,7 +34,7 @@ const MainOrganism = () => {
 
   return (
     <Body
-      className="w-full flex-col space-y-4"
+      className="w-full flex-col space-y-2"
       style={{paddingLeft: scale(20)}}>
       {/* 메시지 값을 서버에서 전달 받아서 출력 */}
       <CustomTitle color="pink">{child_first_name}(이)아!</CustomTitle>
