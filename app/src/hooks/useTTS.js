@@ -5,8 +5,14 @@ const useTTS = () => {
   const [loading, setLoading] = useState(false);
 
   const handleTTS = async (text, callback) => {
+    if (loading) {
+      console.warn('이미 TTS 요청이 진행 중입니다. 새로운 요청은 무시됩니다.');
+      return;
+    }
+
     setLoading(true);
-    console.log('TTS 요청 중:', text);
+    console.log('TTS 요청 시작:', text);
+
     try {
       const filePath = await fetchTTS(text);
       console.log('TTS 요청 성공:', filePath);
