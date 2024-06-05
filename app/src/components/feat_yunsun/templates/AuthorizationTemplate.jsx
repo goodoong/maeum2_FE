@@ -13,7 +13,7 @@ const Box = styled(ScrollContainer);
 const AuthorizationTemplate = ({ route, navigation }) => {
   const phone_number = useSelector(state => state.templateUser.phone_number);
   const [loading, setLoading] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60); // 5분(300초)
+  const [timeLeft, setTimeLeft] = useState(300); // 5분(300초)
   const timerRef = useRef(null);
 
   const onSubmit = async data => {
