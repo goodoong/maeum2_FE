@@ -32,7 +32,7 @@ const GameReport = ({ navigation, date, time, issolved }) => {
         <CustomText size='sm'>마음이가 3번 만에 답을 맞췄어요.</CustomText>
         <CustomBtn size='xs' color='buttonwhite' borderColor='yellow' borderWidth='true' title='상세보기' onPress={moveHistoryScreen} />
       </Box>
-      <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#E0E1E9', width: '95%', marginBottom:scale(15) }} />
+      <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#E0E1E9', width: '95%', marginBottom: scale(15) }} />
     </Box>
   );
 };
