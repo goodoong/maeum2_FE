@@ -18,16 +18,16 @@ const AccountBtnBox = () => {
       borderWidth: true,
       img: require('./../../../assets/Images/Kakaotalk.png'),
     },
-    {
-      onPress: () => moveExternalPage('https://accounts.google.com/o/oauth2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=http://localhost:8081/google/callback&response_type=code&scope=email profile'),
-      size: 'lg',
-      color: 'buttonwhite',
-      rounded: true,
-      title: '구글 로그인',
-      borderColor: 'lightgray',
-      borderWidth: true,
-      img: require('./../../../assets/Images/Google.png'),
-    },
+    // {
+    //   onPress: () => moveExternalPage('https://accounts.google.com/o/oauth2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=http://localhost:8081/google/callback&response_type=code&scope=email profile'),
+    //   size: 'lg',
+    //   color: 'buttonwhite',
+    //   rounded: true,
+    //   title: '구글 로그인',
+    //   borderColor: 'lightgray',
+    //   borderWidth: true,
+    //   img: require('./../../../assets/Images/Google.png'),
+    // },
   ];
 
   return (
