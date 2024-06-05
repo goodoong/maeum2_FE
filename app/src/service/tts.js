@@ -1,9 +1,10 @@
 import axios from 'axios';
 import RNFetchBlob from 'rn-fetch-blob';
 import Sound from 'react-native-sound';
+import { Buffer } from 'buffer';  
 
-const client_id = 'p221ur7s4g';
-const client_secret = 'XTmLj6RH74z4ntFl3xQN6H704ZtWkSKpn4SWr2Uv';
+const client_id = '8u4w2u7a7z';
+const client_secret = '9BIktbjuXq8YLz3I7ddg1PMs7VfOUdVu0By49ji2';
 
 export const fetchTTS = async text => {
   const api_url = 'https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts';
@@ -15,21 +16,15 @@ export const fetchTTS = async text => {
       'X-NCP-APIGW-API-KEY': client_secret,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    data: {
-      speaker: 'nara',
-      volume: '0',
-      speed: '0',
-      pitch: '0',
-      text,
-      format: 'mp3',
-    },
+    data: `speaker=ndain&volume=5&speed=0&pitch=0&text=${encodeURIComponent(text)}&format=mp3`,
     responseType: 'arraybuffer',
   };
 
   try {
     const response = await axios(options);
+    const base64String = Buffer.from(response.data, 'binary').toString('base64');
     const filePath = `${RNFetchBlob.fs.dirs.DocumentDir}/tts.mp3`;
-    await RNFetchBlob.fs.writeFile(filePath, response.data, 'base64');
+    await RNFetchBlob.fs.writeFile(filePath, base64String, 'base64');
     return filePath;
   } catch (error) {
     console.error('TTS 요청 오류:', error);
@@ -37,7 +32,7 @@ export const fetchTTS = async text => {
   }
 };
 
-export const playSound = filePath => {
+export const playSound = (filePath, callback) => {
   const sound = new Sound(filePath, '', error => {
     if (error) {
       console.error('음성 파일 재생 오류:', error);
@@ -45,6 +40,9 @@ export const playSound = filePath => {
     }
     sound.play(() => {
       sound.release();
+      if (callback) {
+        callback();
+      }
     });
   });
 };
