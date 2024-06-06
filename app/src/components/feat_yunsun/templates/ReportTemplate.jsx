@@ -10,14 +10,14 @@ import FocusReport from '../organism/FocusReport';
 import ReportProfile from '../organism/ReportProfile';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import Loading from '../../common/atom/Loading';
-import useFetchReport from '../../../hooks/useFetchReport';
+import useFetchSetting from '../../../hooks/useFetchSetting';
 import { chat } from '../../../service/report';
 
 const Box = styled(View);
 
 const ReportTemplate = ({ navigation }) => {
   const [visibleReport, setVisibleReport] = useState('game');
-  const { reportdata, loading } = useFetchReport();
+  const { data:reportdata, loading } = useFetchSetting();
   const {
     data,
     error,
