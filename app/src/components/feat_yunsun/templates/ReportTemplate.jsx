@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, View, FlatList, ActivityIndicator } from 'react-native';
-import { scale } from '../../../utils/Scale';
+import { moderateScale, scale } from '../../../utils/Scale';
+import ScrollContainer from '../../common/atom/ScrollContainer';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
 import CustomTitle from '../../common/atom/CustomTitle';
@@ -54,13 +55,14 @@ const ReportTemplate = ({ navigation }) => {
   }
 
   return (
-    <Box className="flex-1" style={{ paddingLeft: scale(20), paddingRight: scale(20) }}>
+    <ScrollContainer>
+      <Box className='w-full flex' style={{ padding: scale(6) }}>
       <CustomTitle>발전 상황 리포트</CustomTitle>
       {/* 아이 프로필 */}
       <ReportProfile reportdata={reportdata} />
-
+      </Box>
       <Box style={{ borderWidth: 1, borderStyle: 'dashed', borderColor: '#E0E1E9', width: '100%', marginVertical: scale(10) }} />
-      <Box className="flex flex-row w-full space-x-24" style={{ paddingLeft: scale(60), marginBottom: scale(20) }}>
+      <Box className="flex flex-row justify-between" style={{ width:moderateScale(250,0.3),marginBottom: scale(20) }}>
 
         <TouchableOpacity onPress={() => handlePress('game')}>
           <CustomText size="md">게임 기록</CustomText>
@@ -104,7 +106,7 @@ const ReportTemplate = ({ navigation }) => {
         </>
       )}
       {visibleReport === 'focus' && <FocusReport solvedRate={solvedRate} />}
-    </Box>
+    </ScrollContainer>
   );
 };
 

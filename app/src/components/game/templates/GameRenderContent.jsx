@@ -46,15 +46,16 @@ const GameRenderContent = ({ navigation }) => {
       if (isSolved && isEnd) {
         gameWinMutation.mutate(); // 성공 API 호출
         setModalContent('게임이 종료되었어요! 계속하시겠습니까?');
-        setModalVisible(true); // 모달 보이기
+        setModalVisible(true); // 음성 출력이 끝나고 모달 보이기
       } else if (!isSolved && isEnd) {
         gameLoseMutation.mutate(); // 실패 API 호출
         setModalContent('게임이 종료되었어요! 계속하시겠습니까?');
-        setModalVisible(true); // 모달 보이기
+        setModalVisible(true); // 음성 출력이 끝나고 모달 보이기
       }
     },
     onError: (error) => {
       console.error('Error sending request:', error);
+      //  에러 메세지 출력 
       setFeelingStatus('sad');
     },
   });

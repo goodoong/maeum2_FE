@@ -37,15 +37,7 @@ const AuthorizationForm = ({ onSubmit, loading, timeLeft }) => {
         onPress={handleSubmit(onSubmit)}
         isLoading={loading}
       />
-      <CustomBtn
-        size="lg"
-        color="buttonwhite"
-        rounded={true}
-        title="인증번호 다시받기"
-        borderColor={true}
-        borderWidth={true}
-      // 여기에 재전송 로직 추가
-      />
+     
     </Form>
   );
 };
