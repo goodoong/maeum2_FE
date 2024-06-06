@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import CustomText from "../../common/atom/CustomText";
 import InformationForm from "../molecules/InformationForm";
 import { scale } from "../../../utils/Scale";
@@ -31,7 +31,8 @@ const InformationTemplate = ({ navigation }) => {
   }, []);
 
   const moveInformationFixScreen = () => {
-    navigation.navigate('infofix');
+   navigation.navigate('infofix');
+   //Alert.alert("아직 개발중인 기능입니다. ")
   };
 
   if (!data) {

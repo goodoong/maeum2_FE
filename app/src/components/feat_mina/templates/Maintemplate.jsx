@@ -17,16 +17,16 @@ const Header = styled(View);
 const Maintemplate = ({route, navigation, appState}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  // useEffect(() => {
-  //   const checkToken = async () => {
-  //     const token = await getItem('token');
-  //     if (!token) {
-  //       navigation.replace('splash');
-  //     }
-  //   };
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = await getItem('token');
+      if (!token) {
+        navigation.replace('splash');
+      }
+    };
 
-  //   checkToken();
-  // }, []);
+    checkToken();
+  }, []);
 
   const moveSettingScreen = () => {
     navigation.push('setting');
