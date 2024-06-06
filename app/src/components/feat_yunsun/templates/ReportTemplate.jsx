@@ -16,7 +16,7 @@ const Box = styled(View);
 
 const ReportTemplate = ({ navigation }) => {
   const [visibleReport, setVisibleReport] = useState('game');
-  const {reportdata, loading} = useFetchReport();
+  const { reportdata, loading } = useFetchReport();
   const {
     data,
     error,
