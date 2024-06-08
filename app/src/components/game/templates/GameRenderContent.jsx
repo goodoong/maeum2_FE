@@ -6,7 +6,8 @@ import useTTS from '../../../hooks/useTTS';
 import STTScreen from '../../../screens/STTScreen';
 import useGameTurn from '../../../hooks/useGameTurn';
 import useGameResult from '../../../hooks/useGameResult';
-import CustomModal from '../../common/atom/CustomModal';
+import useModal from '../../../hooks/useModal';
+import { useSelector } from 'react-redux';
 
 const GameRenderContent = ({ navigation }) => {
   const route = useRoute();
@@ -15,16 +16,16 @@ const GameRenderContent = ({ navigation }) => {
   const [feelingStatus, setFeelingStatus] = useState('default');
   const [initialMessageSpoken, setInitialMessageSpoken] = useState(false);
   const [chance, setChance] = useState(5);
-  const [modalVisible, setModalVisible] = useState(false); 
-  const [modalContent, setModalContent] = useState(''); 
+  const { showModal, hideModal, ModalComponent } = useModal(); // Use useModal hook
   const { loading: ttsLoading, handleTTS } = useTTS();
   const { sendRequest } = useGameTurn(); 
-  const { gameWinMutation, gameLoseMutation } = useGameResult();
+  const { gameWinMutation, gameLoseMutation, gameAIMutation} = useGameResult();
+  const turn = useSelector((state) => state.templateTurn.tempTurn);
 
   useEffect(() => {
     if (message && !initialMessageSpoken) {
-      setSubtitle(message);
-      handleTTS(message);
+      setSubtitle(message.replace(/:/g, '!'));
+      handleTTS(message.replace(/:/g, '!'));
       setInitialMessageSpoken(true);
     }
   }, [message, initialMessageSpoken, handleTTS]);
@@ -39,34 +40,58 @@ const GameRenderContent = ({ navigation }) => {
       const isEnd = response.data.response[0].is_end;
       
       setChance(chance);
-      setSubtitle(receivedMessage);
+      setSubtitle(receivedMessage.replace(/:/g, '!'));
       setFeelingStatus(receivedStatus);
-      handleTTS(receivedMessage);
+      handleTTS(receivedMessage.replace(/:/g, '!'));
 
-      if (isSolved && isEnd) {
-        gameWinMutation.mutate(); // 성공 API 호출
-        setModalContent('게임이 종료되었어요! 계속하시겠습니까?');
-        setModalVisible(true); // 음성 출력이 끝나고 모달 보이기
-      } else if (!isSolved && isEnd) {
-        gameLoseMutation.mutate(); // 실패 API 호출
-        setModalContent('게임이 종료되었어요! 계속하시겠습니까?');
-        setModalVisible(true); // 음성 출력이 끝나고 모달 보이기
+      if(isEnd) {
+        if (isSolved && turn === 'childturn') {
+          gameWinMutation.mutate();
+          showModal({
+            title: '게임 종료',
+            content: '게임이 종료되었어요! 계속하시겠습니까?',
+            confirmText: '계속할래요',
+            cancelText: '그만할래요',
+            onConfirm: handleConfirm,
+            onCancel: handleCancel,
+          });
+        } else if (!isSolved && turn === 'childturn') {
+          gameLoseMutation.mutate();
+          showModal({
+            title: '게임 종료',
+            content: '게임이 종료되었어요! 계속하시겠습니까?',
+            confirmText: '계속할래요',
+            cancelText: '그만할래요',
+            onConfirm: handleConfirm,
+            onCancel: handleCancel,
+          });
+        } else if(turn === 'AIturn') {
+          gameAIMutation.mutate();
+          showModal({
+            title: '게임 종료',
+            content: '게임이 종료되었어요! 계속하시겠습니까?',
+            confirmText: '계속할래요',
+            cancelText: '그만할래요',
+            onConfirm: handleConfirm,
+            onCancel: handleCancel,
+          });
+        }
       }
+     
     },
     onError: (error) => {
       console.error('Error sending request:', error);
-      //  에러 메세지 출력 
       setFeelingStatus('sad');
     },
   });
 
   const handleSpeechResult = (spokenText) => {
-    setSubtitle(spokenText);
-    mutation.mutate(spokenText);
+    setSubtitle(spokenText.replace(/:/g, '!'));
+    mutation.mutate(spokenText.replace(/:/g, '!'));
   };
 
   const handleConfirm = () => {
-    setModalVisible(false);
+    hideModal();
     navigation.reset({
       index: 0,
       routes: [{ name: 'selectscreen' }],
@@ -74,7 +99,7 @@ const GameRenderContent = ({ navigation }) => {
   };
 
   const handleCancel = () => {
-    setModalVisible(false);
+    hideModal();
     navigation.navigate('main');
   };
 
@@ -92,16 +117,7 @@ const GameRenderContent = ({ navigation }) => {
         feelingData={ttsLoading || mutation.isLoading ? 'talkingmouth' : feelingStatus}
         chance={chance}
       />
-      <CustomModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        title="게임 종료"
-        content={modalContent}
-        confirmText="계속할래요"
-        cancelText="그만할래요"
-        onConfirm={handleConfirm}
-        onCancel={handleCancel}
-      />
+      <ModalComponent />
     </>
   );
 };

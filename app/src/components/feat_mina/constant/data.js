@@ -37,7 +37,7 @@ export const guardianInfoValidation = [
   {
     key: 'phone_number',
     label: "전화번호",
-    placeholder: '전화 번호를 입력해주세요.',
+    placeholder: '(-)를 제외한 전화 번호를 입력해주세요.',
     Regex: /^\d{11}$/,
     errormsg: '특수문자 제외, 숫자 11자리로 입력해주세요.',
     keyboardType: 'numeric',

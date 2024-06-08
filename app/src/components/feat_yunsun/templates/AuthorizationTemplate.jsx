@@ -19,11 +19,16 @@ const AuthorizationTemplate = ({ route, navigation }) => {
   const { message, visible, showToast } = useToast();
 
   const onSubmit = async data => {
+    if (!data.verification_code) {
+      showToast('인증 코드를 입력해주세요.');
+      return;
+    }
+
     try {
       setLoading(true); // 로딩 시작
       const requestData = {
-        ...data,
         phone_number,
+        verification_code: data.verification_code,
       };
       console.log('Request Data:', requestData); // 요청 데이터 출력
       const response = await smscodeapi(requestData, {

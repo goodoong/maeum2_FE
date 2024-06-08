@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Alert, View } from "react-native";
 import CustomText from "../../common/atom/CustomText";
 import InformationForm from "../molecules/InformationForm";
 import { scale } from "../../../utils/Scale";
 import { mypage } from "../../../service/setting";
 import Loading from "../../common/atom/Loading";
-
+import useFetchData from "../../../hooks/useFetchData";
 
 const renderItem = ({ item }) => (
   <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: scale(12), backgroundColor: item.color }}>
@@ -15,28 +15,25 @@ const renderItem = ({ item }) => (
 );
 
 const InformationTemplate = ({ navigation }) => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await mypage();
-        setData(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { data, isLoading, error } = useFetchData(['mypage'], async () => {
+    const response = await mypage();
+    return response;
+  });
 
   const moveInformationFixScreen = () => {
-   //navigation.navigate('infofix');
-   Alert.alert("아직 개발중인 기능입니다. 잠시만 기다려주세요!")
+    navigation.navigate('infofix');
   };
 
-  if (!data) {
-    return  <Loading width={100} height={100} loop={true} />; // 데이터를 불러오기 전 로딩 상태 표시
+  if (isLoading) {
+    return <Loading width={100} height={100} loop={true} />;
+  }
+
+  if (error) {
+    return (
+      <View style={{ padding: scale(12) }}>
+        <CustomText>데이터를 불러오는 중에 오류가 발생했습니다.</CustomText>
+      </View>
+    );
   }
 
   return (
