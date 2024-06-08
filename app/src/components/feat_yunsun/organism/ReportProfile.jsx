@@ -15,7 +15,7 @@ const ReportProfile = ({ reportdata }) => {
       <Box className="flex-col space-y-2" style={{ paddingLeft: scale(20), marginTop: scale(20) }}>
         <CustomText size="lg">아이 이름: {reportdata?.child_first_name}</CustomText>
         <CustomText size="sm" color="darkgray">이메일: {reportdata?.email}</CustomText>
-        <Icon name="ios-share" size={30} color="#000000" />
+        {/* <Icon name="ios-share" size={30} color="#000000" /> */}
       </Box>
     </Box>
   );

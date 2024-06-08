@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {getItem} from '../hooks/useAsyncStorage';
+import { Alert } from 'react-native';
+import { getItem } from '../hooks/useAsyncStorage';
 
 export const instance = axios.create({
   baseURL: 'http://54.234.82.206:8080',
@@ -13,7 +14,6 @@ instance.interceptors.request.use(
   async config => {
     console.log('[API REQUEST]', config);
 
-    // AsyncStorage에서 토큰 가져오기
     const token = await getItem('token');
     if (token) {
       config.headers['Authorization'] = `${token}`;
@@ -34,7 +34,7 @@ instance.interceptors.response.use(
     console.log('[API RESPONSE]', response);
     return response;
   },
-  async error => {
+  error => {
     if (error.response) {
       const errorCode = error.response.status;
       const errorMessage = error.response.data
@@ -43,40 +43,27 @@ instance.interceptors.response.use(
 
       switch (errorCode) {
         case 400:
-          console.error(
-            `[API RESPONSE ERROR] 400(Bad Request): ${errorMessage} - 잘못된 요청, 파라미터 누락 등`,
-          );
+          Alert.alert('인터넷 오류', `400(Bad Request) 잘못된 요청입니다. ${errorMessage}`);
           break;
         case 401:
-          console.error(
-            `[API RESPONSE ERROR] 401(Unauthorized): ${errorMessage} - 인증 실패`,
-          );
+          Alert.alert('인터넷 오류', `401(Unauthorized) 인증되지 않은 사용자입니다. ${errorMessage}`);
           break;
         case 403:
-          console.error(
-            `[API RESPONSE ERROR] 403(Forbidden): ${errorMessage} - 접근 권한 없음`,
-          );
+          Alert.alert('인터넷 오류', `403(Forbidden): ${errorMessage}`);
           break;
         case 404:
-          console.error(
-            `[API RESPONSE ERROR] 404(Not Found): ${errorMessage} - 해당 API를 찾을 수 없음`,
-          );
+          Alert.alert('인터넷 오류', `404(Not Found) 주소를 찾을 수 없습니다. ${errorMessage}`);
           break;
         case 500:
-          console.error(
-            `[API RESPONSE ERROR] 500(Internal Server Error): ${errorMessage} - 서버 내부 오류`,
-          );
+          Alert.alert('인터넷 오류', `500(Internal Server Error) 서버에 연결 할 수 없습니다. ${errorMessage}`);
           break;
         default:
-          console.error(`[API RESPONSE ERROR] ${errorCode}: ${errorMessage}`);
+          Alert.alert('인터넷 오류', `${errorCode}: ${errorMessage}`);
       }
     } else if (error.request) {
-      console.error(
-        '[API RESPONSE ERROR] No response received:',
-        error.request,
-      );
+      Alert.alert('인터넷 오류', 'No response received from the server.');
     } else {
-      console.error(`[API RESPONSE ERROR] ${error.message}`);
+      Alert.alert('인터넷 오류', error.message);
     }
     return Promise.reject(error);
   },

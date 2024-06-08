@@ -1,39 +1,57 @@
-import React, {useEffect} from 'react';
-import {View} from 'react-native';
-import {useForm} from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { useForm } from 'react-hook-form';
 import InputContainer from '../../common/molecules/InputContainer';
 import InformationForm from '../molecules/InformationForm';
 import CustomText from '../../common/atom/CustomText';
 import RadioButton from '../../common/atom/RadioButton';
-import {scale, moderateScale} from '../../../utils/Scale';
+import { scale, moderateScale } from '../../../utils/Scale';
 import ModalDatePicker from '../../common/atom/ModalDatePicker';
 
 const InformationValidationForm = ({
   navigation,
   data,
   onSubmit,
-  renderItem,
   validationList,
 }) => {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
     register,
     setValue,
   } = useForm();
 
   const [date, setDate] = useState(new Date());
-  
-  // 성별 값 data 폼 객체에 추가
-  useEffect(() => {
-    const initialGender = data.response.kidInformationData.find(
-      item => item.key === '성별',
-    )?.data;
-    setValue('성별', initialGender);
-  }, [setValue]);
 
-  // 생년월일 값 data 폼 객체에 추가
+  const getValidationRule = (key) => {
+    switch (key) {
+      case '성':
+        return kidInfoValidation.find(rule => rule.key === 'child_last_name');
+      case '이름':
+        return kidInfoValidation.find(rule => rule.key === 'child_first_name');
+      case '이메일':
+        return guardianInfoValidation.find(rule => rule.key === 'email');
+      case '연락처':
+        return guardianInfoValidation.find(rule => rule.key === 'phone_number');
+      default:
+        return null;
+    }
+  };
+
+  
+  useEffect(() => {
+    if (data) {
+      const initialGender = data.response.kidInformationData.find(
+        item => item.key === '성별',
+      )?.data;
+      setValue('성별', initialGender);
+    }
+  }, [data, setValue]);
+
+  if (!data) {
+    return <View><CustomText>Loading...</CustomText></View>;
+  }
 
   return (
     <InformationForm
@@ -41,7 +59,7 @@ const InformationValidationForm = ({
       data={data}
       moveScreen={handleSubmit(onSubmit)}
       isFix={false}
-      renderItem={({item, index}) => {
+      renderItem={({ item, index }) => {
         if (index === 0 || index === 6) {
           return (
             <View
@@ -81,15 +99,15 @@ const InformationValidationForm = ({
                 marginBottom: scale(6),
                 backgroundColor: item.color,
               }}>
-               <CustomText>{date.toISOString().split('T')[0]}</CustomText>
-               <ModalDatePicker 
-                  title="생년월일" 
-                  date={date} 
-                  setDate={(selectedDate) => {
+              <CustomText>{date.toISOString().split('T')[0]}</CustomText>
+              <ModalDatePicker 
+                title="생년월일" 
+                date={date} 
+                setDate={(selectedDate) => {
                   setDate(selectedDate);
                   setValue('생년월일', selectedDate.toISOString().split('T')[0]);
-            }} 
-          />
+                }} 
+              />
             </View>
           );
         } else {
@@ -126,7 +144,7 @@ const InformationValidationForm = ({
                   style={{width: moderateScale(327, 0.3)}}>
                   <CustomText size="xs" color="red">
                     {errors[item.key].message ||
-                      '캐릭터 이름은 한글이나 영문 2~20자 사이로 입력해주세요.'}
+                      '올바른 값을 입력해주세요.'}
                   </CustomText>
                 </View>
               )}

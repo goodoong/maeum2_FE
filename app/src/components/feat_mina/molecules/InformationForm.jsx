@@ -4,8 +4,10 @@ import { styled } from 'nativewind';
 import CustomTitle from '../../common/atom/CustomTitle';
 import Container from '../../common/atom/Container';
 import CustomBtn from '../../common/atom/CustomBtn';
-import ProfileImage from './ProfileImage';
 import { scale } from '../../../utils/Scale';
+import CustomImage from '../../common/atom/CustomImage';
+import CharacterImage from '../../../assets/Images/CharacterImage.png';
+
 
 const Header = styled(View);
 const Section = styled(View);
@@ -43,7 +45,7 @@ const InformationForm = ({ navigation, data, moveScreen, isFix, renderItem }) =>
               <Section
                 className="w-full flex-row justify-between items-end"
                 style={{ padding: scale(6) }}>
-                <ProfileImage size="lg" />
+                <CustomImage source={CharacterImage} width={100} height={100} />
                 <CustomBtn
                   size="xs"
                   color="buttonpink"
