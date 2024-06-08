@@ -38,6 +38,7 @@ const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
                     pattern: {value: item.Regex, message: item.errormsg},
                   },
                   placeholder: item.placeholder,
+                  label:item.label,
                 },
               ]}
               control={control}

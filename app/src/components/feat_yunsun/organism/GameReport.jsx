@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
 import GameResultText from '../atom/GameResultText';
@@ -8,9 +8,11 @@ import { scale } from '../../../utils/Scale';
 
 const Box = styled(View);
 
-const GameReport = ({ navigation, date, time, issolved }) => {
+const GameReport = ({ navigation, date, time, issolved,name}) => {
+
   const moveHistoryScreen = () => {
-    navigation.push('history');
+    //navigation.push('history');
+    Alert.alert("아직 개발중인 기능입니다. 잠시만 기다려주세요!")
   };
 
   return (
@@ -29,7 +31,11 @@ const GameReport = ({ navigation, date, time, issolved }) => {
         <CustomText size='sm' color='darkgray'>{time}</CustomText>
       </Box>
       <Box className="flex flex-row w-full justify-between">
-        <CustomText size='sm'>마음이가 3번 만에 답을 맞췄어요.</CustomText>
+      {issolved ? (
+          <CustomText>{name}(이)가 정답을 맞췄어요!</CustomText>
+        ) : (
+          <CustomText>{name}(이)가 정답을 맞추지 못했어요.</CustomText>
+        )}
         <CustomBtn size='xs' color='buttonwhite' borderColor='yellow' borderWidth='true' title='상세보기' onPress={moveHistoryScreen} />
       </Box>
       <Box style={{ borderWidth: 1, borderStyle: 'solid', borderColor: '#E0E1E9', width: '95%', marginBottom: scale(15) }} />

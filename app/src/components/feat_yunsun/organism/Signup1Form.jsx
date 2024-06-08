@@ -33,6 +33,7 @@ const Signup1Form = ({data, onSubmit, isLoading}) => {
                 },
                 placeholder: item.placeholder,
                 keyboardType: item.keyboardType,
+                label:item.label,
               },
             ]}
             control={control}

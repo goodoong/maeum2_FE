@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, ActivityIndicator, Alert} from 'react-native';
+import {StyleSheet, View, ActivityIndicator, Alert, Text} from 'react-native';
 import {WebView} from 'react-native-webview';
 import useAccountLogin from '../hooks/useAccountLogin';
 import {kakaoapi} from '../service/user';
@@ -75,9 +75,7 @@ const WebViewScreen = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       {isLoading && (
-        <View style={styles.loading}>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </View>
+        <Text>카카오 로그인 중입니다. 잠시만 기다려주세요.</Text>
       )}
       <WebView
         source={{uri: url}}

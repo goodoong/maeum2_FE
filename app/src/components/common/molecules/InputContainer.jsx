@@ -19,6 +19,7 @@ const InputContainer = ({inputs, control, register}) => {
             defaultValue={input.defaultValue}
             register={register}
             keyboardType={input.keyboardType}
+            label={input.label}
           />
         </InputGroup>
       ))}

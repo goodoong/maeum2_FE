@@ -31,8 +31,8 @@ const InformationTemplate = ({ navigation }) => {
   }, []);
 
   const moveInformationFixScreen = () => {
-   navigation.navigate('infofix');
-   //Alert.alert("아직 개발중인 기능입니다. ")
+   //navigation.navigate('infofix');
+   Alert.alert("아직 개발중인 기능입니다. 잠시만 기다려주세요!")
   };
 
   if (!data) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Controller } from 'react-hook-form';
+import CustomText from './CustomText';
 import { SafeAreaView, TextInput, StyleSheet } from 'react-native';
 import { moderateScale, scale } from '../../../utils/Scale';
 
@@ -12,7 +13,8 @@ const CustomInput = ({
   style,
   autoFocus,
   defaultValue,
-  keyboardType
+  keyboardType,
+  label,
 }) => {
   const inputStyle = StyleSheet.flatten([
     styles.defaultInput,
@@ -21,6 +23,7 @@ const CustomInput = ({
 
   return (
     <SafeAreaView>
+      {label && <CustomText size="sm" >{label}</CustomText>}
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (

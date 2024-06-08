@@ -46,7 +46,7 @@ const ReportTemplate = ({ navigation }) => {
     if (!item) {
       return null;
     }
-    return <GameReport navigation={navigation} date={item.date} time={item.time} issolved={item.isSolved} />;
+    return <GameReport name={reportdata?.child_first_name} navigation={navigation} date={item.date} time={item.time} issolved={item.isSolved} />;
   };
 
   const solvedRate = data?.pages[0]?.solvedRate || 0; // solved_rate를 변수로 저장
