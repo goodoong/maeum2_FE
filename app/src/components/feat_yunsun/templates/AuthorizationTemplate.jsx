@@ -6,7 +6,8 @@ import CustomTitle from '../../common/atom/CustomTitle';
 import { styled } from 'nativewind';
 import { useSelector } from 'react-redux';
 import { smscodeapi } from '../../../service/user';
-import { Alert } from 'react-native';
+import useToast from '../../../hooks/useToast';
+import CustomToast from '../../common/atom/CustomToast';
 
 const Box = styled(ScrollContainer);
 
@@ -15,6 +16,7 @@ const AuthorizationTemplate = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
   const [timeLeft, setTimeLeft] = useState(300); // 5분(300초)
   const timerRef = useRef(null);
+  const { message, visible, showToast } = useToast();
 
   const onSubmit = async data => {
     try {
@@ -24,19 +26,18 @@ const AuthorizationTemplate = ({ route, navigation }) => {
         phone_number,
       };
       console.log('Request Data:', requestData); // 요청 데이터 출력
-      const response = await smscodeapi(requestData);
+      const response = await smscodeapi(requestData, {
+        headers: { 'X-Handled-Locally': 'true' }
+      });
       console.log('Response Data:', response); // 응답 데이터 출력
       if (response.success) {
         clearTimeout(timerRef.current); // 타이머 정리
         navigation.navigate('signup2');
       } else {
-        Alert.alert(
-          'Error',
-          '전화번호 인증에 실패했습니다. 다시 시도해주세요.',
-        );
+        showToast('전화번호 인증에 실패했습니다. 다시 시도해주세요.');
       }
     } catch (error) {
-      Alert.alert('Error', '전화번호 인증에 실패했습니다. 다시 시도해주세요.');
+      showToast('전화번호 인증에 실패했습니다. 다시 시도해주세요.');
     } finally {
       setLoading(false); // 로딩 종료
     }
@@ -47,7 +48,7 @@ const AuthorizationTemplate = ({ route, navigation }) => {
       setTimeLeft(prevTime => {
         if (prevTime <= 1) {
           clearTimeout(timerRef.current);
-          Alert.alert('인증 시간이 초과되었습니다. 다시 시도해주세요.');
+          showToast('인증 시간이 초과되었습니다. 다시 시도해주세요.');
           navigation.goBack();
           return 0;
         }
@@ -61,13 +62,16 @@ const AuthorizationTemplate = ({ route, navigation }) => {
   }, []);
 
   return (
-    <Box className="space-y-4">
-      <CustomTitle>전화번호 인증</CustomTitle>
-      <CustomText size="sm" color="">
-        {phone_number}로 온 숫자 네 자리를 입력해주세요
-      </CustomText>
-      <AuthorizationForm onSubmit={onSubmit} loading={loading} timeLeft={timeLeft} />
-    </Box>
+    <>
+      <Box className="space-y-4">
+        <CustomTitle>전화번호 인증</CustomTitle>
+        <CustomText size="sm" color="">
+          {phone_number}로 온 숫자 네 자리를 입력해주세요
+        </CustomText>
+        <AuthorizationForm onSubmit={onSubmit} loading={loading} timeLeft={timeLeft} />
+      </Box>
+      <CustomToast message={message} visible={visible} />
+    </>
   );
 };
 

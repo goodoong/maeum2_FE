@@ -61,9 +61,9 @@ const CharacterNameTemplate = ({ navigation }) => {
           autoFocus={true}
           register={register}
         />
-         {errors.characterName && (
+         {errors.ai_name && (
           <View style={{ marginBottom: 10 }}>
-            <CustomText size="xs" color="red">{errors.characterName.message}</CustomText>
+            <CustomText size="xs" color="red">{errors.ai_name.message}</CustomText>
           </View>
         )}
         <CustomBtn 

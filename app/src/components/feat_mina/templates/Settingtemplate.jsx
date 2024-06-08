@@ -24,7 +24,7 @@ const Settingtemplate = ({navigation}) => {
   };
 
   const handleConfirmLogout = async () => {
-   // await removeItem('token'); // token 값을 삭제합니다.
+    await removeItem('token'); // token 값을 삭제합니다.  
     setModalVisible(false);
     navigation.reset({
       index: 0,

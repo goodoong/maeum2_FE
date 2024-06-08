@@ -10,7 +10,9 @@ import { kidInfoValidation } from '../../feat_mina/constant/data';
 import { useSelector } from "react-redux";
 import { signup } from '../../../service/user';
 import { setItem } from '../../../hooks/useAsyncStorage';
-import { Alert, ActivityIndicator } from 'react-native';
+import useToast from '../../../hooks/useToast';
+import CustomToast from '../../common/atom/CustomToast';
+import Loading from '../../common/atom/Loading';
 
 const Box = styled(ScrollContainer);
 
@@ -26,6 +28,7 @@ const Signup2Template = ({ route, navigation }) => {
   const member_id = useSelector((state) => state.template.tempId);
 
   const [loading, setLoading] = useState(false);
+  const { message, visible, showToast } = useToast();
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -52,33 +55,36 @@ const Signup2Template = ({ route, navigation }) => {
           navigation.dispatch(resetAction);
         } else {
           console.error('Token is missing in the response headers');
-          Alert.alert('Error', '회원가입에 실패했습니다. 다시 시도해주세요.');
+          showToast('회원가입에 실패했습니다. 다시 시도해주세요.');
         }
       } else {
         console.error('request failed', response.data.error);
-        Alert.alert('Error', '회원가입 요청에 실패했습니다. 다시 시도해주세요.');
+        showToast('회원가입 요청에 실패했습니다. 다시 시도해주세요.');
       }
     } catch (error) {
       console.error('Error during Request', error);
-      Alert.alert('Error', '회원가입에 실패했습니다. 다시 시도해주세요.');
+      showToast('회원가입에 실패했습니다. 다시 시도해주세요.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <Box className="space-y-4">
-      <CustomTitle>회원가입</CustomTitle>
-      <CustomText size="sm" color="darkgray">
-        아이 정보를 입력해주세요
-      </CustomText>
-      <CustomBar rate={100} />
-      {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : (
-        <Signup2Form data={kidInfoValidation} onSubmit={onSubmit} />
-      )}
-    </Box>
+    <>
+      <Box className="space-y-4">
+        <CustomTitle>회원가입</CustomTitle>
+        <CustomText size="sm" color="darkgray">
+          아이 정보를 입력해주세요
+        </CustomText>
+        <CustomBar rate={100} />
+        {loading ? (
+         <Loading width={100} height={100} loop={true} />
+        ) : (
+          <Signup2Form data={kidInfoValidation} onSubmit={onSubmit} />
+        )}
+      </Box>
+      <CustomToast message={message} visible={visible} />
+    </>
   );
 };
 

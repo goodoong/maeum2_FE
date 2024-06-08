@@ -29,12 +29,11 @@ export const smsrequestapi = async (phone_number) => {
 };
 
 // 인증 번호 담아서 post 
-export const smscodeapi = async (data) => {
+export const smscodeapi = async (data, config) => {
   try {
-    const response = await instance.post('/api/user/sms/verification', data);
+    const response = await instance.post('/api/user/sms/verification', data, config);
     return response.data;
   } catch (error) {
-    console.error('Error during API call', error);
     throw error;
   }
 };

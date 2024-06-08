@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar, useColorScheme } from 'react-native';
 import { Provider } from 'react-redux';
 import Store from './redux/Store';
-import { ErrorHandler } from './hooks/ErrorHandler';
+import  GlobalErrorHandler from './hooks/GlobalErrorHandler';
 
 const queryClient = new QueryClient();
 
@@ -14,10 +14,10 @@ const App = () => {
   return (
     <Provider store={Store}>
       <QueryClientProvider client={queryClient}>
-        <ErrorHandler>
+        <GlobalErrorHandler>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
           <StackNavigation />
-        </ErrorHandler>
+        </GlobalErrorHandler>
       </QueryClientProvider>
     </Provider>
   );
