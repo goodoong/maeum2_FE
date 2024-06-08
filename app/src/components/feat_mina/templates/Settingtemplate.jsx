@@ -1,42 +1,50 @@
-import React, {useState} from 'react';
-import {Alert} from 'react-native';
+import React from 'react';
+import { Alert } from 'react-native';
 import Container from '../../common/atom/Container';
 import SettingProfile from '../organism/SettingProfile';
 import CustomBtn from '../../common/atom/CustomBtn';
 import CustomText from '../../common/atom/CustomText';
-import {settingList1} from '../constant/data';
-import CustomModal from '../../common/atom/CustomModal';
+import { settingList1 } from '../constant/data';
+import useModal from '../../../hooks/useModal';
 import SettingList from '../organism/SettingList';
-import useFetchSetting from '../../../hooks/useFetchSetting';
-import {removeItem} from '../../../hooks/useAsyncStorage';
+import { removeItem } from '../../../hooks/useAsyncStorage';
 import Loading from '../../common/atom/Loading';
+import useFetchData from '../../../hooks/useFetchData';
+import { setting } from '../../../service/setting';
 
-const Settingtemplate = ({navigation}) => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const {data, loading} = useFetchSetting();
+const Settingtemplate = ({ navigation }) => {
+  const { showModal, hideModal, ModalComponent } = useModal();
+
+  const { data, isLoading, error } = useFetchData(['setting'], async () => {
+    const response = await setting();
+    return response.response;
+  });
 
   const moveReportScreen = () => {
     navigation.push('report');
   };
 
   const handleLogout = () => {
-    setModalVisible(true);
-  };
-
-  const handleConfirmLogout = async () => {
-   //await removeItem('token'); // token 값을 삭제합니다.
-    setModalVisible(false);
-    navigation.reset({
-      index: 0,
-      routes: [{name: 'splash'}],
+    showModal({
+      title: '로그아웃',
+      content: '정말 로그아웃 하시겠습니까?',
+      confirmText: '네, 로그아웃 할래요',
+      cancelText: '아니요',
+      onConfirm: handleConfirmLogout,
+      onCancel: hideModal,
     });
   };
 
-  const handleCancelLogout = () => {
-    setModalVisible(false);
+  const handleConfirmLogout = async () => {
+    await removeItem('token'); // token 값을 삭제합니다.  
+    hideModal();
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'splash' }],
+    });
   };
 
-  const handleItemPress = item => {
+  const handleItemPress = (item) => {
     if (item.key === '로그아웃') {
       handleLogout();
     } else {
@@ -44,8 +52,16 @@ const Settingtemplate = ({navigation}) => {
     }
   };
 
-  if (loading) {
+  if (isLoading) {
     return <Loading width={100} height={100} loop={true} />;
+  }
+
+  if (error) {
+    return (
+      <Container>
+        <CustomText>설정 데이터를 불러오지 못했습니다.</CustomText>
+      </Container>
+    );
   }
 
   return (
@@ -59,16 +75,7 @@ const Settingtemplate = ({navigation}) => {
         onPress={moveReportScreen}
       />
       <SettingList data={settingList1} onItemPress={handleItemPress} />
-      <CustomModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        title="로그아웃"
-        content="정말 로그아웃 하시겠습니까?"
-        confirmText="네, 로그아웃 할래요"
-        cancelText="아니요"
-        onConfirm={handleConfirmLogout}
-        onCancel={handleCancelLogout}
-      />
+      <ModalComponent />
     </Container>
   );
 };

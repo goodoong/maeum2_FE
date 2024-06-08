@@ -7,7 +7,7 @@ import Character from '../../common/molecules/Character';
 import CustomText from '../../common/atom/CustomText';
 import { moderateScale, scale, verticalScale } from '../../../utils/Scale';
 import Loading from '../../common/atom/Loading';
-import CustomModal from '../../common/atom/CustomModal';
+import useModal from '../../../hooks/useModal';
 import { gamequit } from '../../../service/game';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -15,17 +15,24 @@ const Header = styled(View);
 const Subtitle = styled(View);
 
 const GameTemplate = ({ subtitleText, loading, renderContent, navigation, feelingData, chance }) => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const { showModal, hideModal, ModalComponent } = useModal();
 
   const handleQuitPress = () => {
-    setModalVisible(true);
+    showModal({
+      title: '게임 종료',
+      content: '게임을 정말 종료하시겠습니까?',
+      confirmText: '예',
+      cancelText: '아니요',
+      onConfirm: handleConfirmQuit,
+      onCancel: hideModal,
+    });
   };
 
   const handleConfirmQuit = async () => {
     try {
       const response = await gamequit();
       if (response.success) {
-        setModalVisible(false);
+        hideModal();
         navigation.navigate('main');
       } else {
         console.error('Game quit failed', response);
@@ -33,10 +40,6 @@ const GameTemplate = ({ subtitleText, loading, renderContent, navigation, feelin
     } catch (error) {
       console.error('An error occurred while quitting the game', error);
     }
-  };
-
-  const handleCancelQuit = () => {
-    setModalVisible(false);
   };
 
   const renderChances = () => {
@@ -80,16 +83,7 @@ const GameTemplate = ({ subtitleText, loading, renderContent, navigation, feelin
       ) : (
         renderContent()
       )}
-      <CustomModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        title="게임 종료"
-        content="게임을 정말 종료하시겠습니까?"
-        confirmText="예"
-        cancelText="아니요"
-        onConfirm={handleConfirmQuit}
-        onCancel={handleCancelQuit}
-      />
+      <ModalComponent />
     </ScrollContainer>
   );
 };

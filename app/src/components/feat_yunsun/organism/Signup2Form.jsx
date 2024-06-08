@@ -57,7 +57,7 @@ const Signup2Form = ({navigation, data, onSubmit, renderItem}) => {
             )}
           </React.Fragment>
         ))}
-        <Box className="w-80 flex flex-row justify-between items-center">
+        <Box className="w-80 m-2 flex flex-row justify-between items-center">
           <CustomText>{date.toISOString().split('T')[0]}</CustomText>
           <ModalDatePicker 
             title="생년월일" 

@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {Button} from 'react-native';
+import CustomBtn from './CustomBtn';
 import DatePicker from 'react-native-date-picker';
 
 const ModalDatePicker = ({title, date, setDate}) => {
@@ -7,7 +8,7 @@ const ModalDatePicker = ({title, date, setDate}) => {
 
   return (
     <>
-      <Button title={title} onPress={() => setOpen(true)} />
+      <CustomBtn color="buttonpink" size="xs" rounded title={title} onPress={() => setOpen(true)}  />
       <DatePicker
         modal
         open={open}

@@ -20,6 +20,7 @@ const Maintemplate = ({route, navigation, appState}) => {
   useEffect(() => {
     const checkToken = async () => {
       const token = await getItem('token');
+      console.log(token)
       if (!token) {
         navigation.replace('splash');
       }
