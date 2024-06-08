@@ -3,8 +3,6 @@ import { View } from 'react-native';
 import { scale } from '../../../utils/Scale';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
-import ProfileImage from '../../feat_mina/molecules/ProfileImage';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Box = styled(View);
 
