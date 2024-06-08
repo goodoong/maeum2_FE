@@ -11,8 +11,8 @@ const Box = styled(View);
 const GameReport = ({ navigation, date, time, issolved,name}) => {
 
   const moveHistoryScreen = () => {
-    //navigation.push('history');
-    Alert.alert("아직 개발중인 기능입니다. 잠시만 기다려주세요!")
+    navigation.push('history');
+    //Alert.alert("아직 개발중인 기능입니다. 잠시만 기다려주세요!")
   };
 
   return (
