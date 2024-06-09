@@ -10,14 +10,34 @@ import FocusReport from '../organism/FocusReport';
 import ReportProfile from '../organism/ReportProfile';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import Loading from '../../common/atom/Loading';
-import useFetchSetting from '../../../hooks/useFetchSetting';
+import useFetchData from '../../../hooks/useFetchData';
 import { chat } from '../../../service/report';
+import { useEffect } from 'react';
 
 const Box = styled(View);
 
 const ReportTemplate = ({ navigation }) => {
   const [visibleReport, setVisibleReport] = useState('game');
-  const { data:reportdata, loading } = useFetchSetting();
+  
+  const { data:reportdata, isLoading } = useFetchData(['setting'], async () => {
+    const response = await setting();
+    return response.response;
+  });
+
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        const fetchedToken = await getItem('token');
+        setToken(fetchedToken);
+      } catch (error) {
+        console.error('Failed to fetch token:', error);
+      }
+    };
+    fetchToken();
+  }, []);
+
   const {
     data,
     error,
@@ -46,11 +66,13 @@ const ReportTemplate = ({ navigation }) => {
     if (!item) {
       return null;
     }
-    return <GameReport name={reportdata?.child_first_name} navigation={navigation} date={item.date} time={item.time} issolved={item.isSolved} />;
+    return <GameReport name={reportdata?.child_first_name} navigation={navigation} date={item.date} time={item.time} issolved={item.isSolved}  
+     id={item.id} token={token}/>;
   };
 
   const solvedRate = data?.pages[0]?.solvedRate || 0; // solved_rate를 변수로 저장
-  if (loading) {
+
+  if (isLoading) {
     return <Loading width={100} height={100} loop={true} />;
   }
 

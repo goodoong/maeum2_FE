@@ -1,11 +1,17 @@
 import { instance } from './instance';
 
-export const detail = async (detailid) => {
+export const detail = async (detail_id, access_token) => {
   try {
-    const response = await instance.get('/api/chats/detail',{detailid});
+    const response = await instance.get('/api/chats/detail', {
+      params: { detail_id },
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+        'Accept': 'application/json, text/plain, */*',
+      },
+    });
     return response.data;
   } catch (error) {
     console.error('Error fetching detail:', error);
-    throw error;  // 에러를 호출한 쪽에서 처리할 수 있도록 다시 던집니다.
+    throw error;
   }
 };

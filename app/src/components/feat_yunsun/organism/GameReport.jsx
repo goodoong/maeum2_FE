@@ -8,10 +8,10 @@ import { scale } from '../../../utils/Scale';
 
 const Box = styled(View);
 
-const GameReport = ({ navigation, date, time, issolved,name}) => {
+const GameReport = ({ navigation, date, time, issolved,name , id, token}) => {
 
   const moveHistoryScreen = () => {
-    navigation.push('history');
+    navigation.navigate('history', { id, token });
     //Alert.alert("아직 개발중인 기능입니다. 잠시만 기다려주세요!")
   };
 
