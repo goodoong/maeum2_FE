@@ -10,58 +10,44 @@ import CharacterImage from '../../../assets/Images/CharacterImage.png';
 import { detail } from '../../../service/detail';
 import Loading from '../../common/atom/Loading';
 import { useQuery } from '@tanstack/react-query';
+import useFetchData from '../../../hooks/useFetchData';
 
 const Box = styled(View);
 
-const HistoryDetailTemplate = ({ navigation, onSubmit, renderItem }) => {
-  const {data, error, isLoading} = useQuery({
-    queryKey: ['detail'],
-    queryFn: detail,
+const HistoryDetailTemplate = ({detailId, accessToken }) => {
+
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['detail', detailId],
+    queryFn: () => detail(detailId, accessToken),
   });
-
-  if (isLoading) {
-    return <Loading width={100} height={100} loop={true} />;
-  }
-
-  if (error) {
-    return (
-      <Box
-        className="w-full flex-col space-y-4"
-        style={{paddingLeft: scale(20)}}>
-        <CustomText>Error loading data</CustomText>
-      </Box>
-    );
-  }
-
-  const { ai_name, child_name, date, content } = data.response;
 
   return (
     <Box className="flex-col space-y-4" style={{ paddingLeft: scale(20), paddingRight: scale(20) }}>
       <Box className="flex flex-row w-full justify-center">
-        <CustomTitle>{date}</CustomTitle>
+        <CustomTitle>{data?.date}</CustomTitle>
       </Box>
       <Box className="flex flex-row w-full justify-center" style={{ marginBottom: scale(10) }}>
-        <CustomText size='sm' color='lightblack'>{date}</CustomText>
+        <CustomText size='sm' color='lightblack'>{data?.date}</CustomText>
       </Box>
 
-      {content.map((item) => (
-        <React.Fragment key={item.id}>
+     
+        <React.Fragment key={data?.id}>
           {/* AI */}
           <Box className="flex flex-row w-full space-x-4">
             <CustomImage source={CharacterImage} width={40} height={30} />
             <View style={{ backgroundColor: '#E0E1E9', padding: scale(10), borderRadius: 15, justifyContent: 'center', alignItems: 'center' }}>
-              <CustomText size='sm'>{item.ask}</CustomText>
+              <CustomText size='sm'>{data?.ask}</CustomText>
             </View>
           </Box>
           {/* 아이 */}
           <Box className="flex flex-row-reverse w-full space-x-4">
             <ProfileImage size="sm" />
             <View style={{ backgroundColor: '#00473E', padding: scale(10), borderRadius: 15, justifyContent: 'center', alignItems: 'center' }}>
-              <CustomText size='sm' color='white'>{item.answer}</CustomText>
+              <CustomText size='sm' color='white'>{data?.answer}</CustomText>
             </View>
           </Box>
         </React.Fragment>
-      ))}
+   
     </Box>
   );
 };
