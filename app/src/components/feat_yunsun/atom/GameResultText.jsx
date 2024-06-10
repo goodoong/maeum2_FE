@@ -13,6 +13,8 @@ const GameResultText = ({title, size, color, rounded}) => {
         ? '#F2F7F5'
         : color === 'pink'
         ? '#FFE5EB'
+        : color === 'blue'
+        ? '#ADD8E6'
         :'#FFFFFF',
     borderRadius: 48,
     alignItems: 'center',
