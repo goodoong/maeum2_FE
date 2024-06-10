@@ -25,7 +25,7 @@ const WebViewScreen = ({ route, navigation }) => {
         try {
           const response = await kakaoapi(code);
           console.log('[API RESPONSE]', response);
-
+        
           if (response.success) {
             if (response.response.is_user) {
               console.log('User is already a member, navigating to main.');

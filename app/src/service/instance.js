@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getItem } from '../hooks/useAsyncStorage';
+import { getItem, setItem } from '../hooks/useAsyncStorage'; 
 
 export const instance = axios.create({
   baseURL: 'http://54.234.82.206:8080',
@@ -29,11 +29,18 @@ instance.interceptors.request.use(
 );
 
 instance.interceptors.response.use(
-  response => {
+  async response => {
     console.log('[API RESPONSE]', response);
+    
+    const token = response.headers['authorization'];
+    if (token) {
+      await setItem('token', token); 
+    }
+    
     return response;
   },
   error => {
+    console.log(`[API RESPONSE ERROR] ${error}`);
     return Promise.reject(error);
   },
 );

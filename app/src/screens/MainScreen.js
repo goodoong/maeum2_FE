@@ -18,7 +18,7 @@ const MainScreen = ({route, navigation, appState}) => {
   return (
     <>
        <Maintemplate navigation={navigation} />
-       <EyeTracking/>
+       {/* <EyeTracking/> */}
     </>
   );
 };
