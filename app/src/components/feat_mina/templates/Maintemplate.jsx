@@ -8,14 +8,12 @@ import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Mainorganism from '../organism/Mainorganism';
 import Character from '../../common/molecules/Character';
-import {getItem, removeItem} from '../../../hooks/useAsyncStorage';
-import CustomModal from '../../common/atom/CustomModal';
-import { scale } from '../../../utils/Scale';
+import {getItem} from '../../../hooks/useAsyncStorage';
+
 
 const Header = styled(View);
 
 const Maintemplate = ({route, navigation, appState}) => {
-  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const checkToken = async () => {
@@ -25,7 +23,6 @@ const Maintemplate = ({route, navigation, appState}) => {
         navigation.replace('splash');
       }
     };
-//  
     checkToken();
   }, []);
 

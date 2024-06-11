@@ -11,6 +11,8 @@ import Loading from '../../common/atom/Loading';
 import useFetchData from '../../../hooks/useFetchData';
 import { setting } from '../../../service/setting';
 import { useLogout } from '../../../hooks/useLogout';
+
+
 const Settingtemplate = ({ navigation }) => {
   const { showModal, hideModal, ModalComponent } = useModal();
 
