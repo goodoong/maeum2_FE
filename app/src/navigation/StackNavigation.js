@@ -26,6 +26,7 @@ import STTScreen from '../screens/STTScreen';
 import GameSelectScreen from '../screens/Game/GameSelectScreen';
 import GameScreen from '../screens/Game/GameScreen';
 import EyeTracking from '../screens/EyeTracking';
+import SnackGameScreen from '../screens/Game/SnackGameScreen';
 
 const Stack = createStackNavigator();
 const customStackNavigationOptions = {
@@ -213,6 +214,14 @@ const StackNavigation = () => {
           {props => (
             <GlobalErrorHandler navigation={props.navigation}>
               <EyeTracking {...props} />
+            </GlobalErrorHandler>
+          )}
+        </Stack.Screen>
+        {/* 스낵 게임 */}
+        <Stack.Screen name="snackgamescreen">
+          {props => (
+            <GlobalErrorHandler navigation={props.navigation}>
+              <SnackGameScreen {...props} />
             </GlobalErrorHandler>
           )}
         </Stack.Screen>

@@ -23,8 +23,19 @@ export const childturn = async (user_input) => {
     }
   };
 
-// 게임이 종료 되었을 때 (아이)
+// 아이가 맞출 때 "내가 맞춰 볼게"
+export const snackgame = async (user_input) => {
+  try {
+    const response = await instance.post('/api/main/gpt3', user_input);
+    return response;
+  } catch (error) {
+    console.error('Error during API call', error);
+    throw error;
+  }
+};
 
+
+// 게임이 종료 되었을 때 (아이)
 export const gamewin = async () => {
     const response = await instance.get('/api/main/solve');
     return response.data;
