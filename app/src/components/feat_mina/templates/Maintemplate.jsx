@@ -8,7 +8,7 @@ import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Mainorganism from '../organism/Mainorganism';
 import Character from '../../common/molecules/Character';
-import {getItem} from '../../../hooks/useAsyncStorage';
+import {getItem, removeItem} from '../../../hooks/useAsyncStorage';
 import CustomModal from '../../common/atom/CustomModal';
 import { scale } from '../../../utils/Scale';
 
@@ -25,7 +25,7 @@ const Maintemplate = ({route, navigation, appState}) => {
         navigation.replace('splash');
       }
     };
-
+//  
     checkToken();
   }, []);
 

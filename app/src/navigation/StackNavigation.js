@@ -24,6 +24,8 @@ import HistoryDetailScreen from '../screens/Setting/HistoryDetailScreen';
 import STTScreen from '../screens/STTScreen';
 import GameSelectScreen from '../screens/Game/GameSelectScreen';
 import GameScreen from '../screens/Game/GameScreen';
+
+import EyeTracking from '../screens/EyeTracking';
 /**
  * StackNavigator를 이용하여서 앱에 대한 페이지 이동을 관리합니다.
  */
@@ -135,6 +137,9 @@ const StackNavigation = () => {
         {/* 게임 화면 */}
         <Stack.Screen name="gamescreen">
           {props => <GameScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="eyetracking">
+          {props => <EyeTracking {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

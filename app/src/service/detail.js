@@ -1,17 +1,12 @@
 import { instance } from './instance';
 
-export const detail = async (detail_id, access_token) => {
+
+export const detail = async (detail_id) => {
   try {
-    const response = await instance.get('/api/chats/detail', {
-      params: { detail_id },
-      headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Accept': 'application/json, text/plain, */*',
-      },
-    });
+    const response = await instance.post('/api/chats/detail', { detail_id});
     return response.data;
   } catch (error) {
-    console.error('Error fetching detail:', error);
+    console.error('Error during API call', error);
     throw error;
   }
 };

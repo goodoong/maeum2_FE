@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, View, FlatList, ActivityIndicator } from 'react-native';
 import { moderateScale, scale } from '../../../utils/Scale';
-import ScrollContainer from '../../common/atom/ScrollContainer';
+import Container from '../../common/atom/Container';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
 import CustomTitle from '../../common/atom/CustomTitle';
@@ -12,7 +12,6 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import Loading from '../../common/atom/Loading';
 import useFetchData from '../../../hooks/useFetchData';
 import { chat } from '../../../service/report';
-import { useEffect } from 'react';
 
 const Box = styled(View);
 
@@ -24,19 +23,6 @@ const ReportTemplate = ({ navigation }) => {
     return response.response;
   });
 
-  const [token, setToken] = useState('');
-
-  useEffect(() => {
-    const fetchToken = async () => {
-      try {
-        const fetchedToken = await getItem('token');
-        setToken(fetchedToken);
-      } catch (error) {
-        console.error('Failed to fetch token:', error);
-      }
-    };
-    fetchToken();
-  }, []);
 
   const {
     data,
@@ -67,7 +53,7 @@ const ReportTemplate = ({ navigation }) => {
       return null;
     }
     return <GameReport name={reportdata?.child_first_name} navigation={navigation} date={item.date} time={item.time} issolved={item.isSolved}  
-     id={item.id} token={token}/>;
+     id={item.id} />;
   };
 
   const solvedRate = data?.pages[0]?.solvedRate || 0; // solved_rate를 변수로 저장
@@ -77,7 +63,7 @@ const ReportTemplate = ({ navigation }) => {
   }
 
   return (
-    <ScrollContainer>
+    <Container>
       <Box className='w-full flex' style={{ padding: scale(6) }}>
       <CustomTitle>발전 상황 리포트</CustomTitle>
       {/* 아이 프로필 */}
@@ -128,7 +114,7 @@ const ReportTemplate = ({ navigation }) => {
         </>
       )}
       {visibleReport === 'focus' && <FocusReport solvedRate={solvedRate} />}
-    </ScrollContainer>
+    </Container>
   );
 };
 
