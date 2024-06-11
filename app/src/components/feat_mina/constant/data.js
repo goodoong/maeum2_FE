@@ -28,7 +28,7 @@ export const kidInfoValidation = [
 export const guardianInfoValidation = [
   {
     key: 'email',
-    label: "Email",
+    label: "이메일",
     placeholder: '이메일을 입력해주세요.',
     Regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     errormsg: '올바른 이메일 주소를 입력해주세요.',
@@ -36,7 +36,7 @@ export const guardianInfoValidation = [
   },
   {
     key: 'phone_number',
-    label: "전화번호",
+    label: "연락처",
     placeholder: '(-)를 제외한 전화 번호를 입력해주세요.',
     Regex: /^\d{11}$/,
     errormsg: '특수문자 제외, 숫자 11자리로 입력해주세요.',

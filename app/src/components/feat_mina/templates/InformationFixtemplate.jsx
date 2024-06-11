@@ -11,16 +11,16 @@ import { useLogout } from '../../../hooks/useLogout';
 import CustomToast from '../../common/atom/CustomToast';
 import useModal from '../../../hooks/useModal';
 
-
 const InformationFixtemplate = ({ navigation }) => {
   const { showModal, hideModal, ModalComponent } = useModal();
-  const { message, visible, showToast } = useToast(); 
+  const { message, visible, showToast } = useToast();
 
-  const { data: initionaldata, isLoading, error } = useFetchData(['mypage'], async () => {
+  const { data: initialData, isLoading, error } = useFetchData(['mypage'], async () => {
     const response = await mypage();
     return response;
   });
 
+  // 데이터 전송 할 때 
   const mutation = useMutation({
     mutationFn: mypagefix,
     onSuccess: () => {
@@ -34,21 +34,20 @@ const InformationFixtemplate = ({ navigation }) => {
       showToast('정보 수정 중 오류가 발생했습니다. 다시 시도해주세요.');
     }
   });
-  
-  const onSubmit = data => {
+
+  const onSubmit = (data) => {
     console.log(data);
     mutation.mutate(data);
     hideModal();
   };
 
-
-  const handlecheck = () => {
+  const handleCheck = (data) => {
     showModal({
       title: '회원 정보 변경',
       content: '변경이 완료되면 자동 로그아웃 됩니다.',
       confirmText: '네, 변경 할래요',
       cancelText: '안할래요',
-      onConfirm: onSubmit,
+      onConfirm: () => onSubmit(data),  // data를 인자로 전달
       onCancel: hideModal,
     });
   };
@@ -67,12 +66,12 @@ const InformationFixtemplate = ({ navigation }) => {
     <>
       <InformationValidationForm
         navigation={navigation}
-        data={initionaldata}
+        data={initialData}
         validationList={validationList}
-        onSubmit={handlecheck}
+        onSubmit={handleCheck}
       />
-      <CustomToast message={message} visible={visible} /> 
-      <ModalComponent/>
+      <CustomToast message={message} visible={visible} />
+      <ModalComponent />
     </>
   );
 };
