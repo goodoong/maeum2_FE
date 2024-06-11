@@ -7,11 +7,10 @@ import CustomText from '../../common/atom/CustomText';
 import { settingList1 } from '../constant/data';
 import useModal from '../../../hooks/useModal';
 import SettingList from '../organism/SettingList';
-import { removeItem } from '../../../hooks/useAsyncStorage';
 import Loading from '../../common/atom/Loading';
 import useFetchData from '../../../hooks/useFetchData';
 import { setting } from '../../../service/setting';
-
+import { useLogout } from '../../../hooks/useLogout';
 const Settingtemplate = ({ navigation }) => {
   const { showModal, hideModal, ModalComponent } = useModal();
 
@@ -36,12 +35,8 @@ const Settingtemplate = ({ navigation }) => {
   };
 
   const handleConfirmLogout = async () => {
-    await removeItem('token'); // token 값을 삭제합니다.  
-    hideModal();
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'splash' }],
-    });
+   useLogout({navigation});
+   hideModal();
   };
 
   const handleItemPress = (item) => {
