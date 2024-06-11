@@ -30,7 +30,7 @@ const Settingtemplate = ({ navigation }) => {
       title: '로그아웃',
       content: '정말 로그아웃 하시겠습니까?',
       confirmText: '네, 로그아웃 할래요',
-      cancelText: '아니요',
+      cancelText: '안할래요',
       onConfirm: handleConfirmLogout,
       onCancel: hideModal,
     });
@@ -56,7 +56,16 @@ const Settingtemplate = ({ navigation }) => {
   if (error) {
     return (
       <Container>
-        <CustomText>설정 데이터를 불러오지 못했습니다.</CustomText>
+        <CustomText>프로필을 불러오지 못했습니다.</CustomText>
+        <CustomBtn
+        size="lg"
+        color="buttonpink"
+        rounded={true}
+        title="발전 현황 리포트"
+        onPress={moveReportScreen}
+      />
+      <SettingList data={settingList1} onItemPress={handleItemPress} />
+      <ModalComponent />
       </Container>
     );
   }

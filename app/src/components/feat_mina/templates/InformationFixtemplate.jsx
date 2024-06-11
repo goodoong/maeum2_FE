@@ -45,9 +45,9 @@ const InformationFixtemplate = ({ navigation }) => {
   const handlecheck = () => {
     showModal({
       title: '회원 정보 변경',
-      content: '변경이 완료되면 로그아웃 됩니다. 그래도 하시겠습니까?',
+      content: '변경이 완료되면 자동 로그아웃 됩니다.',
       confirmText: '네, 변경 할래요',
-      cancelText: '아니요',
+      cancelText: '안할래요',
       onConfirm: onSubmit,
       onCancel: hideModal,
     });
