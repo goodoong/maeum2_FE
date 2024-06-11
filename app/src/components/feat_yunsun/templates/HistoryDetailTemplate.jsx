@@ -21,6 +21,18 @@ const HistoryDetailTemplate = ({detailId, accessToken }) => {
     queryFn: () => detail(detailId, accessToken),
   });
 
+  if (isLoading) {
+    return <Loading width={100} height={100} loop={true} />;
+  }
+
+  if (error) {
+    return (
+      <Container>
+        <CustomText>상세대화 데이터를 불러오지 못했습니다.</CustomText>
+      </Container>
+    );
+  }
+
   return (
     <Box className="flex-col space-y-4" style={{ paddingLeft: scale(20), paddingRight: scale(20) }}>
       <Box className="flex flex-row w-full justify-center">
