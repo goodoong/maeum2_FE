@@ -3,8 +3,9 @@ import { ErrorBoundary } from 'react-error-boundary';
 import useToast from './useToast';
 import CustomToast from '../components/common/atom/CustomToast';
 import { instance } from '../service/instance';
+import { useLogout } from './useLogout';
 
-const GlobalErrorHandler = ({ children }) => {
+const GlobalErrorHandler = ({ children, navigation }) => {
   const { message, visible, showToast } = useToast();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const GlobalErrorHandler = ({ children }) => {
               break;
             case 401:
               showToast(`401(Unauthorized) 인증되지 않은 사용자입니다. ${errorMessage}`);
+              useLogout({navigation});
               break;
             case 403:
               showToast(`403(Forbidden): ${errorMessage}`);
@@ -42,7 +44,7 @@ const GlobalErrorHandler = ({ children }) => {
     return () => {
       instance.interceptors.response.eject(responseInterceptor);
     };
-  }, [showToast]);
+  }, [showToast, navigation]);
 
   return (
     <>

@@ -7,10 +7,11 @@ import CustomText from '../../common/atom/CustomText';
 import { settingList1 } from '../constant/data';
 import useModal from '../../../hooks/useModal';
 import SettingList from '../organism/SettingList';
-import { removeItem } from '../../../hooks/useAsyncStorage';
 import Loading from '../../common/atom/Loading';
 import useFetchData from '../../../hooks/useFetchData';
 import { setting } from '../../../service/setting';
+import { useLogout } from '../../../hooks/useLogout';
+
 
 const Settingtemplate = ({ navigation }) => {
   const { showModal, hideModal, ModalComponent } = useModal();
@@ -29,19 +30,15 @@ const Settingtemplate = ({ navigation }) => {
       title: '로그아웃',
       content: '정말 로그아웃 하시겠습니까?',
       confirmText: '네, 로그아웃 할래요',
-      cancelText: '아니요',
+      cancelText: '안할래요',
       onConfirm: handleConfirmLogout,
       onCancel: hideModal,
     });
   };
 
   const handleConfirmLogout = async () => {
-    await removeItem('token'); // token 값을 삭제합니다.  
-    hideModal();
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'splash' }],
-    });
+   useLogout({navigation});
+   hideModal();
   };
 
   const handleItemPress = (item) => {
@@ -59,7 +56,16 @@ const Settingtemplate = ({ navigation }) => {
   if (error) {
     return (
       <Container>
-        <CustomText>설정 데이터를 불러오지 못했습니다.</CustomText>
+        <CustomText>프로필을 불러오지 못했습니다.</CustomText>
+        <CustomBtn
+        size="lg"
+        color="buttonpink"
+        rounded={true}
+        title="발전 현황 리포트"
+        onPress={moveReportScreen}
+      />
+      <SettingList data={settingList1} onItemPress={handleItemPress} />
+      <ModalComponent />
       </Container>
     );
   }

@@ -15,10 +15,7 @@ const Section = styled(View);
 const InformationForm = ({ navigation, data, moveScreen, isFix, renderItem }) => {
   // 아이 정보와 보호자 정보를 합친 전체 정보 배열
   const kidInformationData = data.response.kidInformationData;
-  const guardianInformationData = data.response.guardianInformationData.map(item => ({
-    key: item.key,
-    data: item.value 
-  }));
+  const guardianInformationData = data.response.guardianInformationData;
 
   const allInformationData = [
     { key: '아이 정보', data: '', color: 'whitesmoke' },
@@ -29,7 +26,7 @@ const InformationForm = ({ navigation, data, moveScreen, isFix, renderItem }) =>
 
   return (
     <Container>
-      <Section style={{ marginBottom: scale(20) }}>
+      <Section style={{ marginBottom: scale(30) }}>
         <VirtualizedList
           renderItem={renderItem}
           keyExtractor={item => item.key}
