@@ -65,7 +65,7 @@ const ReportTemplate = ({ navigation }) => {
   if (error) {
     return (
       <Container>
-        <CustomText>결과 데이터를 불러오지 못했습니다.</CustomText>
+        <CustomText> 데이터를 불러오지 못했습니다.</CustomText>
       </Container>
     );
   }
