@@ -62,6 +62,13 @@ const ReportTemplate = ({ navigation }) => {
     return <Loading width={100} height={100} loop={true} />;
   }
 
+  if (error) {
+    return (
+      <Container>
+        <CustomText> 데이터를 불러오지 못했습니다.</CustomText>
+      </Container>
+    );
+  }
   return (
     <Container>
       <Box className='w-full flex' style={{ padding: scale(6) }}>
