@@ -75,6 +75,16 @@ const GameRenderContent = ({ navigation }) => {
             onConfirm: handleConfirm,
             onCancel: handleCancel,
           });
+        }else if(turn === 'snack') {
+          showModal({
+            title: '게임 종료',
+            content: '게임이 종료되었어요!',
+            confirmText: '홈으로 이동하기',
+           
+            onConfirm: handleCancel,
+           
+            singleButton: true,  // 취소 버튼을 숨기기 위해 true로 설정
+          });
         }
       }
      

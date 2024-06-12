@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { childturn, AIturn } from '../service/game';
+import { childturn, AIturn, snackgame} from '../service/game';
 
 const useGameTurn = () => {
   const turn = useSelector((state) => state.templateTurn.tempTurn);
@@ -10,6 +10,9 @@ const useGameTurn = () => {
     }
     if (turn === 'childturn') {
       return await childturn({ user_input });
+    }  
+    if (turn === 'snack') {
+      return await snackgame({ user_input });
     }
     throw new Error('Turn value is not set or is invalid');
   };
