@@ -3,8 +3,8 @@ import RNFetchBlob from 'rn-fetch-blob';
 import Sound from 'react-native-sound';
 import { Buffer } from 'buffer';  
 
-const client_id = '8u4w2u7a7z';
-const client_secret = '9BIktbjuXq8YLz3I7ddg1PMs7VfOUdVu0By49ji2';
+const client_id = '';
+const client_secret = '';
 
 export const fetchTTS = async text => {
   const api_url = 'https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts';
