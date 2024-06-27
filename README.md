@@ -84,6 +84,8 @@ Reason why
 
 ### 💡 Main Function
 
+![Frame 97](https://github.com/ddookddook/maeum2_FE/assets/103165845/408d9f68-1322-4d0e-a31a-5674b266a367)
+
 
 ### 💡 User Interface 
 
