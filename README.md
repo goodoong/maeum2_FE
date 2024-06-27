@@ -49,8 +49,25 @@ npm run ios
 
 
 #### FrontEnd stack
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/>
+<img src="https://img.shields.io/badge/ReactNative-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white"/>
+<img src="https://img.shields.io/badge/ReactQuery-FF4154?style=flat-square&logo=reactquery&logoColor=white"/>
+<img src="https://img.shields.io/badge/NPM-CB3837?style=flat-square&logo=npm&logoColor=white"/>
+<img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white"/>
 
-   
+#### React Native Library 
+<a title="Facebook, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:React-icon.svg"><img width="256" alt="React-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png?20220125121207"></a>
+
+
+<img src="https://img.shields.io/badge/Lottie-68BC71?style=flat-square&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/AsyncStorage-61DAFB?style=flat-square&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/Voice-61DAFB?style=flat-square&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/Sound-61DAFB?style=flat-square&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/Nativewind-61DAFB?style=flat-square&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/Webview-61DAFB?style=flat-square&logo=&logoColor=white"/>
+
+
 #### Cowork tools
 
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/>
