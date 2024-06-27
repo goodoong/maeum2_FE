@@ -9,7 +9,7 @@
 
 2. [🚀 How to start?](#-how-to-start)   
 3. [🤖 Technology stack](#-technology-stack)   
-4. [💡 Main function](#-main-function)   
+4. [💡 User Interface ](#-user-interface)   
 
 
 #### 💻 Project
@@ -82,6 +82,57 @@ Reason why
 
 ```
 
-### 💡 Main function
+### 💡 Main Function
+
+
+### 💡 User Interface 
+
+#### Account  
+
+| Login | Kakao | 
+| --- | --- | 
+| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/559aa68e-52ed-40ec-ae2b-478f78af2560) | ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/532a1be0-4b8d-4421-ab38-acb2f88a1cae) | 
+
+
+
+#### Signup  
+
+| 보호자 정보 | 문자 인증 | 아이 정보 |
+| --- | --- | --- | 
+| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/ab798cda-1387-4648-8957-ba91e4e056bb)| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/ad7b8fbf-d83c-484d-9410-7f9aa8b1f71b)| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/fdfaa46f-65f6-4f7f-b23c-839763a32feb)|
+
+
+#### Home
+
+| Splash | Main |
+| --- |--- |
+| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/a23bb6a5-3b78-4786-a7e9-aed036be4b4a)| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/7f984e67-1445-4013-bc8c-9c6d0fcfc03e)| 
+
+
+#### Game 
+
+| STT | TTS | 
+| --- | --- | 
+| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/43e7d198-1d88-45ea-8005-242dfe019ef3) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/e8187940-95c8-4c2c-ac01-31e149d1c98c)| 
+
+
+#### Setting
+
+| UserInfo | UserInfoFix | Confirm Modal | 
+| --- | --- | --- | 
+| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/a07eb073-3ad2-4185-9eca-ce5dfcc45ffa) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/8c54ecae-f9a2-414e-864b-ff2f88397045)| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/48e43228-3417-4f93-8d98-5f0a952d2b4a)| 
+
+
+#### History
+
+| None | Report | Detail Chat | 
+| --- | --- | --- | 
+| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/35b3bdae-8d92-4fd9-bc33-2a34afba877c) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/a8422a7d-f59d-4cd7-8b73-74b8899a3fd4) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/17394d9a-614c-4c81-a426-9f6567d77985)| 
+
+#### ETC
+
+| Error Handling | Validation | Loading | 
+| --- | --- | --- | 
+|![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/bf327bfd-a4f9-44dd-95e8-17eff7080848) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/a6523e6d-1e65-4959-9b13-9ac0478d381c)|![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/c1966dd7-bfa8-41f9-b926-e19b0a3e551a)| 
 
 
