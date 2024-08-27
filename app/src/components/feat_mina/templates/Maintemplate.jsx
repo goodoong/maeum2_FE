@@ -57,7 +57,7 @@ const Maintemplate = ({route, navigation, appState}) => {
       <Mainorganism />
       
       <View style={{width: moderateScale(500, 0.3), height: verticalScale(350)}}>
-        <Character feelingdata="talkingmouth" />
+        <Character feelingdata="default" />
       </View>
       <CustomBtn
         size="sm"
