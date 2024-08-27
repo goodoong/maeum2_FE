@@ -1,36 +1,79 @@
 import React from 'react';
+import {Image, TouchableOpacity, View} from 'react-native';
 import CustomText from './CustomText';
-import {TouchableOpacity} from 'react-native';
+import BtnLoading from './BtnLoading';
 import {moderateScale, scale, verticalScale} from '../../../utils/Scale';
 
-const CustomBtn = ({onPress, title, size, color, rounded}) => {
-
-  
+const CustomBtn = ({
+  onPress,
+  title,
+  size,
+  color,
+  rounded,
+  borderWidth,
+  borderColor,
+  img,
+  isLoading,
+}) => {
   const buttonStyle = {
     width:
       size === 'sm'
-        ? moderateScale(182)
+        ? moderateScale(182, 0.3)
         : size === 'md'
-        ? moderateScale(279)
+        ? moderateScale(279, 0.3)
         : size === 'lg'
-        ? moderateScale(327)
-        : moderateScale(68),
-    height: size === 'xs' ? verticalScale(34) : verticalScale(48),
+        ? moderateScale(327, 0.3)
+        : size === 'xs'
+        ? moderateScale(100, 0.3)
+        : moderateScale(68, 0.3),
+    height: size === 'xs' ? moderateScale(34, 0.3) : moderateScale(48, 0.3),
     backgroundColor:
       color === 'buttonyellow'
         ? '#faae2b'
         : color === 'buttonpink'
         ? '#ffa8ba'
+        : color === 'buttonwhite'
+        ? '#ffffff'
+        : color === 'buttonlight'
+        ? '#F2F4F5'
         : '#00473e',
-    borderRadius: rounded ? 48 : 0,
+    borderRadius: rounded ? 48 : 5,
+    borderWidth: borderWidth ? 2 : 0,
+    borderColor:
+      borderColor === 'lightgray'
+        ? '#e3e5e5'
+        : borderColor === 'yellow'
+        ? '#FAAE2B'
+        : borderColor === 'green'
+        ? '#00473e'
+        : '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop : scale(12)
+    marginTop: scale(12),
+    flexDirection: 'row',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   };
 
   return (
-    <TouchableOpacity style={buttonStyle} onPress={onPress}>
-      <CustomText style="btntxt">{title}</CustomText>
+    <TouchableOpacity
+      style={buttonStyle}
+      onPress={onPress}
+      disabled={isLoading}>
+      {isLoading ? (
+        <BtnLoading width={100} height={100} loop={true} />
+      ) : (
+        <>
+          {img && <Image source={img} />}
+          <CustomText style="btntxt">{title}</CustomText>
+        </>
+      )}
     </TouchableOpacity>
   );
 };

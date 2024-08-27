@@ -1,20 +1,11 @@
-import React, { useEffect } from "react";
-import { Button, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import React from "react";
+import AccountTemplate from "../../components/feat_yunsun/templates/AccountTemplate";
 
-const AccountScreen = ({ route, navigation }) => {
-  useEffect(() => {}, []);
-
-  const moveSignupScreen = () => {
-    navigation.navigate("signup1");
-  };
-
+const AccountScreen = ({navigation }) => {
+  
   return (
-    <View>
-      <TouchableOpacity onPress={moveSignupScreen}>
-        <Text>회원가입1 페이지로 이동합니다.</Text>
-      </TouchableOpacity>
-    </View>
+    
+    <AccountTemplate  navigation={navigation}/>
   );
 };
 export default AccountScreen;

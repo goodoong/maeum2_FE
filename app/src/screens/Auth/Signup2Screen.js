@@ -1,28 +1,10 @@
-import React, { useEffect } from "react";
-import { Button, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import React from "react";
+import Signup2Template from "../../components/feat_yunsun/templates/Signup2Template";
 
-
-const Signup2Screen = ({ route, navigation }) => {
-
-    useEffect(() => {
-
-    }, []);
-
-    const movemainScreen = () => {
-        navigation.navigate('main');
-    }
-
-    return (
-        <View>
-
-            <TouchableOpacity onPress={movemainScreen}>
-                <Text>
-                    메인 페이지로 이동합니다.
-                </Text>
-            </TouchableOpacity>
-        </View>
-    )
-
-}
+const Signup2Screen = ({navigation }) => {
+  
+  return (
+    < Signup2Template navigation={navigation}/>
+  );
+};
 export default Signup2Screen;

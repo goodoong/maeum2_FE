@@ -18,7 +18,9 @@ module.exports = {
           buttonyellow: "#faae2b",
           buttonpink: "#ffa8ba",
         //   배경 
-          background: "#f27f5"
+          bggreen: "#f2f7f5",
+        //   밝은 회색 
+          subtitle : "#c0d6c0",
         },
       },
     },

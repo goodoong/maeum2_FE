@@ -1,17 +1,25 @@
-import React, { useEffect } from "react";
-import { Text, View } from "react-native";
+import React, {useEffect} from 'react';
+import Maintemplate from '../components/feat_mina/templates/Maintemplate';
+import * as permissions from 'react-native-permissions';
+import { request, requestMultiple, PERMISSIONS } from 'react-native-permissions';
+// import EyeTracking from './EyeTracking';
 
-const MainScreen = ({ route, navigation, appState }) => {
-    useEffect(() => {
 
-    }, []);
+requestMultiple(Platform.OS === 'ios' ?
+    [PERMISSIONS.IOS.CAMERA, PERMISSIONS.IOS.MICROPHONE]
+    :
+    [PERMISSIONS.ANDROID.CAMERA, PERMISSIONS.ANDROID.RECORD_AUDIO])
+    .then((result) => {
+      console.log(result)
+    });
+    
+const MainScreen = ({route, navigation, appState}) => {
 
-    return (
-        <View>
-            <Text> 메인 페이지로 이동하였습니다!!</Text>
-        </View>
-
-    )
-
-}
+  return (
+    <>
+       <Maintemplate navigation={navigation} />
+       {/* <EyeTracking/> */}
+    </>
+  );
+};
 export default MainScreen;
