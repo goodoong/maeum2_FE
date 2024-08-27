@@ -21,9 +21,21 @@
 
 | 채민아 | 김윤선 | 
 | --- | --- | 
-|  |  | 
-|  |  | 
-|  |  | 
+| **[Prototype]** | **[Prototype]** | 
+| Main | Signup | 
+| Setting | Auth | 
+| Gamie | Report | 
+| Splash |  | 
+
+| 채민아 | 김윤선 | 
+| --- | --- | 
+| **[Feature]** | **[Feature]** | 
+| Signup | Lottie Character | 
+| kakao연동 | Tutorial | 
+| Login | Report | 
+| Game |  | 
+| Main |  | 
+| Setting |  | 
 
 #### 🎈 Service Flow 
 ![image01](https://github.com/ddookddook/maeum2_FE/assets/103165845/b506b901-1d85-4143-a7d2-b296f6f5ab01)
