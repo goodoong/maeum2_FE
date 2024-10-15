@@ -1,55 +1,76 @@
-## 마음의 창 : 스무고개의 여행
-자폐 아동을 위한 양방향 소통 플랫폼 **마음의 창** 입니다.
+# 마음의 창: 스무고개의 여행
 
-**Index**
-1. [💻 Project](#-project)  
-   - [🎈 Service Flow](#-service-flow)   
-    - [⏰ Develop Period](#-develop-period)  
-   - [🔎 Purpose](#-purpose) 
+자폐 스펙트럼 장애(ASD) 아동을 위한 양방향 소통 플랫폼, **마음의 창**입니다.
 
-2. [🚀 How to start?](#-how-to-start)   
-3. [🤖 Technology stack](#-technology-stack)   
-4. [💡 User Interface ](#-user-interface)   
+## 📋 Index
+
+1. [💻 Project](#project)
+   - [🎈 Service Flow](#service-flow)
+   - [⏰ Develop Period](#develop-period)
+   - [🔎 Purpose](#purpose)
+2. [🚀 How to Start](#how-to-start)
+3. [🤖 Technology Stack](#technology-stack)
+4. [💡 Main Function](#main-function)
+5. [📱 User Interface](#user-interface)
 
 
-#### 💻 Project
-본 프로젝트는 대화형 AI를 활용하여 스무고개 게임을 통해 ASD(자폐 스펙트럼 장애) 아동이 질문하고 대답하는 기술을 익히도록 돕는 플랫폼입니다.
+## 💻 Project
 
-놀이 치료에서는 사회 기술을 향상시키기 위해 질문과 응답 게임이 보편적으로 사용됩니다. 따라서 AI를 치료자의 역할로 활용함으로써 디지털 기기에 익숙한 ASD 아동이 소통을 훈련하는 효과를 기대할 수 있습니다.
+**마음의 창**은 대화형 AI를 활용하여 스무고개 게임을 통해 ASD(자폐 스펙트럼 장애) 아동이 질문하고 응답하는 기술을 연습하도록 돕는 플랫폼입니다. 놀이 치료에서 자주 활용되는 질문과 응답 게임을 AI 치료자 역할로 구현하여 디지털 환경에서 익숙한 아동이 소통 능력을 훈련할 수 있도록 지원합니다.
 
-**FE Developers**
+- **논문 발표:** 본 프로젝트는 한국정보처리학회 ASK 2024에 게재되었습니다.
 
-| 채민아 | 김윤선 | 
-| --- | --- | 
-| **[Prototype]** | **[Prototype]** | 
-| Main | Signup | 
-| Setting | Auth | 
-| Gamie | Report | 
-| Splash |  | 
+#### 🧑🏻‍🤝‍🧑🏻 FE Developer Roles
 
-| 채민아 | 김윤선 | 
-| --- | --- | 
-| **[Feature]** | **[Feature]** | 
-| Signup | Lottie Character | 
-| kakao연동 | Tutorial | 
-| Login | Report | 
-| Game |  | 
-| Main |  | 
-| Setting |  | 
+- **Prototype**
 
-#### 🎈 Service Flow 
+| 채민아         | 김윤선        |
+| -------------- | ------------- |
+| Main           | Signup        |
+| Setting        | Auth          |
+| Gamie          | Report        |
+| Splash         |               |
+
+- **Feature Development**
+
+| 채민아         | 김윤선        |
+| -------------- | ------------- |
+| Signup         | Lottie Character |
+| Kakao 연동     | Tutorial      |
+| Login          | Report        |
+| Game           |               |
+| Main           |               |
+| Setting        |               |
+
+- **BE GitHub**: [Github Link](https://github.com/yuseonkim/maeum2_BE)
+
+- **Notion**: [Notion Link](https://www.notion.so/2024-1b6b85ce66944f60b7b3bb25f9129fba)
+
+- **시연 영상**: [Youtube Link](https://www.youtube.com/watch?v=Xs86UbhY9k8&t=16s)
+
+---
+
+### 🎈 Service Flow
+
 ![image01](https://github.com/ddookddook/maeum2_FE/assets/103165845/b506b901-1d85-4143-a7d2-b296f6f5ab01)
 
-#### ⏰ Develop Period
--  2024.03.29 - 2024.08.27
+---
 
-#### 🔎 Purpose
-디지털 치료와 놀이치료를 결합하여 자폐 스펙트럼 장애 아동들의 치료 효과를 극대화하는 것을 목표로 합니다. 디지털 치료를 통해 시간과 비용을 절약하고, 지역, 장소, 시간의 제약을 넘어 치료를 받을 수 있는 기회를 제공합니다.
+### ⏰ Develop Period
 
+- 2024.03.29 - 2024.08.27
 
-### 🚀 How to start?
+---
 
-```
+### 🔎 Purpose
+
+디지털 치료와 놀이 치료를 결합하여 자폐 스펙트럼 장애 아동들의 치료 효과를 극대화하는 것을 목표로 합니다. 디지털 치료를 통해 시간과 비용을 절약하고, 지역, 장소, 시간의 제약을 넘어 치료를 받을 수 있는 기회를 제공합니다.
+
+---
+
+## 🚀 How to Start?
+
+```bash
 cd app
 npm install
 cd android
@@ -58,7 +79,7 @@ cd ..
 npm run android
 ```
 
-### 🤖 Technology stack
+## 🤖 Technology stack
 
 <div align="center">
 
@@ -94,22 +115,24 @@ npm run android
 
 ```
 Reason why
-
+- React Native: iOS와 Android를 동시에 개발할 수 있음.
+- React Native Voice / Sound: 실제 디바이스에서 음성 인식 및 출력을 지원.
+- Lottie: 움직이는 캐릭터 애니메이션을 구현, 다양한 디바이스 해상도에 맞게 Json 파일을 사용.
+- Redux: 회원가입 절차에 따라 사용자가 입력한 정보를 임시 저장하여 순차적 진행 가능.
 ```
 
-### 💡 Main Function
+## 💡 Main Function
 
 ![Frame 97](https://github.com/ddookddook/maeum2_FE/assets/103165845/408d9f68-1322-4d0e-a31a-5674b266a367)
 
 
-### 💡 User Interface 
+## 📱 User Interface 
 
 #### Account  
 
 | Login | Kakao | 
 | --- | --- | 
 | ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/559aa68e-52ed-40ec-ae2b-478f78af2560) | ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/532a1be0-4b8d-4421-ab38-acb2f88a1cae) | 
-
 
 
 #### Signup  
