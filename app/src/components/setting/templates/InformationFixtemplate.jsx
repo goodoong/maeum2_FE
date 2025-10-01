@@ -1,8 +1,8 @@
 import React from 'react';
 import CustomText from '../../common/atom/CustomText';
 import Loading from '../../common/atom/Loading';
-import InformationValidationForm from '../organism/InformationValidationForm';
-import { kidInfoValidation, guardianInfoValidation } from '../constant/data';
+import InformationValidationForm from '../../auth/organisms/InformationValidationForm';
+import { kidInfoValidation, guardianInfoValidation } from '../../../constants/data';
 import { useMutation } from '@tanstack/react-query';
 import { mypagefix, mypage } from '../../../service/setting';
 import useFetchData from '../../../hooks/useFetchData';

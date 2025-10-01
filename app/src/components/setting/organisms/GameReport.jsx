@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, View, StyleSheet } from 'react-native';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
-import GameResultText from '../atom/GameResultText';
+import GameResultText from '../atoms/GameResultText';
 import CustomBtn from '../../common/atom/CustomBtn';
 import { moderateScale, scale } from '../../../utils/Scale';
 

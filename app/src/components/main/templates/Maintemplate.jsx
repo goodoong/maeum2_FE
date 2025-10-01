@@ -6,7 +6,7 @@ import {moderateScale, verticalScale} from '../../../utils/Scale';
 import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomBtn from '../../common/atom/CustomBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Mainorganism from '../organism/Mainorganism';
+import Mainorganism from '../organisms/Mainorganism';
 import Character from '../../common/molecules/Character';
 import {getItem} from '../../../hooks/useAsyncStorage';
 import { setTempTurn } from '../../../redux/slice/TemplateTurn';

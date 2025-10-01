@@ -1,12 +1,12 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import Container from '../../common/atom/Container';
-import SettingProfile from '../organism/SettingProfile';
+import SettingProfile from '../organisms/SettingProfile';
 import CustomBtn from '../../common/atom/CustomBtn';
 import CustomText from '../../common/atom/CustomText';
-import { settingList1 } from '../constant/data';
+import { settingList1 } from '../../../constants/data';
 import useModal from '../../../hooks/useModal';
-import SettingList from '../organism/SettingList';
+import SettingList from '../organisms/SettingList';
 import Loading from '../../common/atom/Loading';
 import useFetchData from '../../../hooks/useFetchData';
 import { setting } from '../../../service/setting';

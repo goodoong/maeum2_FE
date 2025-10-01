@@ -1,5 +1,5 @@
 import React from 'react';
-import Settingtemplate from '../../components/feat_mina/templates/Settingtemplate';
+import Settingtemplate from '../../components/setting/templates/Settingtemplate';
 
 const SettingScreen = ({navigation}) => {
   return (

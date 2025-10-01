@@ -4,7 +4,7 @@ import { scale } from '../../../utils/Scale';
 import { styled } from 'nativewind';
 import CustomText from '../../common/atom/CustomText';
 import CustomTitle from '../../common/atom/CustomTitle';
-import ProfileImage from '../../feat_mina/molecules/ProfileImage';
+import ProfileImage from '../molecules/ProfileImage';
 import CustomImage from '../../common/atom/CustomImage';
 import CharacterImage from '../../../assets/Images/CharacterImage.png';
 import { detail } from '../../../service/detail';

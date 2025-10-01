@@ -1,5 +1,5 @@
 import React from "react";
-import ImageSlide from "../components/feat_yunsun/organism/ImageSlide";
+import ImageSlide from "../components/tutorial/ImageSlide";
 
 const TutorialScreen = ({ route, navigation, appState }) => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import InfotmationFixtemplate from "../../components/feat_mina/templates/InformationFixtemplate";
+import InfotmationFixtemplate from "../../components/setting/templates/InformationFixtemplate";
 
 const InformationFixScreen = ({navigation}) => {
     return (

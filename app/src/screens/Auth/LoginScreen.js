@@ -1,5 +1,5 @@
 import React from "react";
-import LoginTemplate from "../../components/feat_yunsun/templates/LoginTemplate";
+import LoginTemplate from "../../components/auth/templates/LoginTemplate";
 
 
 const LoginScreen = ({navigation }) => {

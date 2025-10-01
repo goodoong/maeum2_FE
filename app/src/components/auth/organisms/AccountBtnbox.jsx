@@ -3,6 +3,7 @@ import BtnBox from '../../common/molecules/BtnBox';
 import useAccountLogin from '../../../hooks/useAccountLogin';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../common/atom/Loading';
+
 const AccountBtnBox = () => {
   const navigation = useNavigation();
   const { isKakaoLogin, moveExternalPage } = useAccountLogin(navigation);

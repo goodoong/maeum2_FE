@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import AuthorizationForm from '../organism/AuthorizationForm';
+import AuthorizationForm from '../organisms/AuthorizationForm';
 import ScrollContainer from '../../common/atom/ScrollContainer';
 import CustomText from '../../common/atom/CustomText';
 import CustomTitle from '../../common/atom/CustomTitle';

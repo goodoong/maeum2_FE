@@ -1,5 +1,5 @@
 import React from "react";
-import Signup2Template from "../../components/feat_yunsun/templates/Signup2Template";
+import Signup2Template from "../../components/auth/templates/Signup2Template";
 
 const Signup2Screen = ({navigation }) => {
   

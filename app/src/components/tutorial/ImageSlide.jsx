@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { View, ScrollView, Button, StyleSheet } from 'react-native';
-import CustomText from '../../common/atom/CustomText';
-import CustomImage from '../../common/atom/CustomImage';
-import CustomBtn from '../../common/atom/CustomBtn';
-import { moderateScale, verticalScale, width } from '../../../utils/Scale';
+import CustomText from '../common/atom/CustomText';
+import CustomImage from '../common/atom/CustomImage';
+import CustomBtn from '../common/atom/CustomBtn';
+import { moderateScale, verticalScale, width } from '../../utils/Scale';
 import { styled } from 'nativewind';
-import ScrollContainer from '../../common/atom/ScrollContainer';
+import ScrollContainer from '../common/atom/ScrollContainer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
@@ -13,12 +13,12 @@ const Slide = styled(View);
 const CustomContainer = styled(ScrollContainer);
 
 const slides = [
-  { source: require('../../../assets/Images/Tutorial1.png'), text: "음성과 카메라 접근에 허용해주세요!" },
-  { source: require('../../../assets/Images/Tutorial2.png'), text: "똑똑이와 스무고개를 시작해보세요!" },
-  { source: require('../../../assets/Images/Tutorial3.png'), text: "원하는 순서와 주제를 고를 땐\n 아래의 버튼을 클릭해요" },
-  { source: require('../../../assets/Images/Tutorial4.png'), text: "게임을 할 땐 마이크 버튼을 꾹 누르고\n 이야기 해보세요!" },
-  { source: require('../../../assets/Images/Tutorial5.png'), text: "똑똑이와 눈을 마주치면서 대화해보세요!" },
-  { source: require('../../../assets/Images/Tutorial6.png'), text: "답을 알겠으면 [정답은 -(이)야!]로,\n질문에는 [맞아],[아니야]로\n대답해주세요!" }
+  { source: require('../../assets/Images/Tutorial1.png'), text: "음성과 카메라 접근에 허용해주세요!" },
+  { source: require('../../assets/Images/Tutorial2.png'), text: "똑똑이와 스무고개를 시작해보세요!" },
+  { source: require('../../assets/Images/Tutorial3.png'), text: "원하는 순서와 주제를 고를 땐\n 아래의 버튼을 클릭해요" },
+  { source: require('../../assets/Images/Tutorial4.png'), text: "게임을 할 땐 마이크 버튼을 꾹 누르고\n 이야기 해보세요!" },
+  { source: require('../../assets/Images/Tutorial5.png'), text: "똑똑이와 눈을 마주치면서 대화해보세요!" },
+  { source: require('../../assets/Images/Tutorial6.png'), text: "답을 알겠으면 [정답은 -(이)야!]로,\n질문에는 [맞아],[아니야]로\n대답해주세요!" }
 ];
 const ImageSlide = ({ navigation }) => {
   const scrollViewRef = useRef();

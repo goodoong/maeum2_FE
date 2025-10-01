@@ -1,5 +1,5 @@
 import React from "react";
-import Signup1Template from "../../components/feat_yunsun/templates/Signup1Template";
+import Signup1Template from "../../components/auth/templates/Signup1Template";
 
 const Signup1Screen = ({navigation }) => {
   

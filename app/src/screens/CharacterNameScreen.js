@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterNameTemplate from '../components/feat_yunsun/templates/CharacterNameTemplate';
+import CharacterNameTemplate from '../components/auth/templates/CharacterNameTemplate';
 
 
 const CharacterNameScreen = ({route, navigation, appState}) => {

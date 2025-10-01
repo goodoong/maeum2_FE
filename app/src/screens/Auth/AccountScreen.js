@@ -1,5 +1,5 @@
 import React from "react";
-import AccountTemplate from "../../components/feat_yunsun/templates/AccountTemplate";
+import AccountTemplate from "../../components/auth/templates/AccountTemplate";
 
 const AccountScreen = ({navigation }) => {
   

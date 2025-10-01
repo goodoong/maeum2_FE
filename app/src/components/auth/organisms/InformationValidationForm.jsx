@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import InputContainer from '../../common/molecules/InputContainer';
-import InformationForm from '../molecules/InformationForm';
+import InformationForm from '../../setting/molecules/InformationForm';
 import CustomText from '../../common/atom/CustomText';
 import CustomInput from '../../common/atom/CustomInput';
 import RadioButton from '../../common/atom/RadioButton';

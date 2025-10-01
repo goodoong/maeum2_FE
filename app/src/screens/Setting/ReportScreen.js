@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 
-import ReportTemplate from "../../components/feat_yunsun/templates/ReportTemplate";
+import ReportTemplate from "../../components/setting/templates/ReportTemplate";
 
 
 const ReportScreen = ({navigation}) => {
