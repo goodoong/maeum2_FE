@@ -121,16 +121,20 @@ npm run android
 </div>
 <br/>
 
-
-```
-Reason why
-- React Native: iOS와 Android 동시 개발. 
+#### Reason why
+- React Native: iOS와 Android 동시 개발 (크로스플랫폼)
+    - 소통 훈련을 하려면, 서비스를 사용하기 용이해야했음 > 웹 보다는 앱
+    - 네이티브 : 소모되는 인력과 시간 큼
+    - 크로스 플랫폼 : 같은 소스 코드로 안드로이드 & ios 버전 모두 작동 할 수 있음 (React Native - js) → 쉽고 적은 자원
+    - 상대적으로 기능이 많지 않으며 짧은 시간 내에 적은 인원(2명)이 개발해야 했기 때문에 선택함. 2명이서 swift와 kotlin을 나누어 개발하긴 어렵다고 판단했고, 다른 팀원의 경우 개발 경험이 적어 비교적으로 쉬운 ReactNative가 단기간에 배우기에도 좋을 것이라고 판단함.
 - React Native Voice / Sound: 실제 디바이스에서 음성 인식 및 출력을 지원.
 - Lottie: 움직이는 캐릭터 애니메이션을 구현, 다양한 디바이스 해상도에 맞게 Json 파일을 사용.
-- Redux: 회원가입 절차에 따라 사용자가 입력한 정보를 임시 저장하여 순차적 진행 가능, 게임 순서 저장. 
+- Redux-toolkit : 회원 가입 단계별 정보를 나눠서 저장하고, 한번에 서버로 전송하도록 함.
+  - Redux vs Redux toolkit
+    - Redux 보일러플레이트 코드가 많고, action type, action creator, reducer 모두 직접 작성 해야 함 → 복잡 (X) 
+    - Redux-toolkit(래퍼 라이브러리)을 권장하고 있음, action type, action creator 자동 생성 → 사용하기 간편함 (O)
 - AsyncStorage : 앱을 종료해도 로그인 상태 유지. 
 - Webview : 카카오 로그인 연동 화면 구현.
-```
 
 ## 💡 Main Function
 
@@ -167,14 +171,14 @@ Reason why
 | ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/43e7d198-1d88-45ea-8005-242dfe019ef3) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/e8187940-95c8-4c2c-ac01-31e149d1c98c)| 
 
 
-#### Setting
+#### Setting - UserInfoFix 
 
 | UserInfo | UserInfoFix | Confirm Modal | 
 | --- | --- | --- | 
 | ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/a07eb073-3ad2-4185-9eca-ce5dfcc45ffa) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/8c54ecae-f9a2-414e-864b-ff2f88397045)| ![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/48e43228-3417-4f93-8d98-5f0a952d2b4a)| 
 
 
-#### History
+#### Setting - History
 
 | None | Report | Detail Chat | 
 | --- | --- | --- | 
@@ -182,7 +186,7 @@ Reason why
 
 #### ETC
 
-| Error Handling | Validation | Loading | 
+| Error Handling_Setting | Validation_SignUp | Loading | 
 | --- | --- | --- | 
 |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/bf327bfd-a4f9-44dd-95e8-17eff7080848) |![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/a6523e6d-1e65-4959-9b13-9ac0478d381c)|![image](https://github.com/ddookddook/maeum2_FE/assets/103165845/c1966dd7-bfa8-41f9-b926-e19b0a3e551a)| 
 
