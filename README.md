@@ -35,7 +35,7 @@
 | -------------- | ------------- |
 | Main           | Signup        |
 | Setting        | Auth          |
-| Gamie          | Report        |
+| Game          | Report        |
 | Splash         |               |
 
 - **Feature Development**
